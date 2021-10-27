@@ -1,0 +1,10 @@
+@use 'base';
+@use 'custom-style';
+
+.codyapp, .codyapp--dark {
+    min-height: 100vh;
+}
+.codyapp--dark {
+    background-color: var(--color-primary-darker);
+    color: var(--color-white);
+}
