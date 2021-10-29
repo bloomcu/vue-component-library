@@ -1,16 +1,22 @@
 <template>
     <section class="hero bg padding-y-xxl">
         <div class="container max-width-adaptive-sm">
-            <div class="text-sm opacity-60% margin-bottom-xxs">{{ label }}</div>
-
-            <div class="text-component margin-bottom-sm">
-                <h1>{{ header }}</h1>
-                <p>{{ subHeader }}</p>
-            </div>
-
-            <div class="flex flex-wrap items-center gap-sm">
-                <CodyButton @click="button.buttonClick || null" v-bind="button">{{ button.buttonText }}</CodyButton>
-                <a :href="cta && cta.link || '#'" class="color-inherit">{{ cta && cta.text || '' }}</a>
+            <div :class="getVariantClasses.parentTextClass">
+                <div class="text-sm opacity-60% margin-bottom-xxs">{{ label }}</div>
+                <div class="text-component margin-bottom-sm">
+                    <h1>{{ header }}</h1>
+                    <p>{{ subHeader }}</p>
+                </div>
+                <div :class="getVariantClasses.ctaClass" class="flex flex-wrap gap-sm">
+                    <CodyButton
+                        @click="button.buttonClick || null"
+                        v-bind="button"
+                    >{{ button.buttonText }}</CodyButton>
+                    <a
+                        :href="cta && cta.link || '#'"
+                        class="color-inherit"
+                    >{{ cta && cta.text || '' }}</a>
+                </div>
             </div>
         </div>
     </section>
@@ -18,7 +24,7 @@
 
 <script lang="ts">
 import { GlobalCodyButtonProps } from "@/types";
-import { defineComponent, PropType } from "@vue/composition-api";
+import { defineComponent, PropType, computed } from "@vue/composition-api";
 import CodyButton from "../CodyButton/CodyButton.vue";
 interface cta {
     link?: String
@@ -51,6 +57,23 @@ export default defineComponent({
         variant: {
             type: String as PropType<variant>,
             default: 'default'
+        }
+    },
+    setup(props) {
+        const getVariantClasses = computed(() => {
+            if (props.variant === 'center') {
+                return {
+                    parentTextClass: 'text-center',
+                    ctaClass: 'flex-center'
+                }
+            }
+            return {
+                getTextClass: '',
+                ctaClass: 'items-center'
+            }
+        })
+        return {
+            getVariantClasses,
         }
     }
 })

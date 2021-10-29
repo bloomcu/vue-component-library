@@ -1,17 +1,21 @@
 <template>
   <div>
     <Hero 
-    header="Hello"
-    sub-header="Hello 2"
-    label="Label"
+    label="This is  label"
+    header="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+    sub-header="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vero aliquam, natus quae architecto hic quod!"
     :cta="{
-      text: 'Tests'
+      text: 'Learn more',
+      href: '#/test'
     }"
     :button="{
       href: '/helloworld',
       target: '__blank',
-      buttonText: 'Hello world'
-    }" />
+      buttonText: 'Download',
+      variant: 'primary'
+    }" 
+    variant="center"
+    />
   </div>
 </template>
 
