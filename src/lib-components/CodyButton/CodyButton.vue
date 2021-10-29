@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType } from '@vue/composition-api'
-import { Variant, Size } from '../types'
+import { Variant, Size } from '../../types'
 export default defineComponent({
   props: {
     variant: {

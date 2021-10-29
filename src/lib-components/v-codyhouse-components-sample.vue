@@ -1,14 +1,17 @@
 <template>
   <div>
-    {{ atest }}
-  <CodyButton>Hello</CodyButton>
+    <Hero :button="{
+      href: '/helloworld',
+      target: '__blank'
+    }" />
   </div>
 </template>
 
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
-import CodyButton from './CodyButton.vue';
+import CodyButton from './CodyButton/CodyButton.vue';
+import Hero from './Hero/Hero.vue';
 
 export default defineComponent({
     setup() {
@@ -16,7 +19,7 @@ export default defineComponent({
             atest: "hello"
         };
     },
-    components: { CodyButton }
+    components: { CodyButton, Hero }
 })
 </script>
 
