@@ -1,5 +1,10 @@
 <template>
-    <section class="hero bg padding-y-xxl">
+    <section
+        class="hero bg padding-y-xxl"
+        v-bind="{
+            ...(backgroundImageSrc && { style: `background-image: url('${backgroundImageSrc}')` })
+        }"
+    >
         <div class="container max-width-adaptive-sm">
             <div :class="getVariantClasses.parentTextClass">
                 <div class="text-sm opacity-60% margin-bottom-xxs">{{ label }}</div>
@@ -57,6 +62,10 @@ export default defineComponent({
         variant: {
             type: String as PropType<variant>,
             default: 'default'
+        },
+        backgroundImageSrc: {
+            type: String,
+            default: ''
         }
     },
     setup(props) {

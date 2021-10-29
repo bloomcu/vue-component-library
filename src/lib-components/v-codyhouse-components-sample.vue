@@ -14,7 +14,8 @@
       buttonText: 'Download',
       variant: 'primary'
     }" 
-    variant="center"
+    variant="bg-img"
+    backgroundImageSrc="https://pbs.twimg.com/media/EWIOfbCWkAEC4Gd.jpg"
     />
   </div>
 </template>
