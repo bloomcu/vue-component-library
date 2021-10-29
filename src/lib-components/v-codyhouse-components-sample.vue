@@ -14,8 +14,8 @@
       buttonText: 'Download',
       variant: 'primary'
     }" 
-    variant="bg-img"
-    backgroundImageSrc="https://pbs.twimg.com/media/EWIOfbCWkAEC4Gd.jpg"
+    variant="full-screen"
+    backgroundImageSrc="https://img.wallpapersafari.com/desktop/1024/576/90/72/qQ6bx0.png"
     />
   </div>
 </template>

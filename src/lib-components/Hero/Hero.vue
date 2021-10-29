@@ -1,11 +1,12 @@
 <template>
     <section
         class="hero bg padding-y-xxl"
+        :class="getVariantClasses.parentClass"
         v-bind="{
             ...(backgroundImageSrc && { style: `background-image: url('${backgroundImageSrc}')` })
         }"
     >
-        <div class="container max-width-adaptive-sm">
+        <div :class="getVariantClasses.containerWidthClass" class="container ">
             <div :class="getVariantClasses.parentTextClass">
                 <div class="text-sm opacity-60% margin-bottom-xxs">{{ label }}</div>
                 <div class="text-component margin-bottom-sm">
@@ -76,9 +77,36 @@ export default defineComponent({
                     ctaClass: 'flex-center'
                 }
             }
+            if(props.variant === 'left-content') {
+                return {
+                    containerWidthClass: 'max-width-adaptive-lg',
+                    parentTextClass: 'max-width-xs'
+                }
+            }
+            if(props.variant === 'right-content') {
+                return {
+                    containerWidthClass: 'max-width-adaptive-lg',
+                    parentTextClass: 'text-right max-width-xs margin-left-auto',
+                    ctaClass: 'items-center justify-end'
+                }
+            }
+            if (props.variant === 'overlay-layer') {
+                return {
+                    parentClass: 'hero--overlay-layer relative',
+                    parentTextClass: 'position-relative z-index-2 text-center',
+                    ctaClass: 'flex-center'
+                }
+            }
+            if (props.variant === 'full-screen') {
+                return {
+                    parentClass: 'min-height-100vh flex items-center',
+                    parentTextClass: 'max-width-xs'
+                }
+            }
             return {
-                getTextClass: '',
-                ctaClass: 'items-center'
+                parentTextClass: '',
+                ctaClass: 'items-center',
+                containerWidthClass: 'max-width-adaptive-sm'
             }
         })
         return {
