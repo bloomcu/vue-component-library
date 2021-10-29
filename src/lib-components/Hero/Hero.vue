@@ -4,13 +4,13 @@
             <div class="text-sm opacity-60% margin-bottom-xxs">{{ label }}</div>
 
             <div class="text-component margin-bottom-sm">
-                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vero aliquam, natus quae architecto hic quod!</p>
+                <h1>{{ header }}</h1>
+                <p>{{ subHeader }}</p>
             </div>
 
             <div class="flex flex-wrap items-center gap-sm">
-                <CodyButton @click="button.buttonClick"  v-bind="button">Download</CodyButton>
-                <a href="#0" class="color-inherit">Learn more</a>
+                <CodyButton @click="button.buttonClick || null" v-bind="button">{{ button.buttonText }}</CodyButton>
+                <a :href="cta && cta.link || '#'" class="color-inherit">{{ cta && cta.text || '' }}</a>
             </div>
         </div>
     </section>
@@ -20,6 +20,11 @@
 import { GlobalCodyButtonProps } from "@/types";
 import { defineComponent, PropType } from "@vue/composition-api";
 import CodyButton from "../CodyButton/CodyButton.vue";
+interface cta {
+    link?: String
+    text?: String
+}
+type variant = 'default' | 'center' | 'bg-img' | 'left-content' | 'right-content' | 'overlay-layer' | 'full-screen'
 export default defineComponent({
     components: { CodyButton },
     props: {
@@ -38,6 +43,14 @@ export default defineComponent({
         button: {
             type: Object as PropType<GlobalCodyButtonProps>,
             default: () => { }
+        },
+        cta: {
+            type: Object as PropType<cta>,
+            default: () => { }
+        },
+        variant: {
+            type: String as PropType<variant>,
+            default: 'default'
         }
     }
 })

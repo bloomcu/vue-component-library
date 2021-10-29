@@ -1,8 +1,16 @@
 <template>
   <div>
-    <Hero :button="{
+    <Hero 
+    header="Hello"
+    sub-header="Hello 2"
+    label="Label"
+    :cta="{
+      text: 'Tests'
+    }"
+    :button="{
       href: '/helloworld',
-      target: '__blank'
+      target: '__blank',
+      buttonText: 'Hello world'
     }" />
   </div>
 </template>
