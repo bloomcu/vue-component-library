@@ -4,9 +4,10 @@
     label="This is  label"
     header="Lorem ipsum dolor sit amet consectetur adipisicing elit"
     sub-header="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vero aliquam, natus quae architecto hic quod!"
-    :cta="{
+    :ctaLink="{
       text: 'Learn more',
-      href: '#/test'
+      href: '#/test',
+      target:'__blank'
     }"
     :button="{
       href: '/helloworld',
@@ -14,9 +15,9 @@
       buttonText: 'Download',
       variant: 'primary'
     }" 
-    variant="full-screen"
     backgroundImageSrc="https://img.wallpapersafari.com/desktop/1024/576/90/72/qQ6bx0.png"
     />
+    <Feature />
   </div>
 </template>
 
@@ -25,6 +26,7 @@
 import { defineComponent } from '@vue/composition-api';
 import CodyButton from './CodyButton/CodyButton.vue';
 import Hero from './Hero/Hero.vue';
+import Feature from './Feature/Feature.vue';
 
 export default defineComponent({
     setup() {
@@ -32,7 +34,7 @@ export default defineComponent({
             atest: "hello"
         };
     },
-    components: { CodyButton, Hero }
+    components: { CodyButton, Hero, Feature }
 })
 </script>
 

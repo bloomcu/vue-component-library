@@ -6,7 +6,7 @@
             ...(backgroundImageSrc && { style: `background-image: url('${backgroundImageSrc}')` })
         }"
     >
-        <div :class="getVariantClasses.containerWidthClass" class="container ">
+        <div :class="getVariantClasses.containerWidthClass" class="container">
             <div :class="getVariantClasses.parentTextClass">
                 <div class="text-sm opacity-60% margin-bottom-xxs">{{ label }}</div>
                 <div class="text-component margin-bottom-sm">
@@ -18,10 +18,11 @@
                         @click="button.buttonClick || null"
                         v-bind="button"
                     >{{ button.buttonText }}</CodyButton>
-                    <a
-                        :href="cta && cta.link || '#'"
+                    <Link
+                        :href="ctaLink && ctaLink.href || '#'"
+                        :target="ctaLink && ctaLink.target"
                         class="color-inherit"
-                    >{{ cta && cta.text || '' }}</a>
+                    >{{ ctaLink && ctaLink.text }}</Link>
                 </div>
             </div>
         </div>
@@ -29,17 +30,18 @@
 </template>
 
 <script lang="ts">
-import { GlobalCodyButtonProps } from "@/types";
+// import { GlobalCodyButtonProps, GlobalCtaLink } from "@/types";
+import { useProps } from "@/composables";
 import { defineComponent, PropType, computed } from "@vue/composition-api";
 import CodyButton from "../CodyButton/CodyButton.vue";
-interface cta {
-    link?: String
-    text?: String
-}
+import Link from "../Link/Link.vue";
+
 type variant = 'default' | 'center' | 'bg-img' | 'left-content' | 'right-content' | 'overlay-layer' | 'full-screen'
+const { ctaSet } = useProps()
 export default defineComponent({
-    components: { CodyButton },
+    components: { CodyButton, Link },
     props: {
+        ...ctaSet,
         label: {
             type: String,
             default: ''
@@ -51,14 +53,6 @@ export default defineComponent({
         subHeader: {
             type: String,
             default: ''
-        },
-        button: {
-            type: Object as PropType<GlobalCodyButtonProps>,
-            default: () => { }
-        },
-        cta: {
-            type: Object as PropType<cta>,
-            default: () => { }
         },
         variant: {
             type: String as PropType<variant>,
@@ -77,13 +71,13 @@ export default defineComponent({
                     ctaClass: 'flex-center'
                 }
             }
-            if(props.variant === 'left-content') {
+            if (props.variant === 'left-content') {
                 return {
                     containerWidthClass: 'max-width-adaptive-lg',
                     parentTextClass: 'max-width-xs'
                 }
             }
-            if(props.variant === 'right-content') {
+            if (props.variant === 'right-content') {
                 return {
                     containerWidthClass: 'max-width-adaptive-lg',
                     parentTextClass: 'text-right max-width-xs margin-left-auto',

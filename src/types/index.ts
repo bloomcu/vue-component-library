@@ -19,3 +19,9 @@ export interface GlobalCodyButtonProps {
   buttonClick?: (...args: any) => any;
 }
 
+export interface GlobalCtaLink {
+  href?: String;
+  target?: String
+  text?: String;
+}
+
