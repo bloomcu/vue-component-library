@@ -9,7 +9,10 @@
                         <p>{{ subHeader }}</p>
                     </div>
                     <div class="margin-top-sm">
-                        <div :class="getVariantClasses.ctaColumnClass" class="flex flex-wrap gap-sm">
+                        <div
+                            :class="getVariantClasses.ctaColumnClass"
+                            class="flex flex-wrap gap-sm"
+                        >
                             <CodyButton
                                 @click="button && button.buttonClick || null"
                                 v-bind="button"
@@ -53,21 +56,7 @@ export default defineComponent({
     },
     setup(props) {
         const getVariantClasses = computed(() => {
-            if (props.variant === 'invert') {
-                return {
-                    firstColumn: 'order-2@md',
-                    secondColumn: 'order-1@md',
-                    ctaColumnClass: 'items-center'
-                }
-            }
-            if (props.variant === 'center-x') {
-                return {
-                    firstColumn: 'text-center',
-                    secondColumn: 'text-center',
-                    ctaColumnClass: 'flex-center'
-                }
-            }
-            return {
+            let defaultClasses = {
                 firstColumn: '',
                 secondColumn: '',
                 columnParentClass: '',
@@ -76,6 +65,22 @@ export default defineComponent({
                 ctaClass: '',
                 ctaColumnClass: 'items-center'
             }
+            if (props.variant === 'invert') {
+                return {
+                    ...defaultClasses,
+                    firstColumn: 'order-2@md',
+                    secondColumn: 'order-1@md',
+                }
+            }
+            if (props.variant === 'center-x') {
+                return {
+                    ...defaultClasses,
+                    firstColumn: 'text-center',
+                    secondColumn: 'text-center',
+                    ctaColumnClass: 'flex-center'
+                }
+            }
+            return defaultClasses
         })
         return {
             getVariantClasses,

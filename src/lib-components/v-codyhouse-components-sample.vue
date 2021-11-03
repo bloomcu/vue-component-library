@@ -35,7 +35,7 @@
       :image="{
         src: 'https://img.wallpapersafari.com/desktop/1024/576/90/72/qQ6bx0.png'
       }"
-      variant="center-x"
+      variant="center"
     />
   </div>
 </template>
