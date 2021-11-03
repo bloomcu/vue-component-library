@@ -25,3 +25,8 @@ export interface GlobalCtaLink {
   text?: String;
 }
 
+export interface GlobalImage {
+  src: String
+  alt?: String
+  class?: String
+}
