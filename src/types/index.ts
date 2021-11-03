@@ -30,3 +30,13 @@ export interface GlobalImage {
   alt?: String
   class?: String
 }
+
+export interface GlobalBreakPointBlock {
+  xs?: String | Number
+  sm?: String | Number
+  md?: String | Number
+  lg?: String | Number
+  xl?: String | Number
+}
+
+export type GlobalBreakPoint = keyof(GlobalBreakPointBlock)

@@ -30,13 +30,14 @@
         href: '/helloworld',
         target: '__blank',
         buttonText: 'Download',
-        variant: 'primary'
+        variant: 'primary',
       }"
       :image="{
         src: 'https://img.wallpapersafari.com/desktop/1024/576/90/72/qQ6bx0.png'
       }"
       variant="center"
     />
+    <Grid />
   </div>
 </template>
 
@@ -46,6 +47,7 @@ import { defineComponent } from '@vue/composition-api';
 import CodyButton from './CodyButton/CodyButton.vue';
 import Hero from './Hero/Hero.vue';
 import Feature from './Feature/Feature.vue';
+import Grid from './Grid/Grid.vue';
 
 export default defineComponent({
   setup() {
@@ -53,7 +55,7 @@ export default defineComponent({
       atest: "hello"
     };
   },
-  components: { CodyButton, Hero, Feature }
+  components: { CodyButton, Hero, Feature, Grid }
 })
 </script>
 
