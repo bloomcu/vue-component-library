@@ -89,7 +89,7 @@ if (!argv.format || argv.format === 'es') {
     input: 'src/entry.esm.ts',
     external,
     output: {
-      file: 'dist/v-codyhouse-components.esm.js',
+      file: 'dist/vue-component-library.esm.js',
       format: 'esm',
       exports: 'named',
     },
@@ -128,7 +128,7 @@ if (!argv.format || argv.format === 'cjs') {
     external,
     output: {
       compact: true,
-      file: 'dist/v-codyhouse-components.ssr.js',
+      file: 'dist/vue-component-library.ssr.js',
       format: 'cjs',
       name: 'VCodyhouseComponents',
       exports: 'auto',
@@ -157,7 +157,7 @@ if (!argv.format || argv.format === 'iife') {
     external,
     output: {
       compact: true,
-      file: 'dist/v-codyhouse-components.min.js',
+      file: 'dist/vue-component-library.min.js',
       format: 'iife',
       name: 'VCodyhouseComponents',
       exports: 'auto',
