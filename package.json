@@ -37,6 +37,7 @@
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-plugin-typescript": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
+    "@vue/runtime-dom": "latest",
     "@zerollup/ts-transform-paths": "^1.7.18",
     "cross-env": "^7.0.3",
     "minimist": "^1.2.5",

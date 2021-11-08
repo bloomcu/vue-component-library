@@ -31,6 +31,14 @@ export interface GlobalImage {
   class?: String
 }
 
+export interface GlobalContentComponent {
+  label: String
+  header: String
+  subHeader: String
+  button: GlobalCodyButtonProps
+  ctaLink: GlobalCtaLink
+}
+
 export interface GlobalBreakPointBlock {
   xs?: String | Number
   sm?: String | Number
