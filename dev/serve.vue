@@ -1,18 +1,27 @@
+<template>
+    <div id="app">
+        <component
+            v-for="(block, index) in blocks"
+            v-bind="block"
+            :is="block.component"
+            :key="index"
+        />
+        <!-- <v-codyhouse-components-sample /> -->
+    </div>
+</template>
+
 <script lang="ts">
-import Vue from 'vue';
-// Uncomment import and local "components" registration if library is not registered globally.
+import { defineComponent } from '@vue/composition-api'
 // import { VCodyhouseComponentsSample } from '@/entry.esm';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ServeDev',
-  // components: {
-  //  VCodyhouseComponentsSample,
-  // }
+
+  setup() {
+      const { blocks } = require('@/json/blocks')
+      return {
+          blocks
+      }
+  }
 });
 </script>
-
-<template>
-  <div id="app">
-    <v-codyhouse-components-sample />
-  </div>
-</template>
