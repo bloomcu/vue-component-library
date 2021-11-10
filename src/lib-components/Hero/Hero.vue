@@ -1,111 +1,105 @@
 <template>
     <section
-        class="hero bg padding-y-xxl"
-        :class="getVariantClasses.parentClass"
+        :class="classBinds"
+        class="hero bg position-relative padding-y-xxl"
         v-bind="{
-            ...(backgroundImageSrc && { style: `background-image: url('${backgroundImageSrc}')` })
+            ...(image && { style: `background-image: url('${image.src}')` })
         }"
     >
-        <div :class="getVariantClasses.containerWidthClass" class="container">
-            <div :class="getVariantClasses.parentTextClass">
-                <div class="text-sm opacity-60% margin-bottom-xxs">{{ label }}</div>
-                <div class="text-component margin-bottom-sm">
-                    <h1>{{ header }}</h1>
-                    <p>{{ subHeader }}</p>
-                </div>
-                <div :class="getVariantClasses.ctaClass" class="flex flex-wrap gap-sm">
-                    <CodyButton
-                        @click="button.buttonClick || null"
-                        v-bind="button"
-                    >{{ button.buttonText }}</CodyButton>
-                    <Link
-                        :href="ctaLink && ctaLink.href || '#'"
-                        :target="ctaLink && ctaLink.target"
-                        class="color-inherit"
-                    >{{ ctaLink && ctaLink.text }}</Link>
-                </div>
+        <div class="container max-width-adaptive-lg">
+            <div class="content-wrapper position-relative max-width-xs z-index-2">
+                <ContentComponent
+                    :center="center"
+                    :label="label"
+                    :title="title"
+                    :subtitle="subtitle"
+                    :buttons="buttons"
+                />
             </div>
         </div>
     </section>
 </template>
 
 <script lang="ts">
-// import { GlobalCodyButtonProps, GlobalCtaLink } from "@/types";
-import { useProps } from "@/composables";
 import { defineComponent, PropType, computed } from "@vue/composition-api";
-import CodyButton from "../CodyButton/CodyButton.vue";
-import Link from "../Link/Link.vue";
+import { appendToSet } from '@/helpers'
 
-type variant = 'default' | 'center' | 'bg-img' | 'left-content' | 'right-content' | 'overlay-layer' | 'full-screen'
-const { ctaSet } = useProps()
+// Components
+import ContentComponent from "../Content/ContentComponent.vue";
+
+// Types
+import { GlobalCodyButtonProps, GlobalImage } from "@/types";
+
 export default defineComponent({
-    components: { CodyButton, Link },
+    name: 'hero',
+
     props: {
-        ...ctaSet,
+        center: {
+            type: Boolean,
+            default: false
+        },
+        fullscreen: {
+            type: Boolean,
+            default: false
+        },
         label: {
             type: String,
-            default: ''
+            default: 'The label',
         },
-        header: {
+        title: {
             type: String,
-            default: ''
+            default: 'The title',
         },
-        subHeader: {
+        subtitle: {
             type: String,
-            default: ''
+            default: 'The subtitle'
         },
-        variant: {
-            type: String as PropType<variant>,
-            default: 'default'
+        buttons: {
+            type: Array as PropType<Array<GlobalCodyButtonProps>>,
+            default: () => ([
+                {
+                    text: 'Button Text',
+                    href: '/button-href',
+                    variant: 'primary'
+                },
+                {
+                    text: 'Link Text',
+                    href: '/button-href',
+                }
+            ]),
         },
-        backgroundImageSrc: {
-            type: String,
-            default: ''
+        image: {
+            type: Object as PropType<GlobalImage>,
+            default: () => ({}),
+        },
+    },
+
+    setup(props) {
+        const classBinds = computed(() => {
+          let classSet = ''
+
+          if (props.center) {
+            classSet = appendToSet('hero--center', classSet)
+          }
+          if (props.fullscreen) {
+            classSet = appendToSet('hero--full-screen', classSet)
+          }
+          if (props.image) {
+            classSet = appendToSet('hero--background-img', classSet)
+          }
+
+          return classSet
+        })
+
+        return {
+          classBinds,
         }
     },
-    setup(props) {
-        const getVariantClasses = computed(() => {
-            if (props.variant === 'center') {
-                return {
-                    parentTextClass: 'text-center',
-                    ctaClass: 'flex-center'
-                }
-            }
-            if (props.variant === 'left-content') {
-                return {
-                    containerWidthClass: 'max-width-adaptive-lg',
-                    parentTextClass: 'max-width-xs'
-                }
-            }
-            if (props.variant === 'right-content') {
-                return {
-                    containerWidthClass: 'max-width-adaptive-lg',
-                    parentTextClass: 'text-right max-width-xs margin-left-auto',
-                    ctaClass: 'items-center justify-end'
-                }
-            }
-            if (props.variant === 'overlay-layer') {
-                return {
-                    parentClass: 'hero--overlay-layer relative',
-                    parentTextClass: 'position-relative z-index-2 text-center',
-                    ctaClass: 'flex-center'
-                }
-            }
-            if (props.variant === 'full-screen') {
-                return {
-                    parentClass: 'min-height-100vh flex items-center',
-                    parentTextClass: 'max-width-xs'
-                }
-            }
-            return {
-                parentTextClass: '',
-                ctaClass: 'items-center',
-                containerWidthClass: 'max-width-adaptive-sm'
-            }
-        })
-        return {
-            getVariantClasses,
-        }
-    }
+
+    components: { ContentComponent },
 })
 </script>
+
+<style lang="scss">
+    @import './style/style.scss';
+</style>

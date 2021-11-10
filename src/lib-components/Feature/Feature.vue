@@ -1,32 +1,19 @@
 <template>
-    <section class="position-relative z-index-1">
+    <section class="position-relative">
         <div class="container max-width-adaptive-lg">
             <div class="grid gap-md items-center">
-                <div :class="getVariantClasses.firstColumn" class="col-6@md">
-                    <div class="text-component">
-                        <p class="text-sm color-contrast-medium">{{ label }}</p>
-                        <h1>{{ header }}</h1>
-                        <p>{{ subHeader }}</p>
-                    </div>
-                    <div class="margin-top-sm">
-                        <div
-                            :class="getVariantClasses.ctaColumnClass"
-                            class="flex flex-wrap gap-sm"
-                        >
-                            <CodyButton
-                                @click="button && button.buttonClick || null"
-                                v-bind="button"
-                            >{{ button && button.buttonText }}</CodyButton>
-                            <Link
-                                :href="ctaLink && ctaLink.href || '#'"
-                                :target="ctaLink && ctaLink.target"
-                                class="color-inherit"
-                            >{{ ctaLink && ctaLink.text }}</Link>
-                        </div>
-                    </div>
+                <!-- Column: Content -->
+                <div class="col-6@md" :class="invert ? 'order-2@md' : ''">
+                    <ContentComponent
+                        :label="label"
+                        :title="title"
+                        :subtitle="subtitle"
+                        :buttons="buttons"
+                    />
                 </div>
 
-                <div :class="getVariantClasses.secondColumn" class="col-6@md">
+                <!-- Column: Image -->
+                <div class="col-6@md">
                     <figure>
                         <img class="block width-100%" v-bind="image" />
                     </figure>
@@ -37,55 +24,56 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from "@vue/composition-api";
-// import { GlobalCodyButtonProps, GlobalCtaLink } from '@/types'
-import { useProps } from '@/composables'
-import CodyButton from "../CodyButton/CodyButton.vue";
-import Link from "../Link/Link.vue";
-type FeatureVariant = 'default' | 'invert' | 'center-x'
-const { ctaSet, labelHeaderSet, image } = useProps()
+import { defineComponent, PropType } from "@vue/composition-api";
+
+// Components
+import ContentComponentNew from "../Content/ContentComponent.vue";
+
+// Types
+import { GlobalCodyButtonProps, GlobalImage } from "@/types";
+
 export default defineComponent({
+    name: 'feature',
+
     props: {
-        ...ctaSet,
-        ...labelHeaderSet,
-        image,
-        variant: {
-            type: String as PropType<FeatureVariant>,
-            default: "default"
+        invert: {
+            type: Boolean,
+            default: false
         },
-    },
-    setup(props) {
-        const getVariantClasses = computed(() => {
-            let defaultClasses = {
-                firstColumn: '',
-                secondColumn: '',
-                columnParentClass: '',
-                containerWidthClass: '',
-                parentTextClass: '',
-                ctaClass: '',
-                ctaColumnClass: 'items-center'
-            }
-            if (props.variant === 'invert') {
-                return {
-                    ...defaultClasses,
-                    firstColumn: 'order-2@md',
-                    secondColumn: 'order-1@md',
+        label: {
+            type: String,
+            default: 'The label',
+        },
+        title: {
+            type: String,
+            default: 'The title',
+        },
+        subtitle: {
+            type: String,
+            default: 'The subtitle'
+        },
+        buttons: {
+            type: Array as PropType<Array<GlobalCodyButtonProps>>,
+            default: () => ([
+                {
+                    text: 'Button Text',
+                    href: '/button-href',
+                    variant: 'primary'
+                },
+                {
+                    text: 'Link Text',
+                    href: '/button-href',
                 }
-            }
-            if (props.variant === 'center-x') {
-                return {
-                    ...defaultClasses,
-                    firstColumn: 'text-center',
-                    secondColumn: 'text-center',
-                    ctaColumnClass: 'flex-center'
-                }
-            }
-            return defaultClasses
-        })
-        return {
-            getVariantClasses,
+            ]),
+        },
+        image: {
+            type: Object as PropType<GlobalImage>,
+            default: () => ({
+                src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/files/1cd9f6c0d0966a8086978a85fb6a0a7e.jpg'
+            }),
         }
     },
-    components: { CodyButton, Link }
+
+    components: { ContentComponentNew }
 })
 </script>

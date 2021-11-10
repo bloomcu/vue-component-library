@@ -27,7 +27,7 @@
 import { defineComponent, PropType } from "@vue/composition-api";
 
 // Components
-import ContentComponentNew from "../Content/ContentComponentNew.vue";
+import ContentComponentNew from "../Content/ContentComponent.vue";
 
 // Types
 import { GlobalCodyButtonProps, GlobalImage } from "@/types";

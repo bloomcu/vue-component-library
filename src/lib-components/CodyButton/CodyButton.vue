@@ -1,7 +1,5 @@
 <template>
-  <component :is="$attrs.href ? 'a' : 'button'" class="btn" :class="classBinds"
-    ><slot
-  /></component>
+  <component :is="$attrs.href ? 'a' : 'button'" class="btn" :class="classBinds">{{ text }}</component>
 </template>
 
 <script lang="ts">
@@ -14,6 +12,10 @@ export default defineComponent({
       type: String as PropType<Variant>,
       default: 'accent',
     },
+    text: {
+      type: String,
+      default: ''
+    },
     size: {
       type: String as PropType<Size>,
       default: '',
@@ -24,7 +26,7 @@ export default defineComponent({
     const classBinds = computed(() => {
       let classSet = ''
       // to check if the appended class needs to be spaced or not
-     
+
       if (props.variant) {
         classSet = appendToSet(`btn--${props.variant}`, classSet)
       }
@@ -32,7 +34,7 @@ export default defineComponent({
         classSet = appendToSet(`btn--${props.size}`, classSet)
       }
       if (props.icon) {
-       classSet = appendToSet(`btn--icon`, classSet)
+        classSet = appendToSet(`btn--icon`, classSet)
       }
       return classSet
     })

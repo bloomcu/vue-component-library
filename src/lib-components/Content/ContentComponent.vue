@@ -1,59 +1,67 @@
 <template>
-    <section class="hero bg padding-y-xxl">
-        <div class="container max-width-adaptive-sm">
-            <div v-if="label" class="text-sm opacity-60% margin-bottom-xxs">{{ label }}</div>
+    <div class="content-component" :class="center ? 'text-center' : ''">
+        <div v-if="label" class="text-sm opacity-60% margin-bottom-xxs">{{ label }}</div>
 
-            <div class="text-component margin-bottom-sm">
-                <h1>{{ header }}</h1>
-                <p>{{ subHeader }}</p>
-            </div>
-
-            <div class="flex flex-wrap items-center gap-sm">
-                <CodyButton
-                    v-if="button"
-                    @click="button.buttonClick || null"
-                    v-bind="button"
-                >{{ button.buttonText }}</CodyButton>
-                <Link
-                    v-if="ctaLink"
-                    :href="ctaLink.href || '#'"
-                    :target="ctaLink.target"
-                    class="color-inherit"
-                >{{ ctaLink.text }}</Link>
-            </div>
+        <div class="text-component margin-bottom-sm">
+            <h1>{{ title }}</h1>
+            <p v-if="subtitle">{{ subtitle }}</p>
         </div>
-    </section>
-</template>
 
+        <div v-if="buttons && buttons.length" class="flex flex-wrap items-center gap-sm" :class="center ? 'flex-center' : ''">
+            <CodyButton
+                v-for="(button, index) in buttons"
+                :text="button.text"
+                :href="button.href"
+                :key="index"
+                v-bind="button"
+            />
+        </div>
+    </div>
+</template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "@vue/composition-api"
-import { GlobalCtaLink, GlobalCodyButtonProps } from "@/types"
-import Link from "../Link/Link.vue"
+
+// Components
 import CodyButton from "../CodyButton/CodyButton.vue"
+
+// Types
+import { GlobalCodyButtonProps } from "@/types"
+
 export default defineComponent({
     props: {
+        center: {
+            type: Boolean,
+            default: false,
+        },
         label: {
             type: String,
-            default: ""
+            default: 'The label',
         },
-        header: {
+        title: {
             type: String,
-            default: ""
+            default: 'The title',
         },
-        subHeader: {
+        subtitle: {
             type: String,
-            default: ""
+            default: 'The subtitle'
         },
-        button: {
-            type: Object as PropType<GlobalCodyButtonProps>,
-            default: () => { },
-        },
-        ctaLink: {
-            type: Object as PropType<GlobalCtaLink>,
-            default: () => { },
+        buttons: {
+            type: Array as PropType<Array<GlobalCodyButtonProps>>,
+            default: () => ([
+                {
+                    text: 'Button Text',
+                    href: '/button-href',
+                    variant: 'primary'
+                },
+                {
+                    text: 'Link Text',
+                    href: '/button-href',
+                }
+            ]),
         },
     },
-    components: { Link, CodyButton }
+
+    components: { CodyButton }
 })
 </script>

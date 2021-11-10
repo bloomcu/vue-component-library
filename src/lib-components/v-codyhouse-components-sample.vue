@@ -1,21 +1,5 @@
 <template>
   <div>
-    <ContentComponent
-      label="This is  label"
-      header="Lorem ipsum dolor sit amet consectetur adipisicing elit"
-      sub-header="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vero aliquam, natus quae architecto hic quod!"
-      :ctaLink="{
-        text: 'Learn more',
-        href: '#/test',
-        target: '__blank'
-      }"
-      :button="{
-        href: '/helloworld',
-        target: '__blank',
-        buttonText: 'Download',
-        variant: 'primary'
-      }"
-    />
     <Hero
       label="This is  label"
       header="Lorem ipsum dolor sit amet consectetur adipisicing elit"
@@ -28,7 +12,7 @@
       :button="{
         href: '/helloworld',
         target: '__blank',
-        buttonText: 'Download',
+        text: 'Download',
         variant: 'primary'
       }"
       backgroundImageSrc="https://img.wallpapersafari.com/desktop/1024/576/90/72/qQ6bx0.png"
@@ -45,7 +29,7 @@
       :button="{
         href: '/helloworld',
         target: '__blank',
-        buttonText: 'Download',
+        text: 'Download',
         variant: 'primary',
       }"
       :image="{
@@ -53,7 +37,9 @@
       }"
       variant="invert"
     />
-    <Grid />
+    <!-- <Grid :cols="12" /> -->
+    <TextColumns />
+    <CardRepeater />
   </div>
 </template>
 
@@ -64,7 +50,9 @@ import CodyButton from './CodyButton/CodyButton.vue';
 import Hero from './Hero/Hero.vue';
 import Feature from './Feature/Feature.vue';
 import Grid from './Grid/Grid.vue';
-import ContentComponent from './Content/ContentComponent.vue';
+import TextColumns from './TextColumns/TextColumns.vue';
+import Card from './Card/Card.vue';
+import CardRepeater from './CardRepeater/CardRepeater.vue';
 
 export default defineComponent({
   setup() {
@@ -72,7 +60,7 @@ export default defineComponent({
       atest: "hello"
     };
   },
-  components: { CodyButton, Hero, Feature, Grid, ContentComponent }
+  components: { CodyButton, Hero, Feature, Grid, TextColumns, Card, CardRepeater }
 })
 </script>
 

@@ -10,12 +10,12 @@ export interface FeatureV9Item {
   description: string
 }
 export interface GlobalCodyButtonProps {
-  buttonText: String;
   href?: String;
   target?: String
   variant?: Variant;
   size?: Size;
   icon?: Boolean;
+  text: String
   buttonClick?: (...args: any) => any;
 }
 
