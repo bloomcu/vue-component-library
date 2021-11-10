@@ -2,7 +2,7 @@
     <div class="card card--is-link">
         <a class="card__link" v-bind="link">
             <figure class="card__img">
-                <img v-biind="image" />
+                <img v-bind="image" />
                 <div class="card__link-icon" aria-hidden="true">
                     <svg class="icon" viewBox="0 0 32 32">
                         <g

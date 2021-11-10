@@ -40,6 +40,7 @@
     <!-- <Grid :cols="12" /> -->
     <TextColumns />
     <CardRepeater />
+    <CardLink />
   </div>
 </template>
 
@@ -53,6 +54,7 @@ import Grid from './Grid/Grid.vue';
 import TextColumns from './TextColumns/TextColumns.vue';
 import Card from './Card/Card.vue';
 import CardRepeater from './CardRepeater/CardRepeater.vue';
+import CardLink from './Card/CardLink.vue';
 
 export default defineComponent({
   setup() {
@@ -60,7 +62,7 @@ export default defineComponent({
       atest: "hello"
     };
   },
-  components: { CodyButton, Hero, Feature, Grid, TextColumns, Card, CardRepeater }
+  components: { CodyButton, Hero, Feature, Grid, TextColumns, Card, CardRepeater, CardLink }
 })
 </script>
 
