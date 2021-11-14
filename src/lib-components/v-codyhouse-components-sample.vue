@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Hero
+    <!-- <Hero
       label="This is  label"
       header="Lorem ipsum dolor sit amet consectetur adipisicing elit"
       sub-header="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vero aliquam, natus quae architecto hic quod!"
@@ -36,11 +36,15 @@
         src: 'https://img.wallpapersafari.com/desktop/1024/576/90/72/qQ6bx0.png'
       }"
       variant="invert"
-    />
+    /> -->
     <!-- <Grid :cols="12" /> -->
     <TextColumns />
     <CardRepeater />
-    <CardLink />
+    <div class="container">
+      <CardLink :link="{
+        
+      }" />
+    </div>
   </div>
 </template>
 

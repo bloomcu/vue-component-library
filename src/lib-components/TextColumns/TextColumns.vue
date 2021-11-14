@@ -18,14 +18,13 @@ export default defineComponent({
                     label: "Label",
                     title: "Labels",
                     subtitle: "Label",
-                    buttons: []
+                    component: 'card'
                 },
                 {
                     label: "Label",
                     title: "Label",
                     subtitle: "Label",
                     center: true,
-                    buttons: []
                 },
             ])
         }

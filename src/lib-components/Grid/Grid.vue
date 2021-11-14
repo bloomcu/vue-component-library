@@ -1,26 +1,15 @@
 <template>
-    <div>
-        <section class="position-relative z-index-1 padding-y-xxl border-bottom">
-            <!-- <div class="container max-width-adaptive-lg">
-                <div class="text-component margin-bottom-xl">
-                    <h1>Three+ Columns</h1>
-                </div>
-            </div> -->
-            <div class="container max-width-adaptive-lg">
-                <div class="grid" :class="`gap-${gap}`">
-                    <div
-                        v-for="(column, index) in columns"
-                        :key="index"
-                        :class="determineGridCount"
-                    >
-                        <slot :index="index" :column="column">
-                            <component :is="element" v-bind="column"></component>
-                        </slot>
-                    </div>
+    <section class="position-relative z-index-1 padding-y-xxl">
+        <div class="container max-width-adaptive-lg">
+            <div class="grid" :class="`gap-${gap}`">
+                <div v-for="(column, index) in columns" :key="index" :class="determineGridCount">
+                    <slot :index="index" :column="column">
+                        <component :is="element" v-bind="column"></component>
+                    </slot>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 </template>
 
 <script lang="ts">
@@ -36,15 +25,6 @@ type GridGap =
     | "lg"
     | "xl"
     | "0";
-// const amountToGenerate = 12;
-
-// const createGridSample = () => {
-//     const arr = [];
-//     for (let i = 0; i < amountToGenerate; i++) {
-//         arr.push(i);
-//     }
-//     return arr;
-// };
 
 export default defineComponent({
     props: {
@@ -89,7 +69,7 @@ export default defineComponent({
             const defineGridBlock: GlobalBreakPointBlock = {
                 xs: 12,
                 md: 6,
-                xl: 12 / props.cols,
+                lg: 12 / props.cols,
             };
             let classGen = "";
             const gridBlockEntries = Object.entries(defineGridBlock);

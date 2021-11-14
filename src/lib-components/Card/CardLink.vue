@@ -24,10 +24,8 @@
 
             <div class="card__content">
                 <div class="text-component">
-                    <h4>Title of the Card</h4>
-                    <p
-                        class="text-sm color-contrast-medium"
-                    >Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit.</p>
+                    <h4>{{ title }}</h4>
+                    <p class="text-sm color-contrast-medium">{{ description }}</p>
                 </div>
             </div>
         </a>

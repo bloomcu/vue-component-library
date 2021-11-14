@@ -7,7 +7,7 @@
             <p v-if="subtitle">{{ subtitle }}</p>
         </div>
 
-        <div v-if="buttons && buttons.length" class="flex flex-wrap items-center gap-sm" :class="center ? 'flex-center' : ''">
+        <div v-if="buttons.length" class="flex flex-wrap items-center gap-sm" :class="center ? 'flex-center' : ''">
             <CodyButton
                 v-for="(button, index) in buttons"
                 :text="button.text"
@@ -48,17 +48,7 @@ export default defineComponent({
         },
         buttons: {
             type: Array as PropType<Array<GlobalCodyButtonProps>>,
-            default: () => ([
-                {
-                    text: 'Button Text',
-                    href: '/button-href',
-                    variant: 'primary'
-                },
-                {
-                    text: 'Link Text',
-                    href: '/button-href',
-                }
-            ]),
+            default: () => [],
         },
     },
 

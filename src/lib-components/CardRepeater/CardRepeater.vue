@@ -1,5 +1,6 @@
 <template>
-    <Grid :cols="3" :columns="columns" :element="Card">
+    <Grid :cols="3" :columns="columns" v-slot="{column}">
+    <component :is="variant" v-bind="column" />
     </Grid>
 </template>
 
@@ -11,6 +12,10 @@ import Card from "../Card/Card.vue";
 
 export default defineComponent({
     props: {
+        variant: {
+            type: String,
+            default: 'Card'
+        },
         columns: {
             type: Array,
             default: () => ([
