@@ -5,17 +5,17 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from "@vue/composition-api";
+import { computed, defineComponent } from "@vue/composition-api";
 import { GlobalBreakPointBlock } from '@/types'
 import { appendToSet } from "@/helpers";
-type GridGap =
-    | "xxs"
-    | "xs"
-    | "sm"
-    | "md"
-    | "lg"
-    | "xl"
-    | "0";
+// type GridGap =
+//     | "xxs"
+//     | "xs"
+//     | "sm"
+//     | "md"
+//     | "lg"
+//     | "xl"
+//     | "0";
 
 export default defineComponent({
     props: {

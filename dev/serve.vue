@@ -6,7 +6,7 @@
             :is="block.component"
             :key="index"
         />
-        <v-codyhouse-components-sample />
+        <!-- <v-codyhouse-components-sample /> -->
     </div>
 </template>
 

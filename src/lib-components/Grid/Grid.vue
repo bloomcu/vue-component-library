@@ -4,7 +4,7 @@
             <div class="grid" :class="`gap-${gap}`">
                 <div v-for="(column, index) in columns" :key="index" :class="determineGridCount">
                     <slot :index="index" :column="column">
-                        <component :is="element" v-bind="column"></component>
+                    Col: {{ index }} 
                     </slot>
                 </div>
             </div>
@@ -52,10 +52,6 @@ export default defineComponent({
                 },
             ])
         },
-        element: {
-            type: undefined,
-            default: 'ContentComponent'
-        }
     },
     setup(props) {
 
