@@ -10,8 +10,6 @@
                 </div>
             </div>
         </template>
-        <!-- {{ active + uuid }}
-        {{activeItems}} -->
         <button @click="toggle(uuid)">toggle modal</button>
     </div>
 </template>
@@ -27,14 +25,11 @@ export default defineComponent({
         }
     },
     setup(props) {
-        const randomId = (Math.random() + 1).toString(36).substring(7);
-        const { toggle, isActive, active: activeItems } = useToggle()
+        const { toggle, isActive } = useToggle()
         const active = computed(() => isActive(props.uuid))
         return {
             active,
-            toggle,
-            randomId,
-            activeItems
+            toggle,            
         }
     }
 })
