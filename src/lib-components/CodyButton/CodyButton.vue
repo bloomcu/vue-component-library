@@ -1,11 +1,14 @@
 <template>
-  <component :is="$attrs.href ? 'a' : 'button'" class="btn" :class="classBinds">{{ text }}</component>
+  <component :is="$attrs.href ? 'a' : 'button'" class="btn" :class="classBinds"
+  @click="toggle(modal)"
+  >{{ text }}</component>
 </template>
 
 <script lang="ts">
 import { appendToSet } from '@/helpers'
 import { computed, defineComponent, PropType } from '@vue/composition-api'
 import { Variant, Size } from '../../types'
+import useToggle from '@/composables/useToggle'
 export default defineComponent({
   props: {
     variant: {
@@ -20,9 +23,14 @@ export default defineComponent({
       type: String as PropType<Size>,
       default: '',
     },
+    modal: {
+      type: String,
+      default: ''
+    },
     icon: Boolean,
   },
   setup(props) {
+    const { toggle } = useToggle()
     const classBinds = computed(() => {
       let classSet = ''
       // to check if the appended class needs to be spaced or not
@@ -40,6 +48,7 @@ export default defineComponent({
     })
     return {
       classBinds,
+      toggle
     }
   },
 })

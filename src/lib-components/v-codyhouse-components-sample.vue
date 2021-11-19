@@ -38,13 +38,14 @@
       variant="invert"
     /> -->
     <!-- <Grid :cols="12" /> -->
-    <TextColumns />
+    <!-- <TextColumns />
     <CardRepeater />
     <div class="container">
       <CardLink :link="{
         
-      }" />
-    </div>
+      }" /> -->
+    <!-- </div> -->
+    <Modal />
   </div>
 </template>
 
@@ -59,6 +60,7 @@ import TextColumns from './TextColumns/TextColumns.vue';
 import Card from './Card/Card.vue';
 import CardRepeater from './CardRepeater/CardRepeater.vue';
 import CardLink from './Card/CardLink.vue';
+import Modal from './Modal/Modal.vue';
 
 export default defineComponent({
   setup() {
@@ -66,7 +68,7 @@ export default defineComponent({
       atest: "hello"
     };
   },
-  components: { CodyButton, Hero, Feature, Grid, TextColumns, Card, CardRepeater, CardLink }
+  components: { CodyButton, Hero, Feature, Grid, TextColumns, Card, CardRepeater, CardLink, Modal }
 })
 </script>
 
