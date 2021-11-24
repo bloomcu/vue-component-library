@@ -5,7 +5,7 @@ Vue.use(VueCompositionApi);
 import { ref } from "@vue/composition-api";
 
 // Array of active element names
-const active = ref<string[] | number[]>([]);
+const active = ref<string[]>([]);
 
 /**
  * Check if item is active
@@ -13,7 +13,7 @@ const active = ref<string[] | number[]>([]);
  * @param  {String} item Name of element to check
  * @return {boolean} true/false
  */
-function isActive(item: string | number) {
+function isActive(item: string) {
   return active.value.includes(item);
 }
 
@@ -22,7 +22,7 @@ function isActive(item: string | number) {
  *
  * @param  {String} item Name of element to be toggled
  */
-function toggle(item : string | number) {
+function toggle(item : string) {
   // Get index of item if present
   const itemIndex = active.value.indexOf(item);
 
