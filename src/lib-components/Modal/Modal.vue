@@ -76,10 +76,12 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from "@vue/composition-api";
+import { computed, defineComponent, PropType } from "@vue/composition-api";
 import useToggle from '@/composables/useToggle'
 import useComponents from "@/composables/useComponents";
+import { Block } from "@/types";
 const { components, getComponents } = useComponents()
+
 export default defineComponent({
     components: {
         ...components
@@ -94,7 +96,7 @@ export default defineComponent({
             default: ''
         },
         blocks: {
-            type: Array,
+            type: Object as PropType<Block[]>,
             default: () => []
         }
     },
