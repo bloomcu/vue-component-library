@@ -45,7 +45,7 @@
         
       }" /> -->
     <!-- </div> -->
-    <Modal />
+    <!-- <Modal /> -->
   </div>
 </template>
 

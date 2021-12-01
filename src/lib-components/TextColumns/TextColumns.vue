@@ -10,6 +10,7 @@ import Grid from "../Grid/Grid.vue";
 import ContentComponent from "../Content/ContentComponent.vue";
 
 export default defineComponent({
+    name: 'TextColumns',
     props: {
         columns: {
             type: Array,
