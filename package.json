@@ -1,11 +1,11 @@
 {
-  "name": "@bloomcu/vue-component-library",
+  "name": "v-codyhouse-components",
   "version": "1.0.0",
   "description": "A Vue component library based on CodyHouse UI.",
-  "main": "dist/vue-component-library.ssr.js",
-  "browser": "dist/vue-component-library.esm.js",
-  "module": "dist/vue-component-library.esm.js",
-  "unpkg": "dist/vue-component-library.min.js",
+  "main": "dist/v-codyhouse-components.ssr.js",
+  "browser": "dist/v-codyhouse-components.esm.js",
+  "module": "dist/v-codyhouse-components.esm.js",
+  "unpkg": "dist/v-codyhouse-components.min.js",
   "types": "dist/types/src/entry.esm.d.ts",
   "files": [
     "dist/*",
