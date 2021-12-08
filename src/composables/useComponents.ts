@@ -4,7 +4,7 @@
 let components: any = {}
 // run once
 if (!Object.keys(components).length) {
-    const gatherComponents = require.context('@/lib-components', true, /.vue$/)
+    const gatherComponents = require.context('../lib-components', true, /.vue$/)
     gatherComponents.keys().map(x => gatherComponents(x))
     const allComponents = gatherComponents.keys().map(x => gatherComponents(x))
     allComponents.forEach((component) => {
@@ -16,11 +16,11 @@ if (!Object.keys(components).length) {
     })
 }
 export default function useComponents() {
-    const gatherComponents = require.context('@/lib-components', true, /.vue$/)
-    console.log(`gatherComponents`, gatherComponents.keys())
+    const gatherComponents = require.context('../lib-components', true, /.vue$/)
+    // console.log(`gatherComponents`, gatherComponents.keys())
     gatherComponents.keys().map(x => gatherComponents(x))
     const allComponents = gatherComponents.keys().map(x => gatherComponents(x))
-    console.log(`allComponents`, allComponents)
+    // console.log(`allComponents`, allComponents)
     return {
         components,
         getComponents(componentNames: string[]) {
