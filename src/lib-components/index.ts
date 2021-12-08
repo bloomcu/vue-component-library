@@ -4,5 +4,5 @@ export { default as ContentComponent } from './Content/ContentComponent.vue';
 export { default as Feature } from './Feature/Feature.vue';
 export { default as Grid } from './Grid/Grid.vue';
 export { default as Hero } from './Hero/Hero.vue';
-export { default as Modal } from './Modal/Modal.vue'
+// export { default as Modal } from './Modal/Modal.vue'
 export { default as Link } from './Link/Link.vue';
