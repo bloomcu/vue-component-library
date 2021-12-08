@@ -1,5 +1,6 @@
 <template>
     <div>
+        {{components}}
         <div
             :class="active ? 'modal--is-visible' : ''"
             id="modal-name-1"
@@ -85,9 +86,6 @@ export default defineComponent({
     components: {
         ...components
     },
-    mounted() {
-console.log(`components`, components)
-    },
     props: {
         uuid: {
             type: String,
@@ -113,12 +111,13 @@ console.log(`components`, components)
         // console.log(`findComponents`, findComponents)
         // console.log(`blockNames`, blockNames.value)
         // console.log(`props.modal`, props.blocks)
-        console.log(`components`, components)
+        // console.log(`components`, components)
 
         return {
             active,
             toggle,
             findComponents,
+            components,
         }
     }
 })

@@ -1,5 +1,5 @@
 {
-  "name": "v-codyhouse-componentz",
+  "name": "v-codyhouse-components",
   "version": "1.0.9",
   "description": "A Vue component library based on CodyHouse UI.",
   "main": "dist/v-codyhouse-components.ssr.js",
@@ -19,7 +19,7 @@
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
-    "quickbuild": "git add . && git commit -m'change' && git push && npm version patch && npm publish",
+    "quickbuild": "git add . && git commit -m'change' && git push && yarn build && npm version patch && npm publish",
     "postbuild": "rimraf ./dist/types/dev ./dist/types/src/entry.d.ts"
   },
   "dependencies": {
