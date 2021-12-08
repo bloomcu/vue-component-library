@@ -81,7 +81,6 @@ import useToggle from '@/composables/useToggle'
 import useComponents from "@/composables/useComponents";
 import { Block } from "@/types";
 const { components, getComponents } = useComponents()
-console.log(`components`, components)
 export default defineComponent({
     components: {
         ...components
@@ -111,6 +110,8 @@ export default defineComponent({
         // console.log(`findComponents`, findComponents)
         // console.log(`blockNames`, blockNames.value)
         // console.log(`props.modal`, props.blocks)
+        console.log(`components`, components)
+
         return {
             active,
             toggle,
