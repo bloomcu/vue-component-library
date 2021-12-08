@@ -85,6 +85,9 @@ export default defineComponent({
     components: {
         ...components
     },
+    mounted() {
+console.log(`components`, components)
+    },
     props: {
         uuid: {
             type: String,
