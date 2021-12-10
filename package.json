@@ -1,6 +1,6 @@
 {
   "name": "v-codyhouse-components",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A Vue component library based on CodyHouse UI.",
   "main": "dist/v-codyhouse-components.ssr.js",
   "browser": "dist/v-codyhouse-components.esm.js",
