@@ -1,8 +1,8 @@
 export const blocks = [
-  {
-    component: "button",
-    uuid: "123",
-  },
+  // {
+  //   component: "button",
+  //   uuid: "123",
+  // },
   {
     component: "hero",
     center: false,
@@ -14,7 +14,7 @@ export const blocks = [
     buttons: [
       {
         text: "Button Text",
-        modal: "123",
+        trigger: "123",
         variant: "primary",
         //   href: '/button-href',
         //   target: '',
@@ -59,6 +59,31 @@ export const modals = [
     uuid: "123",
     title: "My modal",
     blocks: [
+      {
+        component: "ContentComponent",
+        center: false,
+        fullscreen: false,
+        label: "Content component!!",
+        title: "Content component title!!",
+        subtitle:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam vero aliquam, natus quae architecto hic quod!",
+        buttons: [
+          {
+            text: "Button Text",
+            href: "/button-href",
+            target: "",
+            variant: "primary",
+          },
+          {
+            text: "Link Text",
+            href: "/link-href",
+            target: "__blank",
+          },
+        ],
+        image: {
+          src: "https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/files/7ad98ddacea4aff50bfddf8544076d82.jpg",
+        },
+      },
       {
         component: "hero",
         center: false,
