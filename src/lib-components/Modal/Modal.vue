@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{components}}
+        <!-- {{components}} -->
         <div
             :class="active ? 'modal--is-visible' : ''"
             id="modal-name-1"
@@ -79,12 +79,12 @@
 <script lang="ts">
 import { computed, defineComponent, PropType } from "@vue/composition-api";
 import useToggle from '@/composables/useToggle'
-import useComponents from "@/composables/useComponents";
+// import useComponents from "@/composables/useComponents";
 import { Block } from "@/types";
-const { components, getComponents } = useComponents()
+// const { components } = useComponents()
 export default defineComponent({
     components: {
-        ...components
+        // ...components
     },
     props: {
         uuid: {
@@ -96,15 +96,14 @@ export default defineComponent({
             default: ''
         },
         blocks: {
-            type: Object as PropType<Block[]>,
+            type: Array as PropType<Block[]>,
             default: () => []
         }
     },
     setup(props) {
         const { toggle, isActive } = useToggle()
         const active = computed(() => isActive(props.uuid))
-        const blockNames = computed(() => props.blocks.map((b: any) => b.component))
-        const findComponents = computed(() => getComponents(blockNames.value))
+        // const blockNames = computed(() => props.blocks.map((b: any) => b.component))
         // watch(() => findComponents.value, (val) => {
         //     console.log(`val`, val)
         // })
@@ -116,8 +115,7 @@ export default defineComponent({
         return {
             active,
             toggle,
-            findComponents,
-            components,
+            // components,
         }
     }
 })
