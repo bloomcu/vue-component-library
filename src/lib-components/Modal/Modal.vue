@@ -111,7 +111,7 @@ export default defineComponent({
         // console.log(`blockNames`, blockNames.value)
         // console.log(`props.modal`, props.blocks)
         // console.log(`components`, components)
-
+// alert('reacts')
         return {
             active,
             toggle,
