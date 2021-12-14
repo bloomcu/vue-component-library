@@ -16,6 +16,7 @@ export interface GlobalCodyButtonProps {
   size?: Size;
   icon?: Boolean;
   text: String
+  modal?: String
   buttonClick?: (...args: any) => any;
 }
 

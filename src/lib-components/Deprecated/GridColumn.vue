@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div :class="determineGridCount">
         <slot />
     </div>
@@ -51,4 +51,7 @@ export default defineComponent({
         };
     },
 });
-</script>
+</script> -->
+<template>
+<div>grid column</div>
+</template>
