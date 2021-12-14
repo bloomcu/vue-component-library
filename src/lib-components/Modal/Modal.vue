@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- {{components}} -->
         <div
             :class="active ? 'modal--is-visible' : ''"
             id="modal-name-1"
@@ -11,38 +12,8 @@
                 aria-labelledby="modal-title-1"
                 aria-describedby="modal-description-1"
             >
-                <header
-                    class="bg-contrast-lower bg-opacity-50% padding-y-sm padding-x-md flex items-center justify-between"
-                >
-                    <h1 id="modal-title-1" class="text-truncate text-md">{{ title }}</h1>
-
-                    <button
-                        @click="toggle(uuid)"
-                        class="reset modal__close-btn modal__close-btn--inner hide@md js-modal__close js-tab-focus"
-                    >
-                        <svg class="icon icon--xs" viewBox="0 0 16 16">
-                            <title>Close modal window</title>
-                            <g
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-miterlimit="10"
-                            >
-                                <line x1="13.5" y1="2.5" x2="2.5" y2="13.5" />
-                                <line x1="2.5" y1="2.5" x2="13.5" y2="13.5" />
-                            </g>
-                        </svg>
-                    </button>
-                </header>
-
+                <ModalHeader :title="title" :uuid="uuid" />
                 <div class="padding-y-sm padding-x-md">
-                    <div class="text-component">
-                        <p
-                            id="modal-description-1"
-                        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae culpa, inventore alias ab atque similique quod ea reprehenderit.</p>
-                    </div>
                     <component
                         v-for="(block, index) in blocks"
                         v-bind="block"
@@ -51,38 +22,23 @@
                     />
                 </div>
             </div>
-
-            <button
-                @click="toggle(uuid)"
-                class="reset modal__close-btn modal__close-btn--outer display@md js-modal__close js-tab-focus"
-            >
-                <svg class="icon icon--sm" viewBox="0 0 24 24">
-                    <title>Close modal window</title>
-                    <g
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-miterlimit="10"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <line x1="3" y1="3" x2="21" y2="21" />
-                        <line x1="21" y1="3" x2="3" y2="21" />
-                    </g>
-                </svg>
-            </button>
+            <ModalClose :uuid="uuid" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from "@vue/composition-api";
+import { computed, defineComponent, PropType } from "@vue/composition-api";
 import useToggle from '@/composables/useToggle'
-import useComponents from "@/composables/useComponents";
-const { components, getComponents } = useComponents()
+// import useComponents from "@/composables/useComponents";
+import { Block } from "@/types";
+import ModalHeader from "./ModalHeader.vue";
+import ModalClose from "./ModalClose.vue";
+// const { components } = useComponents()
 export default defineComponent({
     components: {
-        ...components
+        ModalHeader,
+        ModalClose
     },
     props: {
         uuid: {
@@ -94,25 +50,25 @@ export default defineComponent({
             default: ''
         },
         blocks: {
-            type: Array,
+            type: Array as PropType<Block[]>,
             default: () => []
         }
     },
     setup(props) {
         const { toggle, isActive } = useToggle()
         const active = computed(() => isActive(props.uuid))
-        const blockNames = computed(() => props.blocks.map((b: any) => b.component))
-        const findComponents = computed(() => getComponents(blockNames.value))
+        // const blockNames = computed(() => props.blocks.map((b: any) => b.component))
         // watch(() => findComponents.value, (val) => {
         //     console.log(`val`, val)
         // })
-        console.log(`findComponents`, findComponents)
+        // console.log(`findComponents`, findComponents)
         // console.log(`blockNames`, blockNames.value)
         // console.log(`props.modal`, props.blocks)
+        // console.log(`components`, components)
         return {
             active,
             toggle,
-            findComponents,
+            // components,
         }
     }
 })

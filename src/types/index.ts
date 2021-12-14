@@ -1,5 +1,9 @@
 export type Variant = 'primary' | 'subtle' | 'accent' | 'disabled'
 export type Size = 'sm' | 'md' | 'lg'
+export interface Block {
+  component?: any
+  uuid?: string
+}
 export interface FeatureV9Item {
   image: string
   headerText: string

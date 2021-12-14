@@ -7,7 +7,6 @@
             :key="index"
         />
         <component v-for="modal in modals" v-bind="modal" is="Modal" :key="modal.uuid" />
-        <v-codyhouse-components-sample />
     </div>
 </template>
 

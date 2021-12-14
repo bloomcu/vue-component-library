@@ -1,6 +1,6 @@
 <template>
   <component :is="$attrs.href ? 'a' : 'button'" class="btn" :class="classBinds"
-  @click="toggle(modal)"
+  @click="toggle(trigger)"
   >{{ text }}</component>
 </template>
 
@@ -23,7 +23,7 @@ export default defineComponent({
       type: String as PropType<Size>,
       default: '',
     },
-    modal: {
+    trigger: {
       type: String,
       default: ''
     },

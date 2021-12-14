@@ -7,6 +7,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import babel from '@rollup/plugin-babel';
+import PostCSS from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import ttypescript from 'ttypescript';
 import typescript from 'rollup-plugin-typescript2';
@@ -27,7 +28,10 @@ const babelPresetEnvConfig = require('../babel.config')
 const argv = minimist(process.argv.slice(2));
 
 const projectRoot = path.resolve(__dirname, '..');
-
+const PATH_SRC = path.resolve(projectRoot, "src").replace(/\\/gi, "/");
+const PATH_NODE_MODULES = path
+  .resolve(projectRoot, "node_modules")
+  .replace(/\\/gi, "/"); // Errm.. I use windows 😬 
 const baseConfig = {
   input: 'src/entry.ts',
   plugins: {
@@ -47,11 +51,33 @@ const baseConfig = {
     },
     vue: {
       css: true,
+      data: { // This helps to inject variables in each <style> tag of every Vue SFC
+        scss: () => `@import "@/styles/style.scss";`,
+        sass: () => `@import "@/styles/style.scss"`,
+      },
+      preprocessStyles: true,
       template: {
         isProduction: true,
       },
+      style: {
+        preprocessOptions: {
+          scss: {
+            includePaths: ['node_modules'],
+            importer: [
+              function (url, prev) {
+                return {
+                  file: url
+                    .replace(/^~/, `${PATH_NODE_MODULES}/`)
+                    .replace(/^@/, PATH_SRC), // ain't pretty, it can be easily improved
+                };
+              },
+            ],
+          }
+        },
+      }
     },
     postVue: [
+      PostCSS(),
       resolve({
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
       }),
