@@ -14,3 +14,21 @@ export const dummyArray = (amountToGenerate = 8) => {
   }
   return arr;
 }
+
+export const randomId = () => {
+  // Math.random should be unique because of its seeding algorithm.
+  // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+  // after the decimal.
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
+
+export const extractObjectKeys = (obj : object = {}, keys: string[]) => {
+  const objectEntries = Object.entries(obj)
+  const newObject : any = {}
+  for(const [key, value] of objectEntries) {
+    if (keys.includes(key)) {
+      newObject[key] = value
+    }
+  }
+  return newObject
+}
