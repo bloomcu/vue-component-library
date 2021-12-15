@@ -14,42 +14,44 @@ export interface FeatureV9Item {
   description: string
 }
 export interface GlobalCodyButtonProps {
-  href?: String;
-  target?: String
+  href?: string;
+  target?: string
   variant?: Variant;
   size?: Size;
-  icon?: Boolean;
-  text: String
-  modal?: String
+  icon?: boolean;
+  text: string
+  modal?: string
   buttonClick?: (...args: any) => any;
 }
 
 export interface GlobalCtaLink {
-  href?: String;
-  target?: String
-  text?: String;
+  href?: string;
+  target?: string
+  text?: string;
 }
 
 export interface GlobalImage {
-  src: String
-  alt?: String
-  class?: String
+  src: string
+  alt?: string
+  class?: string
+  title: string
+  href?: string
 }
 
 export interface GlobalContentComponent {
-  label: String
-  header: String
-  subHeader: String
+  label: string
+  header: string
+  subHeader: string
   button: GlobalCodyButtonProps
   ctaLink: GlobalCtaLink
 }
 
 export interface GlobalBreakPointBlock {
-  xs?: String | Number
-  sm?: String | Number
-  md?: String | Number
-  lg?: String | Number
-  xl?: String | Number
+  xs?: string | number
+  sm?: string | number
+  md?: string | number
+  lg?: string | number
+  xl?: string | number
 }
 
 export type GlobalBreakPoint = keyof(GlobalBreakPointBlock)
