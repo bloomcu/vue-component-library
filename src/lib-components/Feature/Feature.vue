@@ -15,7 +15,7 @@
                 <!-- Column: Image -->
                 <div class="col-6@md">
                     <figure>
-                        <img class="block width-100%" v-bind="image" />
+                        <img class="block width-100%" v-bind:src="`https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/${image.src}`" />
                     </figure>
                 </div>
             </div>
@@ -27,7 +27,7 @@
 import { defineComponent, PropType } from "@vue/composition-api";
 
 // Components
-import ContentComponentNew from "../Content/ContentComponent.vue";
+import ContentComponent from "../Content/ContentComponent.vue";
 
 // Types
 import { GlobalCodyButtonProps, GlobalImage } from "@/types";
@@ -69,11 +69,11 @@ export default defineComponent({
         image: {
             type: Object as PropType<GlobalImage>,
             default: () => ({
-                src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/files/1cd9f6c0d0966a8086978a85fb6a0a7e.jpg'
+                src: 'files/b91c769fd41d8f5091e0dc86e14e4ea4.jpg'
             }),
         }
     },
 
-    components: { ContentComponentNew }
+    components: { ContentComponent }
 })
 </script>

@@ -1,10 +1,8 @@
 <template>
     <section
-        :class="classBinds"
+        v-bind:class="classBinds"
+        v-bind:style="styleBinds"
         class="hero bg position-relative padding-y-xxl"
-        v-bind="{
-            ...(image && { style: `background-image: url('${image.src}')` })
-        }"
     >
         <div class="container max-width-adaptive-lg">
             <div class="content-wrapper position-relative max-width-xs z-index-2">
@@ -91,8 +89,13 @@ export default defineComponent({
           return classSet
         })
 
+        const styleBinds = computed(()  => {
+            return props.image.src ? { 'background-image': `url(https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/${props.image.src})` } : {}
+        })
+
         return {
           classBinds,
+          styleBinds
         }
     },
 
