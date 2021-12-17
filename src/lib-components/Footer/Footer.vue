@@ -9,27 +9,7 @@
                 </div>
 
                 <nav class="col-9@lg order-1@lg">
-                    <ul class="grid gap-lg">
-                        <li
-                            v-for="group in primaryLinks"
-                            :key="group.title"
-                            class="col-6@xs col-3@md"
-                        >
-                            <h4 class="margin-bottom-sm text-base@md">{{ group.title }}</h4>
-                            <ul class="grid gap-xs text-sm@md">
-                                <li v-for="link in group.links">
-                                    <a
-                                        link
-                                        :href="link.href"
-                                        :title="link.text"
-                                        :target="link.target"
-                                        :key="link.href"
-                                        class="main-footer__link"
-                                    >{{ link.text }}</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                   <LinkRepeater :links="primaryLinks" />
                 </nav>
             </div>
 
@@ -64,16 +44,14 @@
 </template>
 
 <script lang="ts">
-import { GlobalCtaLink, GlobalImage } from "@/types";
+import { GlobalCtaLink, GlobalImage, GroupItem } from "@/types";
 import { defineComponent, PropType } from "@vue/composition-api";
 import CodyImage from "../CodyImage/CodyImage.vue";
 import Link from "../Link/Link.vue";
 import Social from "../Socials/Social.vue";
+import LinkRepeater from "../LinkRepeater/LinkRepeater.vue";
 
-interface GroupItem {
-    title: string
-    links: GlobalCtaLink[]
-}
+
 interface SocialNames {
     facebook?: string
     twitter?: string
@@ -126,7 +104,7 @@ export default defineComponent({
             default: () => ({})
         },
     },
-    components: { CodyImage, Link, Social }
+    components: { CodyImage, Link, Social, LinkRepeater }
 })
 </script>
 
@@ -154,15 +132,7 @@ Usage: codyhouse.co/license
     }
 }
 
-.main-footer__link {
-    color: var(--color-contrast-medium);
-    text-decoration: none;
 
-    &:hover {
-        color: var(--color-contrast-high);
-        text-decoration: underline;
-    }
-}
 
 .main-footer__social {
     text-decoration: none;

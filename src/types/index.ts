@@ -30,6 +30,11 @@ export interface GlobalCtaLink {
   text?: string;
 }
 
+export interface GroupItem {
+  title: string
+  links: GlobalCtaLink[]
+}
+
 export interface GlobalImage {
   src: string
   alt?: string
