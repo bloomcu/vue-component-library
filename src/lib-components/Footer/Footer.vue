@@ -3,7 +3,9 @@
         <div class="container max-width-lg">
             <div class="grid gap-lg">
                 <div class="col-3@lg order-2@lg text-right@lg">
-                    <CodyImage :image="logo" />
+                    <Link class="main-footer__logo" :href="logo.link.href">
+                        <img :src="logo.image.src">
+                    </Link>
                 </div>
 
                 <nav class="col-9@lg order-1@lg">
@@ -82,8 +84,9 @@ interface SocialNames {
 interface Social extends GlobalCtaLink {
     name?: keyof (SocialNames)
 }
-interface Logo extends GlobalImage {
-    href?: string
+interface Logo {
+    link: GlobalCtaLink
+    image: GlobalImage
 }
 export default defineComponent({
     props: {
@@ -98,7 +101,12 @@ export default defineComponent({
         logo: {
             type: Object as PropType<Logo>,
             default: () => ({
-                src: "http://placeimg.com/150/32/abstract",
+                image: {
+                    src: "http://placeimg.com/150/32/abstract",
+                },
+                link: {
+                    href: '#'
+                }
             })
         },
         primaryLinks: {
