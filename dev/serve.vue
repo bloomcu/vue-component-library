@@ -6,8 +6,18 @@
             :is="block.component"
             :key="index"
         />
-        <component v-for="modal in modals" v-bind="modal" is="Modal" :key="modal.uuid" /> -->
-        <Footer :groups="groups" />
+        <component v-for="modal in modals" v-bind="modal" is="Modal" :key="modal.uuid" />-->
+        <Footer
+            :primaryLinks="groups"
+            :secondaryLinks="[{
+                text: 'test',
+                href: '/testlink'
+            },
+            {
+                text: 'test2',
+                href: '/testlink2'
+            }]"
+        />
     </div>
 </template>
 
@@ -20,7 +30,7 @@ export default defineComponent({
     name: "ServeDev",
     setup() {
         const { blocks, modals } = require("@/json/blocks");
-         const groupGeneration = () => {
+        const groupGeneration = () => {
             const amount = 4
             const arr = []
             for (let i = 0; i < amount; i++) {

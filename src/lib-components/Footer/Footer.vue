@@ -8,11 +8,11 @@
 
                 <nav class="col-9@lg order-1@lg">
                     <ul class="grid gap-lg">
-                        <li v-for="group in groups" :key="group.title" class="col-6@xs col-3@md">
+                        <li v-for="group in primaryLinks" :key="group.title" class="col-6@xs col-3@md">
                             <h4 class="margin-bottom-sm text-base@md">{{ group.title }}</h4>
                             <ul class="grid gap-xs text-sm@md">
                                 <li v-for="link in group.links">
-                                    <a href="#0" class="main-footer__link">{{ link.text }}</a>
+                                    <a Link  :href="link.href" :title="link.text" :target="link.target" :key="link.href" class="main-footer__link">{{ link.text }}</a>
                                 </li>
                             </ul>
                         </li>
@@ -26,8 +26,7 @@
                 <div class="margin-bottom-sm margin-bottom-0@md">
                     <div class="text-sm text-xs@md color-contrast-medium flex flex-wrap gap-xs">
                         <span>&copy; {{ websiteName }}</span>
-                        <a v-if="terms" v-bind="terms" class="color-contrast-high">Terms</a>
-                        <a v-if="privacy" v-bind="privacy" class="color-contrast-high">Privacy</a>
+                        <Link v-for="link in secondaryLinks" :href="link.href" :title="link.text" :target="link.target" :key="link.href"  class="color-contrast-high">{{ link.text }}</Link>
                     </div>
                 </div>
 
@@ -74,6 +73,7 @@
 import { GlobalCtaLink, GlobalImage } from "@/types";
 import { defineComponent, PropType } from "@vue/composition-api";
 import CodyImage from "../CodyImage/CodyImage.vue";
+import Link from "../Link/Link.vue";
 
 interface GroupItem {
     title: string
@@ -105,8 +105,12 @@ export default defineComponent({
                 src: "http://placeimg.com/150/32/abstract",
             })
         },
-        groups: {
+        primaryLinks: {
             type: Array as PropType<GroupItem[]>,
+            default: () => []
+        },
+        secondaryLinks: {
+            type: Array as PropType<GlobalCtaLink[]>,
             default: () => []
         },
         terms: {
@@ -118,7 +122,7 @@ export default defineComponent({
             default: () => ({})
         },
     },
-    components: {  CodyImage }
+    components: { CodyImage, Link }
 })
 </script>
 
