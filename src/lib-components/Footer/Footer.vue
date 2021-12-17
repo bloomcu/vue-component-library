@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { GlobalCtaLink, GlobalImage, GroupItem } from "@/types";
+import { GlobalCtaLink, GlobalImage, GroupItem, Logo } from "@/types";
 import { defineComponent, PropType } from "@vue/composition-api";
 import CodyImage from "../CodyImage/CodyImage.vue";
 import Link from "../Link/Link.vue";
@@ -62,10 +62,7 @@ interface SocialNames {
 interface Social extends GlobalCtaLink {
     name?: keyof (SocialNames)
 }
-interface Logo {
-    link: GlobalCtaLink
-    image: GlobalImage
-}
+
 export default defineComponent({
     props: {
         websiteName: {

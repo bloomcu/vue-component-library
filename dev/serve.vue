@@ -14,6 +14,7 @@
                 href="https://cms.bloomcu.com/organizations/bloomcu/pages/1"
             >Edit in CMS</a>
         </div>
+        <Navbar :links="navLinks" />
 
         <!-- Blocks -->
         <component
@@ -44,6 +45,8 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from '@vue/composition-api'
 import Footer from '@/lib-components/Footer/Footer.vue';
+import Navbar from '@/lib-components/Navbar/Navbar.vue';
+import { groupGeneration } from '@/mock/GroupGeneration';
 import { randomId } from '@/helpers';
 
 export default defineComponent({
@@ -59,43 +62,44 @@ export default defineComponent({
                 .then(data => (page.value = data.data))
         })
 
-        const groupGeneration = () => {
-            const amount = 4
-            const arr = []
-            for (let i = 0; i < amount; i++) {
-                const groupItem = {
-                    title: randomId(),
-                    links: [
-                        {
-                            href: '#',
-                            text: randomId()
-                        },
-                        {
-                            href: '#',
-                            text: randomId()
-                        },
-                        {
-                            href: '#',
-                            text: randomId()
-                        },
-                        {
-                            href: '#',
-                            text: randomId()
-                        },
-                    ]
-                }
-                arr.push(groupItem)
-            }
-            return arr
-        }
-
+        const navLinks = [
+            {
+                link: {
+                    text: randomId(),
+                    href: randomId(),
+                },
+                dropdown: { title: randomId(), links: groupGeneration(), }
+            },
+            {
+                link: {
+                    text: randomId(),
+                    href: randomId(),
+                },
+                dropdown: { title: randomId(), links: groupGeneration(), }
+            },
+            {
+                link: {
+                    text: randomId(),
+                    href: randomId(),
+                },
+                dropdown: { title: randomId(), links: groupGeneration(), }
+            },
+            {
+                link: {
+                    text: randomId(),
+                    href: randomId(),
+                },
+                dropdown: { title: randomId(), links: groupGeneration(), }
+            },
+        ]
         return {
             page,
             blocks,
             modals,
-            groups: groupGeneration()
+            groups: groupGeneration(),
+            navLinks
         };
     },
-    components: { Footer }
+    components: { Footer, Navbar }
 });
 </script>

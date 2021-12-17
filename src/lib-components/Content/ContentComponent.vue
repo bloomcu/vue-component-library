@@ -26,7 +26,7 @@ import { defineComponent, PropType } from "@vue/composition-api"
 import CodyButton from "../CodyButton/CodyButton.vue"
 
 // Types
-import { GlobalCodyButtonProps } from "@/types"
+import { GlobalCodyButton } from "@/types"
 
 export default defineComponent({
     props: {
@@ -47,7 +47,7 @@ export default defineComponent({
             default: 'The subtitle'
         },
         buttons: {
-            type: Array as PropType<Array<GlobalCodyButtonProps>>,
+            type: Array as PropType<Array<GlobalCodyButton>>,
             default: () => [],
         },
     },

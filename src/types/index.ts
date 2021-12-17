@@ -13,7 +13,7 @@ export interface FeatureV9Item {
   buttonText: string
   description: string
 }
-export interface GlobalCodyButtonProps {
+export interface GlobalCodyButton {
   href?: string;
   target?: string
   variant?: Variant;
@@ -35,6 +35,11 @@ export interface GroupItem {
   links: GlobalCtaLink[]
 }
 
+export interface Logo {
+  link: GlobalCtaLink
+  image: GlobalImage
+}
+
 export interface GlobalImage {
   src: string
   alt?: string
@@ -47,7 +52,7 @@ export interface GlobalContentComponent {
   label: string
   header: string
   subHeader: string
-  button: GlobalCodyButtonProps
+  button: GlobalCodyButton
   ctaLink: GlobalCtaLink
 }
 

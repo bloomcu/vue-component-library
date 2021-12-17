@@ -1,8 +1,8 @@
-import { GlobalCodyButtonProps, GlobalCtaLink, GlobalImage } from "@/types";
+import { GlobalCodyButton, GlobalCtaLink, GlobalImage } from "@/types";
 import { PropType } from "@vue/composition-api";
 export const props = {
   button: {
-    type: Object as PropType<GlobalCodyButtonProps>,
+    type: Object as PropType<GlobalCodyButton>,
     default: () => {},
   },
   ctaLink: {
