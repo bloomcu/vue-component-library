@@ -1,9 +1,18 @@
 <template>
     <div id="app" v-if="page">
         <!-- Info Bar -->
-        <div class="flex justify-between items-center bg border-bottom padding-xxs text-sm z-index-3" style="position: -webkit-sticky; position: sticky; top: 0;">
-            <span><strong>Source:</strong> https://cms-api.bloomcu.com/api/organizations/bloomcu/pages/1</span>
-            <a class="btn btn--subtle btn--sm" target="_blank" href="https://cms.bloomcu.com/organizations/bloomcu/pages/1">Edit in CMS</a>
+        <div
+            class="flex justify-between items-center bg border-bottom padding-xxs text-sm z-index-3"
+            style="position: -webkit-sticky; position: sticky; top: 0;"
+        >
+            <span>
+                <strong>Source:</strong> https://cms-api.bloomcu.com/api/organizations/bloomcu/pages/1
+            </span>
+            <a
+                class="btn btn--subtle btn--sm"
+                target="_blank"
+                href="https://cms.bloomcu.com/organizations/bloomcu/pages/1"
+            >Edit in CMS</a>
         </div>
 
         <!-- Blocks -->
@@ -14,7 +23,21 @@
             :key="index"
         />
         <!-- <component v-for="modal in modals" v-bind="modal" is="Modal" :key="modal.uuid" /> -->
-        <Footer :groups="groups" />
+        <Footer
+            :primaryLinks="groups"
+            :secondaryLinks="[{
+                text: 'test',
+                href: '/testlink'
+            },
+            {
+                text: 'test2',
+                href: '/testlink2'
+            }]"
+            :socials="[
+                { name: 'Facebook', href: 'facebook.com' },
+                { name: 'youtube', href: 'youtube.com' },
+            ]"
+        />
     </div>
 </template>
 
@@ -36,7 +59,7 @@ export default defineComponent({
                 .then(data => (page.value = data.data))
         })
 
-         const groupGeneration = () => {
+        const groupGeneration = () => {
             const amount = 4
             const arr = []
             for (let i = 0; i < amount; i++) {
