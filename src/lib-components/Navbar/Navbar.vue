@@ -79,16 +79,21 @@
             <li class="mega-nav__label">Menu</li>
 
             <!-- 👇 layout 2 -> multiple lists -->
-       
+
             <li
               v-for="group in links"
-              :key="group.link.text"
+              :key="group.uuid"
               class="mega-nav__item js-mega-nav__item"
             >
-              <ColumnDropdown :key="group.link.text" :group="group" />
+              <ColumnDropdown
+                v-if="group.children && group.children.length"
+                :key="group.link.text"
+                :group="group"
+              />
+              <CodyButton v-else-if="group.button" class="mega-nav__btn" v-bind="group.button" variant="primary" size="sm"></CodyButton>
+              <Link v-else v-bind="group.link" class="mega-nav__control"></Link>
             </li>
             <!-- <li class="mega-nav__item">
-              <CodyButton class="mega-nav__btn" v-bind="button" variant="primary" size="sm"></CodyButton>
             </li>-->
 
             <!-- 👇 link -->
@@ -189,7 +194,9 @@ import CodyButton from "../CodyButton/CodyButton.vue"
 import SearchDropdown from "./SearchDropdown.vue"
 import ColumnDropdown from "./ColumnDropdown.vue"
 interface NavbarLink extends GlobalCtaLink {
-  link: GlobalCtaLink
+  uuid: string
+  link?: GlobalCtaLink
+  button?: GlobalCodyButton
   children?: GroupItem[]
 }
 export default defineComponent({

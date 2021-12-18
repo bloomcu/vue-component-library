@@ -66,30 +66,44 @@ export default defineComponent({
 
         const navLinks = [
             {
+                uuid: randomId(),
                 link: {
                     text: randomId(),
                 },
                 children: groupGeneration()
             },
             {
+                uuid: randomId(),
                 link: {
                     text: randomId(),
                 },
                 children: groupGeneration()
             },
             {
+                uuid: randomId(),
                 link: {
                     text: randomId(),
                 },
                 // children: groupGeneration()
             },
             {
+                uuid: randomId(),
                 link: {
                     text: randomId(),
                     href: randomId(),
                 },
                 children: groupGeneration()
             },
+            {
+                uuid: randomId(),
+                button: {
+                    text: "Button Text",
+                    // trigger: "123",
+                    variant: "primary",
+                      href: '/button-href',
+                    //   target: '',
+                },
+            }
         ]
         return {
             page,
