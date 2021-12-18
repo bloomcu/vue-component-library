@@ -18,7 +18,7 @@
             >
                 <div class="margin-bottom-sm margin-bottom-0@md">
                     <div class="text-sm text-xs@md color-contrast-medium flex flex-wrap gap-xs">
-                        <span>&copy; {{ websiteName }}</span>
+                        <span>&copy; {{ organization }} {{ new Date().getFullYear() }}</span>
                         <Link
                             v-for="link in secondaryLinks"
                             :href="link.href"
@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { GlobalCtaLink, GlobalImage, GroupItem, Logo } from "@/types";
+import { GlobalCtaLink, GroupItem, Logo } from "@/types";
 import { defineComponent, PropType } from "@vue/composition-api";
 import CodyImage from "../CodyImage/CodyImage.vue";
 import Link from "../Link/Link.vue";
@@ -65,7 +65,7 @@ interface Social extends GlobalCtaLink {
 
 export default defineComponent({
     props: {
-        websiteName: {
+        organization: {
             type: String,
             default: "Website"
         },

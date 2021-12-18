@@ -80,16 +80,19 @@
 
             <!-- 👇 layout 2 -> multiple lists -->
             <li
-              v-for="(group, index) in links"
+              v-for="group in links"
               :key="group.link.text"
               class="mega-nav__item js-mega-nav__item"
             >
-              <button class="reset mega-nav__control js-mega-nav__control js-tab-focus">
+              <button
+                v-if="group.dropdown"
+                class="reset mega-nav__control js-mega-nav__control js-tab-focus"
+              >
                 {{ group.link.text }}
                 <DropdownIcon />
               </button>
-
-              <div class="mega-nav__sub-nav-wrapper">
+              <Link v-else :href="group.link.href" class="mega-nav__control">Link</Link>
+              <div v-if="group.dropdown" class="mega-nav__sub-nav-wrapper">
                 <div class="mega-nav__sub-nav" :class="`mega-nav__sub-nav--layout`">
                   <!-- <LinkRepeater :links="group" /> -->
                   <LinkRepeater :links="group.dropdown.links" />
@@ -193,7 +196,7 @@ import { GlobalCodyButton, GlobalCtaLink, Logo } from "@/types"
 import Link from "../Link/Link.vue"
 import CodyButton from "../CodyButton/CodyButton.vue"
 import SearchDropdown from "./SearchDropdown.vue"
-interface NavbarLink extends GlobalCtaLink {
+interface NavbarLink {
   link: GlobalCtaLink
   dropdown?: any
 }
@@ -203,6 +206,7 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    // primaryLinks: {},
     links: {
       type: Array as PropType<NavbarLink[]>,
       default: () => []
@@ -228,9 +232,7 @@ export default defineComponent({
   setup() {
     onMounted(() => {
       navbarScript()
-
     })
-
     return {
     }
   },

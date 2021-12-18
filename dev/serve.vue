@@ -3,7 +3,7 @@
         <!-- Info Bar -->
         <div
             class="flex justify-between items-center bg border-bottom padding-xxs text-sm z-index-3"
-            style="position: -webkit-sticky; position: sticky; top: 0;"
+            style="position: -webkit-sticky; position: sticky; top: 0; max-width: 100%"
         >
             <span>
                 <strong>Source:</strong> https://cms-api.bloomcu.com/api/organizations/bloomcu/pages/1
@@ -56,6 +56,8 @@ export default defineComponent({
         const page = ref()
 
         onMounted(() => {
+            const htmlEl = document.querySelector('html')
+            htmlEl?.classList.add('js')
             // fetch('http://cms.test/api/organizations/bloomcu/pages/1')
             fetch('https://cms-api.bloomcu.com/api/organizations/bloomcu/pages/1')
                 .then(response => response.json())
@@ -82,7 +84,7 @@ export default defineComponent({
                     text: randomId(),
                     href: randomId(),
                 },
-                dropdown: { title: randomId(), links: groupGeneration(), }
+                // dropdown: { title: randomId(), links: groupGeneration(), }
             },
             {
                 link: {

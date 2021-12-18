@@ -11,7 +11,7 @@
                 aria-label="Search"
             />
 
-            <!-- <div class="margin-top-lg">
+            <div class="margin-top-lg">
                 <p class="mega-nav__label">Quick Links</p>
 
                 <ul>
@@ -31,10 +31,28 @@
                         <a href="#0" class="mega-nav__quick-link">Contact Us</a>
                     </li>
                 </ul>
-            </div> -->
+            </div>
         </div>
     </div>
 </template>
+
+<script lang="ts">
+import { GroupItem } from '@/types'
+import { defineComponent, PropType } from '@vue/composition-api'
+
+export default defineComponent({
+    props: {
+        links: {
+            type: Object as PropType<GroupItem>,
+            default: () => ({
+                    title: 'hello world',
+                    links: []
+            })
+        }
+    }
+})
+</script>
+
 
 <style lang="scss">
 
