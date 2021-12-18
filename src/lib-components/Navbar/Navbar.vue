@@ -80,17 +80,19 @@
 
             <!-- 👇 layout 2 -> multiple lists -->
 
-            <li
-              v-for="group in links"
-              :key="group.uuid"
-              class="mega-nav__item js-mega-nav__item"
-            >
+            <li v-for="group in links" :key="group.uuid" class="mega-nav__item js-mega-nav__item">
               <ColumnDropdown
                 v-if="group.children && group.children.length"
                 :key="group.link.text"
                 :group="group"
               />
-              <CodyButton v-else-if="group.button" class="mega-nav__btn" v-bind="group.button" variant="primary" size="sm"></CodyButton>
+              <CodyButton
+                v-else-if="group.button"
+                class="mega-nav__btn"
+                v-bind="group.button"
+                variant="primary"
+                size="sm"
+              ></CodyButton>
               <Link v-else v-bind="group.link" class="mega-nav__control"></Link>
             </li>
             <!-- <li class="mega-nav__item">
@@ -103,72 +105,8 @@
           </ul>
 
           <ul class="mega-nav__items">
-            <!-- 👇 icon buttons --desktop -->
-            <li class="mega-nav__icon-btns mega-nav__icon-btns--desktop">
-              <div class="dropdown inline-block js-dropdown">
-                <div class="mega-nav__icon-btn dropdown__wrapper inline-block">
-                  <a
-                    href="#0"
-                    class="color-inherit flex height-100% width-100% flex-center dropdown__trigger js-dropdown__trigger"
-                  >
-                    <svg class="icon" viewBox="0 0 24 24">
-                      <title>Go to account settings</title>
-                      <g
-                        class="icon__group"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="square"
-                        stroke-miterlimit="10"
-                        stroke-width="2"
-                      >
-                        <circle cx="12" cy="6" r="4" />
-                        <path d="M12 13a8 8 0 00-8 8h16a8 8 0 00-8-8z" />
-                      </g>
-                    </svg>
-                  </a>
-
-                  <ul class="dropdown__menu js-dropdown__menu" aria-label="submenu">
-                    <li>
-                      <a href="#0" class="dropdown__item">Profile</a>
-                    </li>
-                    <li>
-                      <a href="#0" class="dropdown__item">Notifications</a>
-                    </li>
-                    <li>
-                      <a href="#0" class="dropdown__item">Messages</a>
-                    </li>
-                    <li class="dropdown__separator" role="separator"></li>
-                    <li>
-                      <a href="#0" class="dropdown__item">Account Settings</a>
-                    </li>
-                    <li>
-                      <a href="#0" class="dropdown__item">Log out</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <button
-                class="reset mega-nav__icon-btn mega-nav__icon-btn--search js-tab-focus"
-                aria-label="Toggle search"
-                aria-controls="mega-nav-search"
-              >
-                <svg class="icon" viewBox="0 0 24 24">
-                  <g
-                    class="icon__group"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="square"
-                    stroke-miterlimit="10"
-                    stroke-width="2"
-                  >
-                    <path d="M4.222 4.222l15.556 15.556" />
-                    <path d="M19.778 4.222L4.222 19.778" />
-                    <circle cx="9.5" cy="9.5" r="6.5" />
-                  </g>
-                </svg>
-              </button>
-            </li>
+            <SearchDropdown v-if="search" />
+            <Dropdown />
 
             <!-- 👇 button -->
             <li class="mega-nav__item">
@@ -177,7 +115,7 @@
           </ul>
         </div>
       </div>
-      <SearchDropdown v-if="search" />
+      <!-- <SearchDropdown v-if="search" /> -->
     </div>
   </header>
 </template>
@@ -193,6 +131,7 @@ import Link from "../Link/Link.vue"
 import CodyButton from "../CodyButton/CodyButton.vue"
 import SearchDropdown from "./SearchDropdown.vue"
 import ColumnDropdown from "./ColumnDropdown.vue"
+import Dropdown from "./Dropdown.vue"
 interface NavbarLink extends GlobalCtaLink {
   uuid: string
   link?: GlobalCtaLink
@@ -236,7 +175,7 @@ export default defineComponent({
     return {
     }
   },
-  components: { LinkRepeater, DropdownIcon, Link, CodyButton, SearchDropdown, ColumnDropdown }
+  components: { LinkRepeater, DropdownIcon, Link, CodyButton, SearchDropdown, ColumnDropdown, Dropdown }
 })
 </script>
 
