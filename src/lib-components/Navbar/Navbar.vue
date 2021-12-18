@@ -79,26 +79,17 @@
             <li class="mega-nav__label">Menu</li>
 
             <!-- 👇 layout 2 -> multiple lists -->
+       
             <li
               v-for="group in links"
               :key="group.link.text"
               class="mega-nav__item js-mega-nav__item"
             >
-              <button
-                v-if="group.dropdown"
-                class="reset mega-nav__control js-mega-nav__control js-tab-focus"
-              >
-                {{ group.link.text }}
-                <DropdownIcon />
-              </button>
-              <Link v-else :href="group.link.href" class="mega-nav__control">Link</Link>
-              <div v-if="group.dropdown" class="mega-nav__sub-nav-wrapper">
-                <div class="mega-nav__sub-nav" :class="`mega-nav__sub-nav--layout`">
-                  <!-- <LinkRepeater :links="group" /> -->
-                  <LinkRepeater :links="group.dropdown.links" />
-                </div>
-              </div>
+              <ColumnDropdown :key="group.link.text" :group="group" />
             </li>
+            <!-- <li class="mega-nav__item">
+              <CodyButton class="mega-nav__btn" v-bind="button" variant="primary" size="sm"></CodyButton>
+            </li>-->
 
             <!-- 👇 link -->
             <!-- <li class="mega-nav__item">
@@ -192,13 +183,14 @@ import { defineComponent, onMounted, PropType } from "@vue/composition-api"
 import navbarScript from "./NavbarScript"
 import LinkRepeater from "../LinkRepeater/LinkRepeater.vue"
 import DropdownIcon from "./DropdownIcon.vue"
-import { GlobalCodyButton, GlobalCtaLink, Logo } from "@/types"
+import { GlobalCodyButton, GlobalCtaLink, GroupItem, Logo } from "@/types"
 import Link from "../Link/Link.vue"
 import CodyButton from "../CodyButton/CodyButton.vue"
 import SearchDropdown from "./SearchDropdown.vue"
-interface NavbarLink {
+import ColumnDropdown from "./ColumnDropdown.vue"
+interface NavbarLink extends GlobalCtaLink {
   link: GlobalCtaLink
-  dropdown?: any
+  children?: GroupItem[]
 }
 export default defineComponent({
   props: {
@@ -206,7 +198,6 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
-    // primaryLinks: {},
     links: {
       type: Array as PropType<NavbarLink[]>,
       default: () => []
@@ -232,11 +223,13 @@ export default defineComponent({
   setup() {
     onMounted(() => {
       navbarScript()
+
     })
+
     return {
     }
   },
-  components: { LinkRepeater, DropdownIcon, Link, CodyButton, SearchDropdown }
+  components: { LinkRepeater, DropdownIcon, Link, CodyButton, SearchDropdown, ColumnDropdown }
 })
 </script>
 

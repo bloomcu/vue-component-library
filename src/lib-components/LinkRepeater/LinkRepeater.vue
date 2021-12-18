@@ -1,4 +1,5 @@
 <template>
+    <!-- TODO: make this use the grid component -->
     <ul class="grid gap-lg">
         <li v-for="group in links" :key="group.title" class="col-6@xs col-3@md">
             <h4 class="margin-bottom-sm text-base@md">{{ group.title }}</h4>
@@ -28,7 +29,7 @@ export default defineComponent({
             type: Array as PropType<GroupItem[]>,
             default: () => []
         }
-    }
+    },
 })
 </script>
 

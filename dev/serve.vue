@@ -68,30 +68,27 @@ export default defineComponent({
             {
                 link: {
                     text: randomId(),
-                    href: randomId(),
                 },
-                dropdown: { title: randomId(), links: groupGeneration(), }
+                children: groupGeneration()
+            },
+            {
+                link: {
+                    text: randomId(),
+                },
+                children: groupGeneration()
+            },
+            {
+                link: {
+                    text: randomId(),
+                },
+                // children: groupGeneration()
             },
             {
                 link: {
                     text: randomId(),
                     href: randomId(),
                 },
-                dropdown: { title: randomId(), links: groupGeneration(), }
-            },
-            {
-                link: {
-                    text: randomId(),
-                    href: randomId(),
-                },
-                // dropdown: { title: randomId(), links: groupGeneration(), }
-            },
-            {
-                link: {
-                    text: randomId(),
-                    href: randomId(),
-                },
-                dropdown: { title: randomId(), links: groupGeneration(), }
+                children: groupGeneration()
             },
         ]
         return {
