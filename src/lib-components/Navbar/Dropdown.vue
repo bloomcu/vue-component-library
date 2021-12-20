@@ -1,6 +1,6 @@
 <template>
     <!-- 👇 icon buttons --desktop -->
-    <li class="mega-nav__item">
+    <li class="mega-nav__item list-style-none">
         <div class="dropdown inline-block js-dropdown">
             <div class="mega-nav__icon-btn dropdown__wrapper inline-block">
                 <a

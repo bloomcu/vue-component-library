@@ -23,9 +23,10 @@
     "postbuild": "rimraf ./dist/types/dev ./dist/types/src/entry.d.ts"
   },
   "dependencies": {
+    "@types/webpack-env": "^1.16.3",
     "@vue/composition-api": "^1.2.4",
     "codyhouse-framework": "^3.0.2",
-    "@types/webpack-env": "^1.16.3"
+    "vue-fragment": "^1.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

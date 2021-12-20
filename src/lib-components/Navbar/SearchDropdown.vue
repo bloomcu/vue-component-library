@@ -1,10 +1,10 @@
 <template>
     <div>
-        <li class="mega-nav__item height-100%">
+        <li class="mega-nav__item height-100% list-style-none">
             <button
                 class="reset mega-nav__icon-btn mega-nav__icon-btn--search js-tab-focus center"
                 aria-label="Toggle search"
-                aria-controls="mega-nav-search"
+                :aria-controls="uuid"
             >
                 <svg class="icon" viewBox="0 0 24 24">
                     <g
@@ -23,7 +23,7 @@
             </button>
         </li>
         <!-- 👇 search -->
-        <div class="mega-nav__search js-mega-nav__search" id="mega-nav-search">
+        <div class="mega-nav__search js-mega-nav__search" :id="uuid">
             <div class="mega-nav__search-inner">
                 <input
                     class="form-control width-100%"
@@ -59,6 +59,7 @@
 </template>
 
 <script lang="ts">
+import { randomId } from '@/helpers'
 import { GroupItem } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
 
@@ -70,8 +71,12 @@ export default defineComponent({
                 title: 'hello world',
                 links: []
             })
+        },
+        uuid: {
+            type: String,
+            default: randomId()
         }
-    }
+    },
 })
 </script>
 

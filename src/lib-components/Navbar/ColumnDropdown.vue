@@ -34,8 +34,5 @@ export default defineComponent({
         }
     },
     components: { DropdownIcon, LinkRepeater },
-    mounted() {
-        console.log(`this.group`, this.group)
-    }
 })
 </script>

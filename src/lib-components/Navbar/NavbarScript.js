@@ -297,7 +297,6 @@ Math.easeOutElastic = function (t, b, c, d) {
     shouldInit = false,
     outlineStyle = false,
     eventDetected = false;
-
   function detectClick() {
     if (focusTab.length > 0) {
       resetFocusStyle(false);
