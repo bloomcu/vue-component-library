@@ -13,7 +13,7 @@
                 target="_blank"
                 href="https://cms.bloomcu.com/organizations/bloomcu/pages/1"
             >Edit in CMS</a>
-        </div> -->
+        </div>-->
         <Navbar :links="navLinks" />
 
         <!-- Blocks -->
@@ -67,42 +67,26 @@ export default defineComponent({
         const navLinks = [
             {
                 uuid: randomId(),
-                link: {
-                    text: randomId(),
-                },
+                component: 'dropdown',
+                text: randomId(),
+                href: randomId(),
+                children: groupGeneration(false)
+            },
+            {
+                uuid: randomId(),
+                component: 'ColumnDropdown',
+                text: randomId(),
+                href: randomId(),
                 children: groupGeneration()
             },
             {
                 uuid: randomId(),
-                link: {
-                    text: randomId(),
-                },
-                children: groupGeneration()
-            },
-            {
-                uuid: randomId(),
-                link: {
-                    text: randomId(),
-                },
-                // children: groupGeneration()
-            },
-            {
-                uuid: randomId(),
-                link: {
-                    text: randomId(),
-                    href: randomId(),
-                },
-                children: groupGeneration()
-            },
-            {
-                uuid: randomId(),
-                button: {
-                    text: "Button Text",
-                    // trigger: "123",
-                    variant: "primary",
-                      href: '/button-href',
-                    //   target: '',
-                },
+                component: 'CodyButton',
+                text: "Button Text",
+                // trigger: "123",
+                variant: "primary",
+                href: '/button-href',
+                //   target: '',
             }
         ]
         return {

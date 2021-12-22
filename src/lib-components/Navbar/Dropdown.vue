@@ -1,6 +1,6 @@
 <template>
     <!-- 👇 icon buttons --desktop -->
-    <li ref="dropdown" class="mega-nav__item list-style-none">
+    <div ref="dropdown" class="mega-nav__item list-style-none">
         <div class="position-relative inline-block cody-dropdown">
             <div
                 class="mega-nav__icon-btn inline-block"
@@ -35,34 +35,27 @@
                     }"
                     aria-label="submenu"
                 >
-                    <li>
-                        <a href="#0" class="dropdown__item">Profile</a>
-                    </li>
-                    <li>
-                        <a href="#0" class="dropdown__item">Notifications</a>
-                    </li>
-                    <li>
-                        <a href="#0" class="dropdown__item">Messages</a>
-                    </li>
-                    <li class="dropdown__separator" role="separator"></li>
-                    <li>
-                        <a href="#0" class="dropdown__item">Account Settings</a>
-                    </li>
-                    <li>
-                        <a href="#0" class="dropdown__item">Log out</a>
+                    <li v-for="child in children" :key="child.href">
+                        <a :href="child.href" class="dropdown__item">{{ child.text }}</a>
                     </li>
                 </ul>
             </div>
         </div>
-    </li>
+    </div>
 </template>
 
 <script lang="ts">
 import useClickOutside from "@/composables/useClickOutside";
-import { defineComponent, onMounted, ref } from "@vue/composition-api";
+import { GlobalCtaLink } from "@/types";
+import { defineComponent, onMounted, PropType, ref } from "@vue/composition-api";
 
 export default defineComponent({
-
+    props: {
+        children: {
+            type: Array as PropType<GlobalCtaLink[]>,
+            default: () => ([])
+        },
+    },
     setup() {
         const dropdownOpen = ref(false)
         const dropdown = ref(null)

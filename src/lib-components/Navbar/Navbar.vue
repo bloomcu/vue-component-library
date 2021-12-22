@@ -30,7 +30,8 @@
 
             <!-- 👇 layout 2 -> multiple lists -->
             <li v-for="group in links" :key="group.uuid" class="mega-nav__item js-mega-nav__item">
-              <NavbarComponent :group="group" />
+              <!-- {{group}} -->
+              <component :is="group.component" v-bind="group" />
             </li>
           </ul>
 

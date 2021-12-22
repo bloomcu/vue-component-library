@@ -1,10 +1,10 @@
 import { randomId } from "@/helpers"
 
-export const groupGeneration = () => {
+export const groupGeneration = (includeTitles = true) => {
     const amount = 4
     const arr = []
     for (let i = 0; i < amount; i++) {
-        const groupItem = {
+        const groupItem = includeTitles ? {
             title: randomId(),
             links: [
                 {
@@ -24,6 +24,9 @@ export const groupGeneration = () => {
                     text: randomId()
                 },
             ]
+        } : {
+            href: '#',
+            text: randomId(),
         }
         arr.push(groupItem)
     }
