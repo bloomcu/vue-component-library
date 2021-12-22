@@ -247,7 +247,6 @@ Usage: codyhouse.co/license
 
   .mega-nav__nav,
   .mega-nav__search {
-    display: none;
     position: absolute;
     top: var(--mega-nav-height);
     left: 0;
@@ -259,6 +258,9 @@ Usage: codyhouse.co/license
     -webkit-overflow-scrolling: touch;
     background-color: var(--color-bg);
     box-shadow: var(--shadow-lg);
+  }
+  .mega-nav__nav {
+    display: none;
   }
 
   .mega-nav__nav--is-visible,
@@ -411,7 +413,6 @@ Usage: codyhouse.co/license
 .mega-nav--desktop {
   .mega-nav__icon-btns--mobile,
   .mega-nav__sub-nav-wrapper,
-  .mega-nav__search,
   .mega-nav__label {
     display: none;
   }

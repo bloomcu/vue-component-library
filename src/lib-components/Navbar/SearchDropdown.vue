@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="cody-searchdropdown">
         <!-- Rewrite in Vue -->
         <li class="mega-nav__item height-100% list-style-none">
             <button
+            @click="dropdownOpen = !dropdownOpen"
                 class="reset mega-nav__icon-btn mega-nav__icon-btn--search js-tab-focus center"
                 aria-label="Toggle search"
-                :aria-controls="uuid"
             >
                 <svg class="icon" viewBox="0 0 24 24">
                     <g
@@ -24,52 +24,54 @@
             </button>
         </li>
         <!-- 👇 search -->
-        <div class="mega-nav__search js-mega-nav__search" :id="uuid">
-            <div class="mega-nav__search-inner">
-                <input
-                    class="form-control width-100%"
-                    type="reset search"
-                    name="megasite-search"
-                    id="megasite-search"
-                    placeholder="Search..."
-                    aria-label="Search"
-                />
-                <div class="margin-top-lg">
-                    <p class="mega-nav__label">Quick Links</p>
-                    <ul>
-                        <li>
-                            <a href="#0" class="mega-nav__quick-link">Find a Store</a>
-                        </li>
-                        <li>
-                            <a href="#0" class="mega-nav__quick-link">Your Orders</a>
-                        </li>
-                        <li>
-                            <a href="#0" class="mega-nav__quick-link">Documentation</a>
-                        </li>
-                        <li>
-                            <a href="#0" class="mega-nav__quick-link">Questions &amp; Answers</a>
-                        </li>
-                        <li>
-                            <a href="#0" class="mega-nav__quick-link">Contact Us</a>
-                        </li>
-                    </ul>
+        <transition name="slide">
+            <div v-if="dropdownOpen" class="mega-nav__search">
+                <div class="mega-nav__search-inner">
+                    <input
+                        class="form-control width-100%"
+                        type="reset search"
+                        name="megasite-search"
+                        id="megasite-search"
+                        placeholder="Search..."
+                        aria-label="Search"
+                    />
+                    <div class="margin-top-lg">
+                        <p class="mega-nav__label">Quick Links</p>
+                        <ul>
+                            <li>
+                                <a href="#0" class="mega-nav__quick-link">Find a Store</a>
+                            </li>
+                            <li>
+                                <a href="#0" class="mega-nav__quick-link">Your Orders</a>
+                            </li>
+                            <li>
+                                <a href="#0" class="mega-nav__quick-link">Documentation</a>
+                            </li>
+                            <li>
+                                <a href="#0" class="mega-nav__quick-link">Questions &amp; Answers</a>
+                            </li>
+                            <li>
+                                <a href="#0" class="mega-nav__quick-link">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
 
 <script lang="ts">
 import { randomId } from '@/helpers'
 import { GroupItem } from '@/types'
-import { defineComponent, PropType } from '@vue/composition-api'
+import { defineComponent, PropType, ref } from '@vue/composition-api'
 
 export default defineComponent({
     props: {
         links: {
             type: Object as PropType<GroupItem>,
             default: () => ({
-                title: 'hello world',
+                title: "hello world",
                 links: []
             })
         },
@@ -78,9 +80,28 @@ export default defineComponent({
             default: randomId()
         }
     },
+    setup() {
+        const dropdownOpen = ref(false)
+        return {
+            dropdownOpen
+        }
+    }
 })
 </script>
 
 
 <style lang="scss">
+.cody-searchdropdown {
+    .mega-nav__search, .mega-nav--desktop .mega-nav__search {
+        display: block;
+    }
+}
+.slide-enter-active,
+.slide-leave-active {
+    transition: 0.2s;
+}
+.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(-15px)
+}
 </style>
