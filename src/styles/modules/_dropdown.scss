@@ -28,7 +28,7 @@ Usage: codyhouse.co/license
   --text-unit: 1rem;
   font-size: var(--text-unit);
   opacity: 0;
-  visibility: hidden;
+  // visibility: hidden;
   transition: opacity 0.2s, visibility 0s 0.2s;
 }
 

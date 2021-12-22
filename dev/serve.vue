@@ -1,6 +1,6 @@
 <template>
     <div id="app" v-if="page">
-        <!-- Info Bar -->
+        <!-- Info Bar
         <div
             class="flex justify-between items-center bg border-bottom padding-xxs text-sm z-index-3"
             style="position: -webkit-sticky; position: sticky; top: 0; max-width: 100%"
@@ -13,7 +13,7 @@
                 target="_blank"
                 href="https://cms.bloomcu.com/organizations/bloomcu/pages/1"
             >Edit in CMS</a>
-        </div>
+        </div> -->
         <Navbar :links="navLinks" />
 
         <!-- Blocks -->
@@ -63,7 +63,7 @@ export default defineComponent({
                 .then(response => response.json())
                 .then(data => (page.value = data.data))
         })
-
+        // TODO: add component 
         const navLinks = [
             {
                 uuid: randomId(),

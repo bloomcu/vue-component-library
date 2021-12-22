@@ -7,7 +7,12 @@
       </Link>
 
       <!-- 👇 icon buttons --mobile -->
+      <!-- TODO add window resizer if needed -->
       <div class="mega-nav__icon-btns mega-nav__icon-btns--mobile">
+        <Dropdown />
+        <!-- <Dropdown />
+        <Dropdown />
+        <Dropdown /> -->
         <Dropdown />
         <SearchDropdown uuid="mobile" v-if="search" />
         <MobileHamburger />
@@ -74,7 +79,7 @@ export default defineComponent({
       type: Object as PropType<Logo>,
       default: () => ({
         image: {
-          src: "http://placeimg.com/150/32/abstract",
+          src: "https://via.placeholder.com/200x100",
         },
         link: {
           href: '#'

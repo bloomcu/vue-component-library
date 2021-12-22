@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- Rewrite in Vue -->
         <li class="mega-nav__item height-100% list-style-none">
             <button
                 class="reset mega-nav__icon-btn mega-nav__icon-btn--search js-tab-focus center"

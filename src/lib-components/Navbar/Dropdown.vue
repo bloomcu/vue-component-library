@@ -1,11 +1,16 @@
 <template>
     <!-- 👇 icon buttons --desktop -->
-    <li class="mega-nav__item list-style-none">
-        <div class="dropdown inline-block js-dropdown">
-            <div class="mega-nav__icon-btn dropdown__wrapper inline-block">
+    <li ref="dropdown" class="mega-nav__item list-style-none">
+        <div class="position-relative inline-block cody-dropdown">
+            <div
+                class="mega-nav__icon-btn inline-block"
+                :class="dropdownOpen ? 'mega-nav__icon-btn--active' : 'mega-nav__icon-btn--inactive'"
+            >
                 <a
                     href="#0"
-                    class="color-inherit flex height-100% width-100% flex-center dropdown__trigger js-dropdown__trigger"
+                    @click.prevent="dropdownOpen = !dropdownOpen"
+                    :class="dropdownOpen ? 'cody-dropdown__trigger--active' : ''"
+                    class="color-inherit flex height-100% width-100% flex-center cody-dropdown__trigger"
                 >
                     <svg class="icon" viewBox="0 0 24 24">
                         <title>Go to account settings</title>
@@ -23,7 +28,13 @@
                     </svg>
                 </a>
 
-                <ul class="dropdown__menu js-dropdown__menu" aria-label="submenu">
+                <ul
+                    class="dropdown__menu"
+                    :class="{
+                        'opacity-100': dropdownOpen
+                    }"
+                    aria-label="submenu"
+                >
                     <li>
                         <a href="#0" class="dropdown__item">Profile</a>
                     </li>
@@ -45,3 +56,73 @@
         </div>
     </li>
 </template>
+
+<script lang="ts">
+import useClickOutside from "@/composables/useClickOutside";
+import { defineComponent, onMounted, ref } from "@vue/composition-api";
+
+export default defineComponent({
+
+    setup() {
+        const dropdownOpen = ref(false)
+        const dropdown = ref(null)
+        onMounted(() => {
+            useClickOutside(dropdown.value, (v) => {
+                if (v) {
+                    dropdownOpen.value = false
+                }
+            })
+        })
+        return {
+            dropdownOpen,
+            dropdown
+        }
+    },
+
+})
+</script>
+<style lang="scss">
+@mixin dropdownActiveBg() {
+    background-color: hsla(
+        var(--color-contrast-higher-h),
+        var(--color-contrast-higher-s),
+        var(--color-contrast-higher-l),
+        0.05
+    );
+}
+.mega-nav__item {
+    .cody-dropdown {
+        .cody-dropdown__trigger {
+            border-radius: 50%;
+            transition: background-color 0.2s;
+            &:hover {
+                @include dropdownActiveBg();
+            }
+        }
+        .cody-dropdown__trigger--active {
+            @include dropdownActiveBg();
+        }
+        .opacity-100 {
+            opacity: 1;
+        }
+        .mega-nav__icon-btn--inactive {
+            li {
+                pointer-events: none;
+            }
+        }
+        .mega-nav__icon-btn {
+            cursor: initial;
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+</style>
