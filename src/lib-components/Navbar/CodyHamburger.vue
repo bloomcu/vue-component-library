@@ -1,9 +1,9 @@
 <template>
   <div class="position-relative">
     <a
-      @click.prevent="toggle('mobileMenu')"
+      @click.prevent="toggle(mobileMenuKey)"
       class="cody-hamburger"
-      :class="{ 'active': isActive('mobileMenu') }"
+      :class="{ 'active': isActive(mobileMenuKey) }"
       href="#"
       ><span></span
     ></a>
@@ -12,12 +12,14 @@
 
 <script lang="ts">
 import useToggle from '@/composables/useToggle';
+import { mobileMenuKey } from '@/constants'
 export default {
   setup() {
       const { isActive, toggle } = useToggle()
     return {
       isActive,
       toggle,
+      mobileMenuKey
     };
   },
 };

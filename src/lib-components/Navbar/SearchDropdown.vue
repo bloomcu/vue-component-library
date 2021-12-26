@@ -3,7 +3,7 @@
         <!-- Rewrite in Vue -->
         <li class="mega-nav__item height-100% list-style-none">
             <button
-                @click="dropdownOpen = !dropdownOpen"
+                @click="dropdownOpen = !dropdownOpen, close(mobileMenuKey) "
                 class="reset mega-nav__icon-btn mega-nav__icon-btn--search js-tab-focus center"
                 aria-label="Toggle search"
             >
@@ -49,6 +49,8 @@
 
 <script lang="ts">
 import useClickOutside from '@/composables/useClickOutside'
+import useToggle from '@/composables/useToggle'
+import { mobileMenuKey } from '@/constants'
 import { randomId } from '@/helpers'
 import { GlobalCtaLink } from '@/types'
 import { defineComponent, PropType, ref, onMounted } from '@vue/composition-api'
@@ -68,15 +70,19 @@ export default defineComponent({
     setup() {
         const dropdownOpen = ref(false);
         const dropdown = ref(null);
+        const { close } = useToggle()
         onMounted(() => {
             useClickOutside(dropdown.value, (val) => {
                 if (val)
                     dropdownOpen.value = false;
             });
         });
+        
         return {
             dropdownOpen,
-            dropdown
+            dropdown,
+            close,
+            mobileMenuKey
         };
     },
     components: { Search }

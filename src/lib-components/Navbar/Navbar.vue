@@ -12,7 +12,7 @@
       <div class="mega-nav__icon-btns mega-nav__icon-btns--mobile">
    
         <!-- <SearchDropdown uuid="mobile" v-if="search" /> -->
-          <component v-for="group in getMobileMenuItems" :is="group.component" v-bind="group" />
+          <component v-for="(group, i) in getMobileMenuItems" :key="i" :is="group.component" v-bind="group" />
         <!-- <div v-for="group in getMobileMenuItems" :key="group.text">
         </div> -->
         <CodyHamburger />

@@ -9,7 +9,7 @@
             >
                 <a
                     href="#0"
-                    @click.prevent="dropdownOpen = !dropdownOpen"
+                    @click.prevent="dropdownOpen = !dropdownOpen, close(mobileMenuKey)"
                     :class="dropdownOpen ? 'cody-dropdown__trigger--active' : ''"
                     class="color-inherit flex height-100% width-100% flex-center cody-dropdown__trigger"
                 >
@@ -49,7 +49,8 @@
 import useClickOutside from "@/composables/useClickOutside";
 import { GlobalCtaLink } from "@/types";
 import { defineComponent, onMounted, PropType, ref } from "@vue/composition-api";
-
+import { mobileMenuKey } from "@/constants";
+import useToggle from "@/composables/useToggle";
 export default defineComponent({
     props: {
         children: {
@@ -71,9 +72,12 @@ export default defineComponent({
                 }
             })
         })
+        const { close } = useToggle()
         return {
             dropdownOpen,
-            dropdown
+            dropdown,
+            mobileMenuKey,
+            close
         }
     },
 

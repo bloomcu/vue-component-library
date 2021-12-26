@@ -32,10 +32,23 @@ function toggle(item : string) {
     : active.value.splice(itemIndex, 1);
 
 }
+/**
+ * Toggle item
+ *
+ * @param  {String} item Name of element to be closed
+ */
+function close(item: string) {
+  const itemIndex = active.value.indexOf(item);
+  if (itemIndex !== -1) {
+    active.value.splice(itemIndex, 1);
+  }
+
+}
 export default function useToggle() {
 
   return {
     isActive,
     toggle,
+    close
   };
 }
