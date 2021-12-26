@@ -1,6 +1,6 @@
 <template>
   <header class="mega-nav mega-nav--mobile mega-nav--desktop@md position-relative js-mega-nav">
-    <MobileMenu />
+    <MobileMenu :links="getMobileDropdownItems" />
     <div class="mega-nav__container">
       <!-- 👇 logo -->
       <Link class="mega-nav__logo" :href="logo.link.href">
@@ -12,11 +12,11 @@
       <div class="mega-nav__icon-btns mega-nav__icon-btns--mobile">
    
         <!-- <SearchDropdown uuid="mobile" v-if="search" /> -->
+          <component v-for="group in getMobileMenuItems" :is="group.component" v-bind="group" />
         <!-- <div v-for="group in getMobileMenuItems" :key="group.text">
-          <component :is="group.component" v-bind="group" />
         </div> -->
         <CodyHamburger />
-        <MobileHamburger />
+        <!-- <MobileHamburger /> -->
       </div>
 
       <div
@@ -67,7 +67,6 @@ import ColumnDropdown from "./ColumnDropdown.vue"
 import Dropdown from "./Dropdown.vue"
 import MobileHamburger from "./MobileHamburger.vue"
 import NavbarComponent from "./NavbarComponent.vue"
-import { toTitleCase } from "@/helpers"
 import CodyHamburger from "./CodyHamburger.vue"
 import MobileMenu from "./Mobile/MobileMenu.vue"
 
@@ -116,6 +115,7 @@ export default defineComponent({
     })
     const getMobileDropdownItems = computed(() => {
       const mergeLinks = [...props.primaryLinks, ...props.secondaryLinks]
+      console.log(`mergeLinks`, mergeLinks)
       return mergeLinks.filter((l) => mobileDropdownItemKeys.map((m) => m.toLowerCase()).includes(l.component?.toLowerCase()))
     })
 

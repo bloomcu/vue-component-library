@@ -28,8 +28,8 @@ export default {
 
 .cody-hamburger {
   cursor: pointer;
-  position: absolute;
-  right: 6rem;
+  display: flex;
+  padding-right: 20px;
   
 }
 .cody-hamburger span,

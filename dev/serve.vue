@@ -14,7 +14,7 @@
                 href="https://cms.bloomcu.com/organizations/bloomcu/pages/1"
             >Edit in CMS</a>
         </div>-->
-        <Navbar :links="navLinks" :secondaryLinks="secondaryLinks" />
+        <Navbar :primaryLinks="navLinks" :secondaryLinks="secondaryLinks" />
 
         <!-- Blocks -->
         <component
