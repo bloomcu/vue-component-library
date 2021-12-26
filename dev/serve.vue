@@ -82,7 +82,7 @@ export default defineComponent({
             {
                 uuid: randomId(),
                 component: 'CodyButton',
-                text: "Button Text",
+                text: "Upload",
                 // trigger: "123",
                 variant: "primary",
                 href: '/button-href',
@@ -99,15 +99,15 @@ export default defineComponent({
             },
             {
                 uuid: randomId(),
-                component: 'dropdown',
+                component: 'SearchDropdown',
                 text: randomId(),
                 href: randomId(),
-                children: groupGeneration()
+                children: groupGeneration(false)
             },
             {
                 uuid: randomId(),
                 component: 'CodyButton',
-                text: "Button Text",
+                text: "Download",
                 // trigger: "123",
                 variant: "primary",
                 href: '/button-href',

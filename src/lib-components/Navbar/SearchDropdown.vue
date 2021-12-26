@@ -3,7 +3,7 @@
         <!-- Rewrite in Vue -->
         <li class="mega-nav__item height-100% list-style-none">
             <button
-            @click="dropdownOpen = !dropdownOpen"
+                @click="dropdownOpen = !dropdownOpen"
                 class="reset mega-nav__icon-btn mega-nav__icon-btn--search js-tab-focus center"
                 aria-label="Toggle search"
             >
@@ -27,9 +27,7 @@
         <transition name="slideY">
             <div v-if="dropdownOpen" class="mega-nav__search">
                 <div class="mega-nav__search-inner">
-                    <input
-                        class="form-control width-100%"
-                        type="reset search"
+                    <Search
                         name="megasite-search"
                         id="megasite-search"
                         placeholder="Search..."
@@ -38,20 +36,8 @@
                     <div class="margin-top-lg">
                         <p class="mega-nav__label">Quick Links</p>
                         <ul>
-                            <li>
-                                <a href="#0" class="mega-nav__quick-link">Find a Store</a>
-                            </li>
-                            <li>
-                                <a href="#0" class="mega-nav__quick-link">Your Orders</a>
-                            </li>
-                            <li>
-                                <a href="#0" class="mega-nav__quick-link">Documentation</a>
-                            </li>
-                            <li>
-                                <a href="#0" class="mega-nav__quick-link">Questions &amp; Answers</a>
-                            </li>
-                            <li>
-                                <a href="#0" class="mega-nav__quick-link">Contact Us</a>
+                            <li v-for="link of children" :key="link.text">
+                                <a :href="link.href" class="mega-nav__quick-link">{{ link.text }}</a>
                             </li>
                         </ul>
                     </div>
@@ -64,17 +50,15 @@
 <script lang="ts">
 import useClickOutside from '@/composables/useClickOutside'
 import { randomId } from '@/helpers'
-import { GroupItem } from '@/types'
+import { GlobalCtaLink } from '@/types'
 import { defineComponent, PropType, ref, onMounted } from '@vue/composition-api'
+import Search from '../Search/Search.vue'
 
 export default defineComponent({
     props: {
-        links: {
-            type: Object as PropType<GroupItem>,
-            default: () => ({
-                title: "hello world",
-                links: []
-            })
+        children: {
+            type: Array as PropType<GlobalCtaLink[]>,
+            default: () => []
         },
         uuid: {
             type: String,
@@ -82,25 +66,28 @@ export default defineComponent({
         }
     },
     setup() {
-        const dropdownOpen = ref(false)
-        const dropdown = ref(null)
+        const dropdownOpen = ref(false);
+        const dropdown = ref(null);
         onMounted(() => {
             useClickOutside(dropdown.value, (val) => {
-                if (val) dropdownOpen.value = false
-            })
-        })
+                if (val)
+                    dropdownOpen.value = false;
+            });
+        });
         return {
             dropdownOpen,
             dropdown
-        }
-    }
+        };
+    },
+    components: { Search }
 })
 </script>
 
 
 <style lang="scss">
 .cody-searchdropdown {
-    .mega-nav__search, .mega-nav--desktop .mega-nav__search {
+    .mega-nav__search,
+    .mega-nav--desktop .mega-nav__search {
         display: block;
     }
 }
@@ -110,6 +97,6 @@ export default defineComponent({
 }
 .slideY-enter, .slideY-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
-    transform: translateY(-15px)
+    transform: translateY(-15px);
 }
 </style>
