@@ -14,7 +14,7 @@
                 href="https://cms.bloomcu.com/organizations/bloomcu/pages/1"
             >Edit in CMS</a>
         </div>-->
-        <Navbar :links="navLinks" />
+        <Navbar :links="navLinks" :secondaryLinks="secondaryLinks" />
 
         <!-- Blocks -->
         <component
@@ -89,12 +89,38 @@ export default defineComponent({
                 //   target: '',
             }
         ]
+        const secondaryLinks = [
+            {
+                uuid: randomId(),
+                component: 'dropdown',
+                text: randomId(),
+                href: randomId(),
+                children: groupGeneration(false)
+            },
+            {
+                uuid: randomId(),
+                component: 'dropdown',
+                text: randomId(),
+                href: randomId(),
+                children: groupGeneration()
+            },
+            {
+                uuid: randomId(),
+                component: 'CodyButton',
+                text: "Button Text",
+                // trigger: "123",
+                variant: "primary",
+                href: '/button-href',
+                //   target: '',
+            }
+        ]
         return {
             page,
             blocks,
             modals,
             groups: groupGeneration(),
-            navLinks
+            navLinks,
+            secondaryLinks
         };
     },
     components: { Footer, Navbar }

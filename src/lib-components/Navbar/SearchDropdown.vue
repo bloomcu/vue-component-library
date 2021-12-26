@@ -1,5 +1,5 @@
 <template>
-    <div ref="dropdown" class="cody-searchdropdown">
+    <div ref="dropdown" class="cody-searchdropdown margin-right-sm">
         <!-- Rewrite in Vue -->
         <li class="mega-nav__item height-100% list-style-none">
             <button

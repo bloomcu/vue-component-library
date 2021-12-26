@@ -8,6 +8,7 @@
 <script lang="ts">
 import { computed, defineComponent } from '@vue/composition-api'
 export default defineComponent({
+    name: 'CodyLink',
     props: {
         text: {
             type: String,

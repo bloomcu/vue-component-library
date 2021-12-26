@@ -1,5 +1,6 @@
 <template>
   <header class="mega-nav mega-nav--mobile mega-nav--desktop@md position-relative js-mega-nav">
+    <MobileMenu />
     <div class="mega-nav__container">
       <!-- 👇 logo -->
       <Link class="mega-nav__logo" :href="logo.link.href">
@@ -9,12 +10,12 @@
       <!-- 👇 icon buttons --mobile -->
       <!-- TODO add window resizer if needed -->
       <div class="mega-nav__icon-btns mega-nav__icon-btns--mobile">
-        <Dropdown />
-        <!-- <Dropdown />
-        <Dropdown />
-        <Dropdown /> -->
-        <Dropdown />
-        <SearchDropdown uuid="mobile" v-if="search" />
+   
+        <!-- <SearchDropdown uuid="mobile" v-if="search" /> -->
+        <!-- <div v-for="group in getMobileMenuItems" :key="group.text">
+          <component :is="group.component" v-bind="group" />
+        </div> -->
+        <CodyHamburger />
         <MobileHamburger />
       </div>
 
@@ -25,23 +26,24 @@
         aria-label="Main"
       >
         <div class="mega-nav__nav-inner">
+          <!-- Left side -->
           <ul class="mega-nav__items">
             <li class="mega-nav__label">Menu</li>
 
             <!-- 👇 layout 2 -> multiple lists -->
-            <li v-for="group in links" :key="group.uuid" class="mega-nav__item js-mega-nav__item">
+            <li v-for="group in primaryLinks" :key="group.uuid" class="mega-nav__item js-mega-nav__item">
               <!-- {{group}} -->
               <component :is="group.component" v-bind="group" />
             </li>
           </ul>
-
+          <!-- Right side -->
           <ul class="mega-nav__items">
-            <SearchDropdown uuid="desktop" v-if="search" />
-            <Dropdown />
-
-            <!-- 👇 button -->
-            <li class="mega-nav__item">
-              <CodyButton class="mega-nav__btn" v-bind="button" variant="primary" size="sm"></CodyButton>
+            <li
+              class="mega-nav__item js-mega-nav__item"
+              v-for="group in secondaryLinks"
+              :key="group.uuid"
+            >
+              <component :is="group.component" v-bind="group" />
             </li>
           </ul>
         </div>
@@ -53,7 +55,7 @@
 
 
 <script lang="ts">
-import { defineComponent, onMounted, PropType } from "@vue/composition-api"
+import { computed, defineComponent, onMounted, PropType } from "@vue/composition-api"
 import navbarScript from "./NavbarScript"
 import LinkRepeater from "../LinkRepeater/LinkRepeater.vue"
 import DropdownIcon from "./DropdownIcon.vue"
@@ -65,6 +67,9 @@ import ColumnDropdown from "./ColumnDropdown.vue"
 import Dropdown from "./Dropdown.vue"
 import MobileHamburger from "./MobileHamburger.vue"
 import NavbarComponent from "./NavbarComponent.vue"
+import { toTitleCase } from "@/helpers"
+import CodyHamburger from "./CodyHamburger.vue"
+import MobileMenu from "./Mobile/MobileMenu.vue"
 
 export default defineComponent({
   props: {
@@ -72,7 +77,11 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
-    links: {
+    primaryLinks: {
+      type: Array as PropType<NavbarLink[]>,
+      default: () => []
+    },
+    secondaryLinks: {
       type: Array as PropType<NavbarLink[]>,
       default: () => []
     },
@@ -94,16 +103,28 @@ export default defineComponent({
       })
     }
   },
-  setup() {
+  setup(props) {
     onMounted(() => {
       navbarScript()
 
     })
+    const mobileDropdownItemKeys = ['ColumnDropdown', 'Link', 'CodyLink', 'Button', 'CodyButton']
+    const getMobileMenuItems = computed(() => {
+      const mergeLinks = [...props.primaryLinks, ...props.secondaryLinks]
+      return mergeLinks.filter((l) => !mobileDropdownItemKeys.map((m) => m.toLowerCase()).includes(l.component?.toLowerCase()))
+
+    })
+    const getMobileDropdownItems = computed(() => {
+      const mergeLinks = [...props.primaryLinks, ...props.secondaryLinks]
+      return mergeLinks.filter((l) => mobileDropdownItemKeys.map((m) => m.toLowerCase()).includes(l.component?.toLowerCase()))
+    })
 
     return {
+      getMobileMenuItems,
+      getMobileDropdownItems
     }
   },
-  components: { LinkRepeater, DropdownIcon, Link, CodyButton, SearchDropdown, ColumnDropdown, Dropdown, MobileHamburger, NavbarComponent }
+  components: { LinkRepeater, DropdownIcon, Link, CodyButton, SearchDropdown, ColumnDropdown, Dropdown, MobileHamburger, NavbarComponent, CodyHamburger, MobileMenu }
 })
 </script>
 

@@ -37,7 +37,7 @@ export interface GroupItem {
 }
 export interface NavbarLink extends GlobalCtaLink {
   uuid: string
-  component?: string
+  component: string
   link?: GlobalCtaLink
   button?: GlobalCodyButton
   children?: GroupItem[]

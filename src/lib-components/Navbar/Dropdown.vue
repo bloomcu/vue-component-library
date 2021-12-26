@@ -1,6 +1,7 @@
 <template>
     <!-- 👇 icon buttons --desktop -->
     <div ref="dropdown" class="mega-nav__item list-style-none">
+        
         <div class="position-relative inline-block cody-dropdown">
             <div
                 class="mega-nav__icon-btn inline-block"
@@ -13,7 +14,7 @@
                     class="color-inherit flex height-100% width-100% flex-center cody-dropdown__trigger"
                 >
                     <svg class="icon" viewBox="0 0 24 24">
-                        <title>Go to account settings</title>
+                        <title>{{ title }}</title>
                         <g
                             class="icon__group"
                             fill="none"
@@ -35,7 +36,7 @@
                     }"
                     aria-label="submenu"
                 >
-                    <li v-for="child in children" :key="child.href">
+                    <li v-for="child in children" :key="child.text">
                         <a :href="child.href" class="dropdown__item">{{ child.text }}</a>
                     </li>
                 </ul>
@@ -55,6 +56,10 @@ export default defineComponent({
             type: Array as PropType<GlobalCtaLink[]>,
             default: () => ([])
         },
+        title: {
+            type: String,
+            default: 'Go to account settings'
+        }
     },
     setup() {
         const dropdownOpen = ref(false)

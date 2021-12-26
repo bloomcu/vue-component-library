@@ -22,13 +22,23 @@ export const randomId = () => {
   return '_' + Math.random().toString(36).substr(2, 9);
 };
 
-export const extractObjectKeys = (obj : object = {}, keys: string[]) => {
+export const extractObjectKeys = (obj: object = {}, keys: string[]) => {
   const objectEntries = Object.entries(obj)
-  const newObject : any = {}
-  for(const [key, value] of objectEntries) {
+  const newObject: any = {}
+  for (const [key, value] of objectEntries) {
     if (keys.includes(key)) {
       newObject[key] = value
     }
   }
   return newObject
+}
+
+export const toTitleCase = (str: string | undefined) => {
+  if (!str) return
+  return str.replace(
+    /\w\S*/g,
+    function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
 }
