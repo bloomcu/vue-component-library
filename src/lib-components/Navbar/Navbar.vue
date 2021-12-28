@@ -61,6 +61,7 @@ import LinkRepeater from "../LinkRepeater/LinkRepeater.vue"
 import DropdownIcon from "./DropdownIcon.vue"
 import { GlobalCodyButton, Logo, NavbarLink } from "@/types"
 import Link from "../Link/Link.vue"
+import CodyLink from "../Link/CodyLink.vue"
 import CodyButton from "../CodyButton/CodyButton.vue"
 import SearchDropdown from "./SearchDropdown.vue"
 import ColumnDropdown from "./ColumnDropdown.vue"
@@ -124,7 +125,7 @@ export default defineComponent({
       getMobileDropdownItems
     }
   },
-  components: { LinkRepeater, DropdownIcon, Link, CodyButton, SearchDropdown, ColumnDropdown, Dropdown, MobileHamburger, NavbarComponent, CodyHamburger, MobileMenu }
+  components: { LinkRepeater, DropdownIcon, Link, CodyButton, SearchDropdown, ColumnDropdown, Dropdown, MobileHamburger, NavbarComponent, CodyHamburger, MobileMenu, CodyLink }
 })
 </script>
 

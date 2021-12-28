@@ -112,6 +112,16 @@ export default defineComponent({
                 variant: "primary",
                 href: '/button-href',
                 //   target: '',
+            },
+            {
+                uuid: randomId(),
+                component: 'CodyLink',
+                text: "Download",
+                // trigger: "123",
+                variant: "primary",
+                href: '/button-href',
+                block: true
+                //   target: '',
             }
         ]
         return {

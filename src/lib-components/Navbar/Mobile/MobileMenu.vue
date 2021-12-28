@@ -11,15 +11,9 @@
                 <li
                     v-for="group in links.filter((g) => g.component.toLowerCase() === 'columndropdown')"
                     :key="group.uuid"
-                    :class="{
-                        'padding-y-sm': group.component.toLowerCase() !== 'columndropdown'
-                    }"
                     class="mega-nav__item js-mega-nav__item"
                 >
                     <component
-                        :class="{
-                            'width-100%': group.component.toLowerCase() !== 'columndropdown'
-                        }"
                         :is="group.component"
                         v-bind="group"
                     />
@@ -44,8 +38,10 @@
 import useToggle from "@/composables/useToggle"
 import ColumnDropdown from "../ColumnDropdown.vue";
 import CodyButton from "@/lib-components/CodyButton/CodyButton.vue";
+import CodyLink from '@/lib-components/Link/CodyLink.vue'
 import { defineComponent,  PropType } from "@vue/composition-api";
 import { mobileMenuKey } from "@/constants";
+import { NavbarLink } from "@/types";
 
 export default defineComponent({
     setup() {
@@ -55,10 +51,10 @@ export default defineComponent({
             mobileMenuKey
         };
     },
-    components: { ColumnDropdown, CodyButton },
+    components: { ColumnDropdown, CodyButton, CodyLink },
     props: {
         links: {
-            type: Array as PropType<any>,
+            type: Array as PropType<NavbarLink[]>,
             default: () => []
         }
     }
