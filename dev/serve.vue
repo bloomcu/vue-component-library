@@ -116,7 +116,7 @@ export default defineComponent({
             {
                 uuid: randomId(),
                 component: 'CodyLink',
-                text: "Download",
+                text: " _zso4u8is9 ",
                 // trigger: "123",
                 variant: "primary",
                 href: '/button-href',

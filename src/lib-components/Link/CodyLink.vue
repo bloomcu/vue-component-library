@@ -1,5 +1,5 @@
 <template>
-    <component :class="{
+    <component class="cody-link" :class="{
         block
     }" :is="determineComponent">
         <slot />
@@ -30,3 +30,8 @@ export default defineComponent({
     }
 })
 </script>
+
+
+<style lang="scss">
+@use './CodyLink.scss';
+</style>
