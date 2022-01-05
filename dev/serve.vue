@@ -67,10 +67,10 @@ export default defineComponent({
         const navLinks = [
             {
                 uuid: randomId(),
-                component: 'dropdown',
+                component: 'ColumnDropdown',
                 text: randomId(),
                 href: randomId(),
-                children: groupGeneration(false)
+                children: groupGeneration()
             },
             {
                 uuid: randomId(),
@@ -79,15 +79,16 @@ export default defineComponent({
                 href: randomId(),
                 children: groupGeneration()
             },
-            {
+             {
                 uuid: randomId(),
-                component: 'CodyButton',
-                text: "Upload",
+                component: 'CodyLink',
+                text: " _zso4u8is9 ",
                 // trigger: "123",
                 variant: "primary",
                 href: '/button-href',
+                block: true
                 //   target: '',
-            }
+            },
         ]
         const secondaryLinks = [
             {
