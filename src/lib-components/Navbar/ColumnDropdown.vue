@@ -1,48 +1,10 @@
 <template>
     <div class="height-100%">
-        <button class="reset mega-nav__control js-mega-nav__control js-tab-focus">
+        <button @click="open = !open" class="reset mega-nav__control js-mega-nav__control js-tab-focus">
             {{ text }}
             <DropdownIcon />
         </button>
-        <div class="header-v2__nav-dropdown header-v2__nav-dropdown--md">
-            <ul class="header-v2__nav-list header-v2__nav-list--title-desc">
-                <li class="header-v2__nav-item">
-                    <a href="#0" class="header-v2__nav-link">
-                        <div>
-                            <strong>Sub nav item</strong>
-                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
-                        </div>
-                    </a>
-                </li>
-
-                <li class="header-v2__nav-item">
-                    <a href="#0" class="header-v2__nav-link">
-                        <div>
-                            <strong>Sub nav item</strong>
-                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
-                        </div>
-                    </a>
-                </li>
-
-                <li class="header-v2__nav-item">
-                    <a href="#0" class="header-v2__nav-link">
-                        <div>
-                            <strong>Sub nav item</strong>
-                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
-                        </div>
-                    </a>
-                </li>
-
-                <li class="header-v2__nav-item">
-                    <a href="#0" class="header-v2__nav-link">
-                        <div>
-                            <strong>Sub nav item</strong>
-                            <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <Dropdown2 :open="open" @toggleDropdown="() => open = false" />
         <div class="mega-nav__sub-nav-wrapper">
             <div class="mega-nav__sub-nav" :class="`mega-nav__sub-nav--layout`">
                 <!-- <LinkRepeater :links="group" /> -->
@@ -55,9 +17,10 @@
 
 <script lang="ts">
 import { GlobalCtaLink, GroupItem } from "@/types"
-import { defineComponent, PropType } from "@vue/composition-api"
+import { defineComponent, PropType, ref } from "@vue/composition-api"
 import DropdownIcon from "./DropdownIcon.vue"
 import LinkRepeater from "../LinkRepeater/LinkRepeater.vue"
+import Dropdown2 from "./Dropdown2.vue"
 interface Child extends GlobalCtaLink {
     children: GroupItem[]
 }
@@ -82,10 +45,13 @@ export default defineComponent({
             })
         }
     },
-    components: { DropdownIcon, LinkRepeater },
+    components: { DropdownIcon, LinkRepeater, Dropdown2 },
+    setup() {
+        const open = ref(false)
+        return {
+            open
+        }
+    }
 })
 </script>
 
-<style lang="scss" scoped>
-@use './style/main-header-v2.scss';
-</style>

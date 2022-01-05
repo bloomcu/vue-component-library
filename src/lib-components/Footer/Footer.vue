@@ -61,6 +61,7 @@ interface SocialNames {
 }
 interface Social extends GlobalCtaLink {
     name?: keyof (SocialNames)
+    socialName?: keyof (SocialNames)
 }
 
 export default defineComponent({
