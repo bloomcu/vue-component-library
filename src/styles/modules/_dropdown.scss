@@ -1,3 +1,4 @@
+@use "../base/breakpoints";
 /* -------------------------------- 
 
 File#: _2_dropdown
@@ -22,7 +23,7 @@ Usage: codyhouse.co/license
   box-shadow: var(--inner-glow), var(--shadow-sm);
   z-index: var(--z-index-popover, 5);
   position: absolute;
-  left: 0;
+  left: -5rem;
   top: 100%;
   --space-unit: 1rem;
   --text-unit: 1rem;
@@ -30,11 +31,14 @@ Usage: codyhouse.co/license
   opacity: 0;
   // visibility: hidden;
   transition: opacity 0.2s, visibility 0s 0.2s;
+  @include breakpoints.breakpoint("md") {
+    left: 0rem;
+  }
 }
 
 @media (pointer: fine) {
   .dropdown__wrapper:hover > .dropdown__menu,
-.dropdown__sub-wrapper:hover > .dropdown__menu {
+  .dropdown__sub-wrapper:hover > .dropdown__menu {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.2s;
@@ -59,8 +63,14 @@ Usage: codyhouse.co/license
   text-overflow: ellipsis;
   transition: 0.2s;
 }
-.dropdown__item:hover, .dropdown__item.dropdown__item--hover {
-  background-color: hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), 0.075);
+.dropdown__item:hover,
+.dropdown__item.dropdown__item--hover {
+  background-color: hsla(
+    var(--color-contrast-higher-h),
+    var(--color-contrast-higher-s),
+    var(--color-contrast-higher-l),
+    0.075
+  );
 }
 
 .dropdown__separator {

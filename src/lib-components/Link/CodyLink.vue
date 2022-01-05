@@ -33,5 +33,5 @@ export default defineComponent({
 
 
 <style lang="scss">
-@use './CodyLink.scss';
+@use './styles/CodyLink.scss';
 </style>
