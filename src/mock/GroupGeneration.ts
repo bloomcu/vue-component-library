@@ -1,6 +1,6 @@
 import { randomId } from "@/helpers"
 
-export const groupGeneration = (includeTitles = true) => {
+export const groupGeneration = ({includeTitles} = { includeTitles: true, }) => {
     const amount = 4
     const arr = []
     for (let i = 0; i < amount; i++) {

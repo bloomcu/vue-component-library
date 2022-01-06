@@ -1,7 +1,6 @@
 <template>
     <!-- 👇 icon buttons --desktop -->
     <div ref="dropdown" class="mega-nav__item list-style-none">
-        
         <div class="position-relative inline-block cody-dropdown">
             <div
                 class="mega-nav__icon-btn inline-block"
@@ -65,12 +64,10 @@ export default defineComponent({
     setup() {
         const dropdownOpen = ref(false)
         const dropdown = ref(null)
+        useClickOutside(dropdown, () => {
+            dropdownOpen.value = false
+        })
         onMounted(() => {
-            useClickOutside(dropdown.value, (v) => {
-                if (v) {
-                    dropdownOpen.value = false
-                }
-            })
         })
         const { close } = useToggle()
         return {

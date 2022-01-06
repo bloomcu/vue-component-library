@@ -3,7 +3,7 @@
         <!-- Rewrite in Vue -->
         <li class="mega-nav__item height-100% list-style-none">
             <button
-                @click="dropdownOpen = !dropdownOpen, close(mobileMenuKey) "
+                @click="dropdownOpen = !dropdownOpen, close(mobileMenuKey)"
                 class="reset mega-nav__icon-btn mega-nav__icon-btn--search js-tab-focus center"
                 aria-label="Toggle search"
             >
@@ -71,13 +71,10 @@ export default defineComponent({
         const dropdownOpen = ref(false);
         const dropdown = ref(null);
         const { close } = useToggle()
-        onMounted(() => {
-            useClickOutside(dropdown.value, (val) => {
-                if (val)
-                    dropdownOpen.value = false;
-            });
+        useClickOutside(dropdown, () => {
+            dropdownOpen.value = false;
         });
-        
+
         return {
             dropdownOpen,
             dropdown,

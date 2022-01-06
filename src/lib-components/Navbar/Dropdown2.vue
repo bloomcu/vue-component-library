@@ -54,7 +54,7 @@ export default defineComponent({
     },
     setup(_, { emit }) {
         const dropdown = ref(null)
-        // useClickOutside(dropdown.value, () => emit('toggleDropdown'))
+        useClickOutside(dropdown, () => emit('toggleDropdown'))
         return {
             dropdown
         }
