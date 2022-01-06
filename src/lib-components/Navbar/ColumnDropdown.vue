@@ -1,12 +1,6 @@
 <template>
     <div ref="dropdown" class="height-100%">
-        <button
-            @click="open = !open"
-            class="reset mega-nav__control js-mega-nav__control js-tab-focus"
-        >
-            {{ text }}
-            <DropdownIcon />
-        </button>
+        <NavbarDropdownToggleButton :text="text" @click="open = !open" />
         <Dropdown2 :open="open" @toggleDropdown="() => open = false" />
         <FullWidthDropdown :children="children" />
     </div>
@@ -21,6 +15,7 @@ import LinkRepeater from "../LinkRepeater/LinkRepeater.vue"
 import Dropdown2 from "./Dropdown2.vue"
 import useClickOutside from "@/composables/useClickOutside"
 import FullWidthDropdown from "./ColumnDropdown/FullWidthDropdown.vue"
+import NavbarDropdownToggleButton from "./ColumnDropdown/NavbarDropdownToggleButton.vue"
 interface Child extends GlobalCtaLink {
     children: GroupItem[]
 }
@@ -45,7 +40,7 @@ export default defineComponent({
             })
         }
     },
-    components: { DropdownIcon, LinkRepeater, Dropdown2, FullWidthDropdown },
+    components: { DropdownIcon, LinkRepeater, Dropdown2, FullWidthDropdown, NavbarDropdownToggleButton },
     setup() {
         const open = ref(false)
         const dropdown = ref(null)
