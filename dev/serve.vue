@@ -15,7 +15,7 @@
             >Edit in CMS</a>
         </div>-->
         <Navbar :primaryLinks="navLinks" :secondaryLinks="secondaryLinks" />
-
+        <BoxedHero />
         <!-- Blocks -->
         <component
             v-for="(block, index) in page.layout.blocks"
@@ -48,6 +48,7 @@ import Footer from '@/lib-components/Footer/Footer.vue';
 import Navbar from '@/lib-components/Navbar/Navbar.vue';
 import { groupGeneration } from '@/mock/GroupGeneration';
 import { randomId } from '@/helpers';
+import BoxedHero from '@/lib-components/BoxedHero/BoxedHero.vue';
 
 export default defineComponent({
     name: "ServeDev",
@@ -134,6 +135,6 @@ export default defineComponent({
             secondaryLinks
         };
     },
-    components: { Footer, Navbar }
+    components: { Footer, Navbar, BoxedHero }
 });
 </script>
