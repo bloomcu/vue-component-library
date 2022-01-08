@@ -2,7 +2,7 @@ import { Ref } from '@vue/composition-api'
 import { useEventListener } from './useEventListener'
 export default function useClickOutside(
     rootEl: Ref<HTMLElement | null>,
-    callback: () => any,
+    callback: (e : Event) => any,
 ) {
     // `mousedown` or `mouseup` is better than `click` here because it doesn't bubble up like `click`
     // if you've used `click` here, the callback will be run immediatly.
@@ -13,6 +13,6 @@ export default function useClickOutside(
             return
 
         // otherwise execute the action
-        callback()
+        callback(e)
     })
 }

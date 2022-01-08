@@ -1,5 +1,5 @@
 <template>
-    <button class="reset mega-nav__control js-mega-nav__control js-tab-focus">
+    <button @click="$emit('click')" class="reset mega-nav__control js-mega-nav__control js-tab-focus">
         {{ text }}
         <DropdownIcon />
     </button>

@@ -19,7 +19,7 @@ export interface GlobalCodyButton {
   variant?: Variant;
   size?: Size;
   icon?: boolean;
-  text: string
+  text?: string
   modal?: string
   buttonClick?: (...args: any) => any;
 }
@@ -28,19 +28,23 @@ export interface GlobalCtaLink {
   href?: string;
   target?: string
   text?: string;
+  block?: boolean
 }
 
 
 export interface GroupItem {
-  title: string
+  title?: string
   links: GlobalCtaLink[]
 }
-export interface NavbarLink extends GlobalCtaLink {
+
+export interface Dropdown {
+  component: string
+  children: GroupItem[] | any
+}
+export interface NavbarLink extends GlobalCtaLink, GlobalCodyButton {
   uuid: string
   component: string
-  link?: GlobalCtaLink
-  button?: GlobalCodyButton
-  children?: GroupItem[]
+  dropdown?: Dropdown
 }
 export interface Logo {
   link: GlobalCtaLink

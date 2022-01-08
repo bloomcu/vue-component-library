@@ -49,6 +49,7 @@ import Navbar from '@/lib-components/Navbar/Navbar.vue';
 import { groupGeneration } from '@/mock/GroupGeneration';
 import { randomId } from '@/helpers';
 import BoxedHero from '@/lib-components/BoxedHero/BoxedHero.vue';
+import { NavbarLink } from '@/types';
 
 export default defineComponent({
     name: "ServeDev",
@@ -65,21 +66,34 @@ export default defineComponent({
                 .then(data => (page.value = data.data))
         })
         // TODO: add component 
-        const navLinks = [
+        const navLinks : NavbarLink[] = [
             {
                 uuid: randomId(),
                 component: 'ColumnDropdown',
                 text: randomId(),
                 href: randomId(),
-                children: groupGeneration()
+                dropdown: {
+                    component: 'ColumnDropdown1',
+                    children: groupGeneration()
+                }
             },
             {
                 uuid: randomId(),
                 component: 'ColumnDropdown',
                 text: randomId(),
                 href: randomId(),
-                children: groupGeneration()
+                dropdown: {
+                    component: 'ColumnFullWidthDropdown',
+                    children: groupGeneration()
+                }
             },
+            // {
+            //     uuid: randomId(),
+            //     component: 'ColumnDropdown',
+            //     text: randomId(),
+            //     href: randomId(),
+            //     children: groupGeneration()
+            // },
              {
                 uuid: randomId(),
                 component: 'CodyLink',
@@ -97,14 +111,14 @@ export default defineComponent({
                 component: 'dropdown',
                 text: randomId(),
                 href: randomId(),
-                children: groupGeneration(false)
+                children: groupGeneration({ includeTitles: false })
             },
             {
                 uuid: randomId(),
                 component: 'SearchDropdown',
                 text: randomId(),
                 href: randomId(),
-                children: groupGeneration(false)
+                children: groupGeneration({ includeTitles: false })
             },
             {
                 uuid: randomId(),

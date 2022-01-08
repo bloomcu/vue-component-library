@@ -1,18 +1,18 @@
 <template>
-    <div ref="dropdown" class="height-100%">
-        <NavbarDropdownToggleButton :text="text" @click="open = !open" />
-        <Dropdown2 :open="open" @toggleDropdown="() => open = false" />
-        <ColumnFullWidthDropdown :children="children" />
+    <div ref="dropdownEl" class="height-100%">
+        <NavbarDropdownToggleButton :text="text" @click="() => open = !open" />
+        <!-- <ColumnFullWidthDropdown :children="children" /> -->
+        <component :is="dropdown.component" :open="open" :children="dropdown.children" />
     </div>
 </template>
 
 
 <script lang="ts">
-import { GlobalCtaLink, GroupItem } from "@/types"
+import { Dropdown, GlobalCtaLink, GroupItem } from "@/types"
 import { defineComponent, PropType, ref } from "@vue/composition-api"
 import DropdownIcon from "./DropdownIcon.vue"
 import LinkRepeater from "../LinkRepeater/LinkRepeater.vue"
-import Dropdown2 from "./Dropdown2.vue"
+import ColumnDropdown1 from "./ColumnDropdown/ColumnDropdown1.vue"
 import useClickOutside from "@/composables/useClickOutside"
 import NavbarDropdownToggleButton from "./ColumnDropdown/NavbarDropdownToggleButton.vue"
 import ColumnFullWidthDropdown from "./ColumnDropdown/ColumnFullWidthDropdown.vue"
@@ -38,15 +38,24 @@ export default defineComponent({
             default: () => ({
                 children: []
             })
-        }
+        },
+        dropdown: {
+            type: Object as PropType<Dropdown>,
+            default: () => ({})
+        },
     },
-    components: { DropdownIcon, LinkRepeater, Dropdown2, NavbarDropdownToggleButton, ColumnFullWidthDropdown },
+    components: { DropdownIcon, LinkRepeater, ColumnDropdown1, NavbarDropdownToggleButton, ColumnFullWidthDropdown },
     setup() {
         const open = ref(false)
-        const dropdown = ref(null)
-        useClickOutside(dropdown, () => console.log('clicked out'))
-        return {
-            open
+        const dropdownEl = ref(null)
+        useClickOutside(dropdownEl, () => {
+            if (open.value) {
+                open.value = false
+            }
+        })
+        return { 
+            open,
+            dropdownEl
         }
     }
 })

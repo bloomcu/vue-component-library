@@ -1,13 +1,10 @@
-import { defineComponent, PropType } from "@vue/composition-api"
-
-// Components
-import CodyButton from "../CodyButton/CodyButton.vue"
+import { PropType } from "@vue/composition-api"
 
 // Types
 import { GlobalCodyButton, Size, Variant } from "@/types"
 
 const propGroups = {
-    'Content Component': {
+    ContentComponent: {
         center: {
             type: Boolean,
             default: false,

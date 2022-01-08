@@ -116,7 +116,7 @@ export default defineComponent({
     })
     const getMobileDropdownItems = computed(() => {
       const mergeLinks = [...props.primaryLinks, ...props.secondaryLinks]
-      console.log(`mergeLinks`, mergeLinks)
+      // console.log(`mergeLinks`, mergeLinks)
       return mergeLinks.filter((l) => mobileDropdownItemKeys.map((m) => m.toLowerCase()).includes(l.component?.toLowerCase()))
     })
 
