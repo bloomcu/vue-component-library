@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import useToggle from "@/composables/useToggle"
-import ColumnDropdown from "../ColumnDropdown.vue";
+import ColumnDropdown from "../ColumnDropdown/ColumnDropdown.vue";
 import CodyButton from "@/lib-components/CodyButton/CodyButton.vue";
 import CodyLink from '@/lib-components/Link/CodyLink.vue'
 import { defineComponent,  PropType } from "@vue/composition-api";
