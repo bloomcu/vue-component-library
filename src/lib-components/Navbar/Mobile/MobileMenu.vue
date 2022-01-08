@@ -13,6 +13,7 @@
                     :key="item.uuid"
                     class="mega-nav__item js-mega-nav__item"
                 >
+                <!-- {{ item.dropdown }} -->
                     <component
                         :is="item.component"
                         v-bind="item"

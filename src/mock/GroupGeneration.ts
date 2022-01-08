@@ -6,10 +6,11 @@ export const groupGeneration = ({includeTitles} = { includeTitles: true, }) => {
     for (let i = 0; i < amount; i++) {
         const Child = includeTitles ? {
             title: randomId(),
+            text: randomId(),
             links: [
                 {
                     href: '#',
-                    text: randomId()
+                    text: randomId(),
                 },
                 {
                     href: '#',

@@ -34,6 +34,7 @@ export interface Link {
 
 export interface Child {
   title?: string
+  text?: string
   links: Link[]
 }
 
