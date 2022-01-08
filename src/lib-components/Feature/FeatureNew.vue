@@ -30,7 +30,7 @@ import { defineComponent, PropType } from "@vue/composition-api";
 import ContentComponentNew from "../Content/ContentComponent.vue";
 
 // Types
-import { GlobalCodyButton, GlobalImage } from "@/types";
+import { Button, Image } from "@/types";
 
 export default defineComponent({
     name: 'feature',
@@ -53,7 +53,7 @@ export default defineComponent({
             default: 'The subtitle'
         },
         buttons: {
-            type: Array as PropType<Array<GlobalCodyButton>>,
+            type: Array as PropType<Array<Button>>,
             default: () => ([
                 {
                     text: 'Button Text',
@@ -67,7 +67,7 @@ export default defineComponent({
             ]),
         },
         image: {
-            type: Object as PropType<GlobalImage>,
+            type: Object as PropType<Image>,
             default: () => ({
                 src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/files/1cd9f6c0d0966a8086978a85fb6a0a7e.jpg'
             }),

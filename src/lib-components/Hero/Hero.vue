@@ -26,7 +26,7 @@ import { appendToSet } from '@/helpers'
 import ContentComponent from "../Content/ContentComponent.vue";
 
 // Types
-import { GlobalCodyButton, GlobalImage } from "@/types";
+import { Button, Image } from "@/types";
 
 export default defineComponent({
     name: 'hero',
@@ -53,7 +53,7 @@ export default defineComponent({
             default: 'The subtitle'
         },
         buttons: {
-            type: Array as PropType<Array<GlobalCodyButton>>,
+            type: Array as PropType<Array<Button>>,
             default: () => ([
                 {
                     text: 'Button Text',
@@ -67,7 +67,7 @@ export default defineComponent({
             ]),
         },
         image: {
-            type: Object as PropType<GlobalImage>,
+            type: Object as PropType<Image>,
             default: () => ({}),
         },
     },

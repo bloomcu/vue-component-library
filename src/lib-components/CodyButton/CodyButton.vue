@@ -7,12 +7,12 @@
 <script lang="ts">
 import { appendToSet } from '@/helpers'
 import { computed, defineComponent, PropType } from '@vue/composition-api'
-import { Variant, Size } from '../../types'
+import { ButtonVariant, ButtonSize } from '../../types'
 import useToggle from '@/composables/useToggle'
 export default defineComponent({
   props: {
     variant: {
-      type: String as PropType<Variant>,
+      type: String as PropType<ButtonVariant>,
       default: 'accent',
     },
     text: {
@@ -20,7 +20,7 @@ export default defineComponent({
       default: ''
     },
     size: {
-      type: String as PropType<Size>,
+      type: String as PropType<ButtonSize>,
       default: '',
     },
     trigger: {

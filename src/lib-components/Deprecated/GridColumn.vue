@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from "@vue/composition-api";
-import { GlobalBreakPointBlock } from '@/types'
+import { BreakPointBlock } from '@/types'
 import { appendToSet } from "@/helpers";
 // type GridGap =
 //     | "xxs"
@@ -33,7 +33,7 @@ export default defineComponent({
             return `col-${value}@${key}`;
         };
         const determineGridCount = computed(() => {
-            const defineGridBlock: GlobalBreakPointBlock = {
+            const defineGridBlock: BreakPointBlock = {
                 xs: 12,
                 md: 6,
                 xl: 12 / props.cols,

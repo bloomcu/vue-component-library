@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import {  GlobalImage } from '@/types'
+import {  Image } from '@/types'
 import { defineComponent, PropType } from '@vue/composition-api'
 import ContentComponent from '../Content/ContentComponent.vue'
 import { useProps } from '@/composables/useProps'
@@ -23,7 +23,7 @@ export default defineComponent({
     props: {
         ...useProps().group(['Content Component']),
         image: {
-            type: Object as PropType<GlobalImage>,
+            type: Object as PropType<Image>,
             default: () => ({}),
         },
     },

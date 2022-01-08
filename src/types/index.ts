@@ -1,5 +1,5 @@
-export type Variant = 'primary' | 'subtle' | 'accent' | 'disabled'
-export type Size = 'sm' | 'md' | 'lg'
+export type ButtonVariant = 'primary' | 'subtle' | 'accent' | 'disabled'
+export type ButtonSize = 'sm' | 'md' | 'lg'
 export interface Block {
   component?: any
   uuid?: string
@@ -9,22 +9,22 @@ export interface FeatureV9Item {
   headerText: string
   href?: string
   action?: (...args: any) => any
-  buttonVariant?: Variant
+  buttonButtonVariant?: ButtonVariant
   buttonText: string
   description: string
 }
-export interface GlobalCodyButton {
+export interface Button {
   href?: string;
   target?: string
-  variant?: Variant;
-  size?: Size;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
   icon?: boolean;
   text?: string
   modal?: string
   buttonClick?: (...args: any) => any;
 }
 
-export interface GlobalCtaLink {
+export interface Link {
   href?: string;
   target?: string
   text?: string;
@@ -32,26 +32,26 @@ export interface GlobalCtaLink {
 }
 
 
-export interface GroupItem {
+export interface Child {
   title?: string
-  links: GlobalCtaLink[]
+  links: Link[]
 }
 
 export interface Dropdown {
   component: string
-  children: GroupItem[] | any
+  children: Child[] | any
 }
-export interface NavbarLink extends GlobalCtaLink, GlobalCodyButton {
+export interface NavbarLink extends Link, Button {
   uuid: string
   component: string
   dropdown?: Dropdown
 }
 export interface Logo {
-  link: GlobalCtaLink
-  image: GlobalImage
+  link: Link
+  image: Image
 }
 
-export interface GlobalImage {
+export interface Image {
   src: string
   alt?: string
   class?: string
@@ -59,15 +59,15 @@ export interface GlobalImage {
   href?: string
 }
 
-export interface GlobalContentComponent {
+export interface ContentComponent {
   label: string
   header: string
   subHeader: string
-  button: GlobalCodyButton
-  ctaLink: GlobalCtaLink
+  button: Button
+  ctaLink: Link
 }
 
-export interface GlobalBreakPointBlock {
+export interface BreakPointBlock {
   xs?: string | number
   sm?: string | number
   md?: string | number
@@ -75,4 +75,4 @@ export interface GlobalBreakPointBlock {
   xl?: string | number
 }
 
-export type GlobalBreakPoint = keyof(GlobalBreakPointBlock)
+export type BreakPoint = keyof(BreakPointBlock)

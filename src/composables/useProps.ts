@@ -1,7 +1,7 @@
 import { PropType } from "@vue/composition-api"
 
 // Types
-import { GlobalCodyButton, Size, Variant } from "@/types"
+import { Button, ButtonSize, ButtonVariant } from "@/types"
 
 const propGroups = {
     ContentComponent: {
@@ -22,13 +22,13 @@ const propGroups = {
             default: 'The subtitle'
         },
         buttons: {
-            type: Array as PropType<Array<GlobalCodyButton>>,
+            type: Array as PropType<Array<Button>>,
             default: () => [],
         },
     },
     Button: {
         variant: {
-            type: String as PropType<Variant>,
+            type: String as PropType<ButtonVariant>,
             default: 'accent',
         },
         text: {
@@ -36,7 +36,7 @@ const propGroups = {
             default: ''
         },
         size: {
-            type: String as PropType<Size>,
+            type: String as PropType<ButtonSize>,
             default: '',
         },
         trigger: {

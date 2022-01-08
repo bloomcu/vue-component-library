@@ -10,13 +10,13 @@
 </template>
 
 <script lang="ts">
-import { GlobalImage } from "@/types";
+import { Image } from "@/types";
 import { defineComponent, PropType } from "@vue/composition-api";
 
 export default defineComponent({
     props: {
         image: {
-            type: Object as PropType<GlobalImage>,
+            type: Object as PropType<Image>,
             default: () => ({
 
             })

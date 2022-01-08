@@ -4,7 +4,7 @@ export const groupGeneration = ({includeTitles} = { includeTitles: true, }) => {
     const amount = 4
     const arr = []
     for (let i = 0; i < amount; i++) {
-        const groupItem = includeTitles ? {
+        const Child = includeTitles ? {
             title: randomId(),
             links: [
                 {
@@ -28,7 +28,7 @@ export const groupGeneration = ({includeTitles} = { includeTitles: true, }) => {
             href: '#',
             text: randomId(),
         }
-        arr.push(groupItem)
+        arr.push(Child)
     }
     return arr
 }

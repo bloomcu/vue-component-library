@@ -8,7 +8,7 @@
 
 
 <script lang="ts">
-import { Dropdown, GlobalCtaLink, GroupItem } from "@/types"
+import { Dropdown, Link, Child } from "@/types"
 import { defineComponent, PropType, ref } from "@vue/composition-api"
 import DropdownIcon from "./DropdownIcon.vue"
 import LinkRepeater from "../LinkRepeater/LinkRepeater.vue"
@@ -16,8 +16,8 @@ import ColumnDropdown1 from "./ColumnDropdown/ColumnDropdown1.vue"
 import useClickOutside from "@/composables/useClickOutside"
 import NavbarDropdownToggleButton from "./ColumnDropdown/NavbarDropdownToggleButton.vue"
 import ColumnFullWidthDropdown from "./ColumnDropdown/ColumnFullWidthDropdown.vue"
-interface Child extends GlobalCtaLink {
-    children: GroupItem[]
+interface Child extends Link {
+    children: Child[]
 }
 export default defineComponent({
     props: {
@@ -30,7 +30,7 @@ export default defineComponent({
             default: ''
         },
         children: {
-            type: Array as PropType<GroupItem[]>,
+            type: Array as PropType<Child[]>,
             default: () => ([])
         },
         group: {

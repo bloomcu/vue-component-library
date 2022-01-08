@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { GlobalCodyButton, GlobalImage } from "@/types";
+import { Button, Image } from "@/types";
 import { defineComponent, PropType } from "@vue/composition-api";
 import CodyButton from "../CodyButton/CodyButton.vue";
 
@@ -33,7 +33,7 @@ export default defineComponent({
             default: 'This is a description'
         },
         button: {
-            type: Object as PropType<GlobalCodyButton>,
+            type: Object as PropType<Button>,
             default: () => ({
                 text: 'Link Text',
                 href: '/link-href',
@@ -41,7 +41,7 @@ export default defineComponent({
             })
         },
         image: {
-            type: Object as PropType<GlobalImage>,
+            type: Object as PropType<Image>,
             default: () => ({
                 src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/files/7ad98ddacea4aff50bfddf8544076d82.jpg'
             })

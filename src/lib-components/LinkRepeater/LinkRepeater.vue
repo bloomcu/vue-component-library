@@ -20,13 +20,13 @@
 </template>
 
 <script lang="ts">
-import { GroupItem } from "@/types";
+import { Child } from "@/types";
 import { defineComponent, PropType } from "@vue/composition-api";
 
 export default defineComponent({
     props: {
         links: {
-            type: Array as PropType<GroupItem[]>,
+            type: Array as PropType<Child[]>,
             default: () => []
         }
     },

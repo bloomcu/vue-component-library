@@ -59,7 +59,7 @@ import { computed, defineComponent, onMounted, PropType } from "@vue/composition
 import navbarScript from "./NavbarScript"
 import LinkRepeater from "../LinkRepeater/LinkRepeater.vue"
 import DropdownIcon from "./DropdownIcon.vue"
-import { GlobalCodyButton, Logo, NavbarLink } from "@/types"
+import { Button, Logo, NavbarLink } from "@/types"
 import Link from "../Link/Link.vue"
 import CodyLink from "../Link/CodyLink.vue"
 import CodyButton from "../CodyButton/CodyButton.vue"
@@ -97,7 +97,7 @@ export default defineComponent({
       })
     },
     button: {
-      type: Object as PropType<GlobalCodyButton>,
+      type: Object as PropType<Button>,
       default: () => ({
         text: 'Download'
       })

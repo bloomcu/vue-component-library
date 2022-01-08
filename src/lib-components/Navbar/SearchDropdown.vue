@@ -52,14 +52,14 @@ import useClickOutside from '@/composables/useClickOutside'
 import useToggle from '@/composables/useToggle'
 import { mobileMenuKey } from '@/constants'
 import { randomId } from '@/helpers'
-import { GlobalCtaLink } from '@/types'
+import { Link } from '@/types'
 import { defineComponent, PropType, ref, onMounted } from '@vue/composition-api'
 import Search from '../Search/Search.vue'
 
 export default defineComponent({
     props: {
         children: {
-            type: Array as PropType<GlobalCtaLink[]>,
+            type: Array as PropType<Link[]>,
             default: () => []
         },
         uuid: {

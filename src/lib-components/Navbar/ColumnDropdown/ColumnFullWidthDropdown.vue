@@ -8,13 +8,13 @@
 </template>
 
 <script lang="ts">
-import { GroupItem } from "@/types"
+import { Child } from "@/types"
 import { defineComponent, PropType } from "@vue/composition-api"
 import LinkRepeater from "../../LinkRepeater/LinkRepeater.vue"
 export default defineComponent({
     props: {
         children: {
-            type: Array as PropType<GroupItem[]>,
+            type: Array as PropType<Child[]>,
             default: () => ([])
         },
     },

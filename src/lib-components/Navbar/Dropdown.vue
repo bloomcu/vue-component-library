@@ -46,14 +46,14 @@
 
 <script lang="ts">
 import useClickOutside from "@/composables/useClickOutside";
-import { GlobalCtaLink } from "@/types";
+import { Link } from "@/types";
 import { defineComponent, onMounted, PropType, ref } from "@vue/composition-api";
 import { mobileMenuKey } from "@/constants";
 import useToggle from "@/composables/useToggle";
 export default defineComponent({
     props: {
         children: {
-            type: Array as PropType<GlobalCtaLink[]>,
+            type: Array as PropType<Link[]>,
             default: () => ([])
         },
         title: {

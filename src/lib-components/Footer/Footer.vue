@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { GlobalCtaLink, GroupItem, Logo } from "@/types";
+import { Link, Child, Logo } from "@/types";
 import { defineComponent, PropType } from "@vue/composition-api";
 import CodyImage from "../CodyImage/CodyImage.vue";
 import Link from "../Link/Link.vue";
@@ -59,7 +59,7 @@ interface SocialNames {
     youtube?: string
     github?: string
 }
-interface Social extends GlobalCtaLink {
+interface Social extends Link {
     name?: keyof (SocialNames)
     socialName?: keyof (SocialNames)
 }
@@ -86,19 +86,19 @@ export default defineComponent({
             })
         },
         primaryLinks: {
-            type: Array as PropType<GroupItem[]>,
+            type: Array as PropType<Child[]>,
             default: () => []
         },
         secondaryLinks: {
-            type: Array as PropType<GlobalCtaLink[]>,
+            type: Array as PropType<Link[]>,
             default: () => []
         },
         terms: {
-            type: Object as PropType<GlobalCtaLink>,
+            type: Object as PropType<Link>,
             default: () => ({})
         },
         privacy: {
-            type: Object as PropType<GlobalCtaLink>,
+            type: Object as PropType<Link>,
             default: () => ({})
         },
     },
