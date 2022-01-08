@@ -8,7 +8,7 @@
 
 
 <script lang="ts">
-import { Dropdown, Link, Child } from "@/types"
+import { Dropdown, Child } from "@/types"
 import { defineComponent, PropType, ref } from "@vue/composition-api"
 import DropdownIcon from "../DropdownIcon.vue"
 import LinkRepeater from "../../LinkRepeater/LinkRepeater.vue"
@@ -16,9 +16,6 @@ import ColumnDropdown1 from "./ColumnDropdown1.vue"
 import useClickOutside from "@/composables/useClickOutside"
 import NavbarDropdownToggleButton from "./NavbarDropdownToggleButton.vue"
 import ColumnFullWidthDropdown from "./ColumnFullWidthDropdown.vue"
-interface Child extends Link {
-    children: Child[]
-}
 export default defineComponent({
     props: {
         text: {

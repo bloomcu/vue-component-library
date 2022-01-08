@@ -9,24 +9,24 @@
             <p class="mega-nav__label">MENU</p>
             <ul>
                 <li
-                    v-for="group in links.filter((g) => g.component.toLowerCase() === 'columndropdown')"
-                    :key="group.uuid"
+                    v-for="item in links.filter((g) => g.component.toLowerCase() === 'columndropdown')"
+                    :key="item.uuid"
                     class="mega-nav__item js-mega-nav__item"
                 >
                     <component
-                        :is="group.component"
-                        v-bind="group"
+                        :is="item.component"
+                        v-bind="item"
                     />
                 </li>
             </ul>
             <p class="mega-nav__label">OTHER</p>
             <ul>
                 <li
-                    v-for="group in links.filter((g) => g.component.toLowerCase() !== 'columndropdown')"
-                    :key="group.uuid"
+                    v-for="item in links.filter((g) => g.component.toLowerCase() !== 'columndropdown')"
+                    :key="item.uuid"
                     class="mega-nav__item js-mega-nav__item padding-y-sm"
                 >
-                    <component class="width-100%" :is="group.component" v-bind="group" />
+                    <component class="width-100%" :is="item.component" v-bind="item" />
                 </li>
             </ul>
         </div>
