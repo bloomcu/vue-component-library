@@ -52,11 +52,11 @@ import { groupGeneration } from '@/mock/GroupGeneration';
 import { randomId } from '@/helpers';
 import BoxedHero from '@/lib-components/BoxedHero/BoxedHero.vue';
 import { NavbarLink } from '@/types';
+import { blocks, modals } from '@/json/blocks'
 
 export default defineComponent({
   name: 'ServeDev',
   setup() {
-    const { blocks, modals } = require('@/json/blocks');
     const page = ref();
 
     onMounted(() => {

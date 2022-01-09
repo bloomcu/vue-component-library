@@ -11,5 +11,5 @@ Vue.use(VCodyhouseComponents);
 Vue.config.productionTip = false;
 
 new Vue({
-  render: (h): VNode => h(Dev),
+  render: (h : any): VNode => h(Dev),
 }).$mount('#app');

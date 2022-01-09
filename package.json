@@ -13,6 +13,9 @@
   ],
   "sideEffects": false,
   "scripts": {
+    "dev": "vite",
+    "build:vite": "vite build",
+    "serve:vite": "vite preview",
     "serve": "vue-cli-service serve dev/serve.ts",
     "prebuild": "rimraf ./dist",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
@@ -25,11 +28,8 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
-    "@types/webpack-env": "^1.16.3",
-    "@vue/composition-api": "^1.2.4",
-    "codyhouse-framework": "^3.0.2",
-    "eslint-config-prettier": "^8.3.0",
-    "vue-fragment": "^1.5.2"
+    "@vue/composition-api": "^1.4.3",
+    "codyhouse-framework": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -43,18 +43,17 @@
     "@types/babel__core": "^7.1.18",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
-    "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-plugin-typescript": "^4.5.13",
-    "@vue/cli-service": "^4.5.13",
     "@vue/runtime-dom": "latest",
     "@zerollup/ts-transform-paths": "^1.7.18",
     "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
+    "eslint": "8",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
-    "eslint-plugin-vue": "^8.2.0",
+    "eslint-plugin-vue": "8",
     "minimist": "^1.2.5",
     "node-sass": "^6.0.1",
     "prettier": "^2.5.1",
@@ -64,10 +63,11 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-vue": "^5.1.9",
-    "sass-loader": "^10.1.1",
     "style-loader": "^3.3.1",
     "ttypescript": "^1.5.12",
     "typescript": "^4.0.3",
+    "vite": "^2.7.10",
+    "vite-plugin-vue2": "1.9.0",
     "vue": "^2.6.14",
     "vue-template-compiler": "^2.6.14"
   },
