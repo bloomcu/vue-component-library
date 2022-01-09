@@ -32,6 +32,21 @@
     transform: translateY(2px);
   }
 }
+.btn--link {
+  color: var(--color-black);
+  background-color: transparent;
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    box-shadow: inset 0px 1px 0px alpha(var(--color-black), 0.15),
+      0px 0px 0px 2px alpha(var(--color-primary), 0.2);
+  }
+}
+a.btn--link {
+  text-decoration: underline;
+}
 
 // themes
 .btn--primary {

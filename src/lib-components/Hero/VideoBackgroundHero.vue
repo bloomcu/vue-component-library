@@ -1,15 +1,21 @@
 <template>
     <section class="hero-video-bg position-relative padding-y-xxl">
-      <div class="container max-width-adaptive-sm">
-        <div class="position-relative z-index-2 text-center">
-         <ContentComponent />
+        <div class="container max-width-adaptive-sm">
+            <div class="position-relative z-index-2 text-center">
+                <ContentComponent
+                    center
+                    :label="label"
+                    :title="title"
+                    :subtitle="subtitle"
+                    :buttons="buttons"
+                />
+            </div>
         </div>
-      </div>
-    
-      <figure class="hero-video-bg__video" aria-hidden="true">
-        <img v-bind="image">
-        <video autoplay loop muted playsInline v-bind="video"></video>
-      </figure>
+
+        <figure class="hero-video-bg__video" aria-hidden="true">
+            <img v-bind="image" />
+            <video autoplay loop muted playsinline v-bind="video"></video>
+        </figure>
     </section>
 </template>
 
@@ -52,87 +58,91 @@ Usage: codyhouse.co/license
 
 -------------------------------- */
 
-.hero-video-bg {}
+.hero-video-bg {
+}
 
-.hero-video-bg__video { // bg video container
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  z-index: 1;
+.hero-video-bg__video {
+    // bg video container
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
 
-  video {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    min-height: 100%;
-    min-width: 100%;
-    height: auto;
-    width: auto;
-    max-width: none;
+    video {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        min-height: 100%;
+        min-width: 100%;
+        height: auto;
+        width: auto;
+        max-width: none;
 
-    @supports(object-fit: cover) {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
+        @supports (object-fit: cover) {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
 
-    @supports (object-fit: cover) and (-ms-ime-align:auto) { 
-      // fix issue on Edge - object-fit not working for video elements
-      height: auto;
-      width: auto;
-    }
-  }
-
-  img { // video fallback - visible if Reduced Motion is enabled
-    display: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) { // do not play background video if Reduced Motion is enabled - show fallback image
-    video { 
-      visibility: hidden;
+        @supports (object-fit: cover) and (-ms-ime-align: auto) {
+            // fix issue on Edge - object-fit not working for video elements
+            height: auto;
+            width: auto;
+        }
     }
 
     img {
-      display: block;
-      position: absolute;
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
+        // video fallback - visible if Reduced Motion is enabled
+        display: none;
     }
-  }
+
+    @media (prefers-reduced-motion: reduce) {
+        // do not play background video if Reduced Motion is enabled - show fallback image
+        video {
+            visibility: hidden;
+        }
+
+        img {
+            display: block;
+            position: absolute;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
 
 .hero-video-bg__play-btn {
-  --btn-size: 80px;
-  width: var(--btn-size);
-  height: var(--btn-size);
-  display: inline-flex;
-  background-color: alpha(var(--color-contrast-higher), 0.85);
-  border-radius: 50%;
-  cursor: pointer;
+    --btn-size: 80px;
+    width: var(--btn-size);
+    height: var(--btn-size);
+    display: inline-flex;
+    background-color: alpha(var(--color-contrast-higher), 0.85);
+    border-radius: 50%;
+    cursor: pointer;
 
-  transition: background-color .3s;
-
-  .icon {
-    display: block;
-    margin: auto;
-
-    color: var(--color-bg); // icon color
-    font-size: 32px; // icon size
-
-    transition: transform .3s var(--ease-out-back);
-  }
-
-  &:hover {
-    background-color: alpha(var(--color-contrast-higher), 1);
+    transition: background-color 0.3s;
 
     .icon {
-      transform: scale(1.2);
+        display: block;
+        margin: auto;
+
+        color: var(--color-bg); // icon color
+        font-size: 32px; // icon size
+
+        transition: transform 0.3s var(--ease-out-back);
     }
-  }
+
+    &:hover {
+        background-color: alpha(var(--color-contrast-higher), 1);
+
+        .icon {
+            transform: scale(1.2);
+        }
+    }
 }
 </style>

@@ -15,7 +15,11 @@
             >Edit in CMS</a>
         </div>-->
     <Navbar :primaryLinks="navLinks" :secondaryLinks="secondaryLinks" />
-    <VideoBackgroundHero />
+    <VideoBackgroundHero :buttons="[{
+      text: 'Learn more',
+      href: '/atest',
+      variant: 'link'
+    }]" />
     <!-- Blocks -->
     <component
       v-for="(block, index) in page.layout.blocks"
