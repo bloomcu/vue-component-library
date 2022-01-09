@@ -46,10 +46,7 @@ export interface NavbarLink extends Link, Button {
   component: string;
   dropdown?: Dropdown;
 }
-export interface Logo {
-  link: Link;
-  image: Image;
-}
+
 
 export interface Image {
   src: string;
@@ -59,6 +56,10 @@ export interface Image {
   href?: string;
 }
 
+export interface Logo {
+  link: Link;
+  image: Image;
+}
 export interface ContentComponent {
   label: string;
   header: string;
@@ -76,3 +77,11 @@ export interface BreakPointBlock {
 }
 
 export type BreakPoint = keyof BreakPointBlock;
+
+export interface Video {
+  src: string
+  loop?: boolean
+  autoplay?: boolean
+  muted?: boolean
+  playsInline?: boolean
+}
