@@ -1,5 +1,5 @@
-import { Button, Link, Image } from "@/types";
-import { PropType } from "@vue/composition-api";
+import { Button, Link, Image } from '@/types';
+import { PropType } from '@vue/composition-api';
 export const props = {
   button: {
     type: Object as PropType<Button>,
@@ -15,16 +15,16 @@ export const props = {
   },
   label: {
     type: String,
-    default: ''
+    default: '',
   },
   header: {
     type: String,
-    default: ''
+    default: '',
   },
   subHeader: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 };
 const sets = {
   ctaSet: {
@@ -35,7 +35,7 @@ const sets = {
     label: props.label,
     header: props.header,
     subHeader: props.subHeader,
-  }
+  },
 };
 type commonProps = keyof typeof props;
 type commonSets = keyof typeof sets;

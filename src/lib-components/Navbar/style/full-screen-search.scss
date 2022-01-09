@@ -19,7 +19,13 @@ Usage: codyhouse.co/license
 .full-screen-search {
   position: relative;
   font-size: var(--text-xl);
-  background-image: linear-gradient(transparent calc(100% - var(--fs-search-border-bottom-width) * 2), var(--color-contrast-low) calc(100% - var(--fs-search-border-bottom-width) * 2), var(--color-contrast-low) calc(100% - var(--fs-search-border-bottom-width)), transparent var(--fs-search-border-bottom-width)); // border bottom
+  background-image: linear-gradient(
+    transparent calc(100% - var(--fs-search-border-bottom-width) * 2),
+    var(--color-contrast-low)
+      calc(100% - var(--fs-search-border-bottom-width) * 2),
+    var(--color-contrast-low) calc(100% - var(--fs-search-border-bottom-width)),
+    transparent var(--fs-search-border-bottom-width)
+  ); // border bottom
 }
 
 .full-screen-search__input {
@@ -27,7 +33,12 @@ Usage: codyhouse.co/license
   width: 100%;
   padding: var(--space-sm) var(--space-xs);
   padding-right: calc(var(--space-xs) + var(--fs-search-btn-size));
-  background-image: linear-gradient(transparent calc(100% - var(--fs-search-border-bottom-width) * 2), var(--color-primary) calc(100% - var(--fs-search-border-bottom-width) * 2), var(--color-primary) calc(100% - var(--fs-search-border-bottom-width)), transparent var(--fs-search-border-bottom-width)); // filling effect
+  background-image: linear-gradient(
+    transparent calc(100% - var(--fs-search-border-bottom-width) * 2),
+    var(--color-primary) calc(100% - var(--fs-search-border-bottom-width) * 2),
+    var(--color-primary) calc(100% - var(--fs-search-border-bottom-width)),
+    transparent var(--fs-search-border-bottom-width)
+  ); // filling effect
   background-size: 0% 100%;
   background-repeat: no-repeat;
 
@@ -40,8 +51,8 @@ Usage: codyhouse.co/license
 .full-screen-search__input::-webkit-search-decoration,
 .full-screen-search__input::-webkit-search-cancel-button,
 .full-screen-search__input::-webkit-search-results-button,
-.full-screen-search__input::-webkit-search-results-decoration { 
-  display: none; 
+.full-screen-search__input::-webkit-search-results-decoration {
+  display: none;
 }
 
 .full-screen-search__btn {
@@ -61,7 +72,7 @@ Usage: codyhouse.co/license
     display: block;
     color: var(--color-white);
     font-size: 20px; // icon size
-    transition: transform .2s;
+    transition: transform 0.2s;
   }
 
   &:hover {
@@ -74,15 +85,15 @@ Usage: codyhouse.co/license
 @media (prefers-reduced-motion: no-preference) {
   .modal--search {
     .full-screen-search__input {
-      transition: background-size .4s var(--ease-out);
+      transition: background-size 0.4s var(--ease-out);
     }
-  
+
     .full-screen-search__btn {
       transform: translateY(-30%) scale(0.6);
       opacity: 0;
-      transition: opacity .4s, transform .4s var(--ease-out);
+      transition: opacity 0.4s, transform 0.4s var(--ease-out);
     }
-  
+
     &.modal--is-visible {
       .full-screen-search__btn {
         transform: translateY(-50%) scale(1);

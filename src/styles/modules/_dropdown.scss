@@ -1,4 +1,4 @@
-@use "../base/breakpoints";
+@use '../base/breakpoints';
 /* -------------------------------- 
 
 File#: _2_dropdown
@@ -31,7 +31,7 @@ Usage: codyhouse.co/license
   opacity: 0;
   // visibility: hidden;
   transition: opacity 0.2s, visibility 0s 0.2s;
-  @include breakpoints.breakpoint("md") {
+  @include breakpoints.breakpoint('md') {
     left: 0rem;
   }
 }

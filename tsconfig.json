@@ -16,7 +16,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "newLine": "lf",
-    "types": ["node", "vue", "webpack-env", "unplugin-vue2-script-setup/types"],
+    "types": ["node", "vue"],
     "paths": {
       "@/*": ["src/*"]
     },

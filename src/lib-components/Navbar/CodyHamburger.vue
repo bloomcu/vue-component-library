@@ -3,7 +3,7 @@
     <a
       @click.prevent="toggle(mobileMenuKey)"
       class="cody-hamburger"
-      :class="{ 'active': isActive(mobileMenuKey) }"
+      :class="{ active: isActive(mobileMenuKey) }"
       href="#"
       ><span></span
     ></a>
@@ -12,27 +12,24 @@
 
 <script lang="ts">
 import useToggle from '@/composables/useToggle';
-import { mobileMenuKey } from '@/constants'
+import { mobileMenuKey } from '@/constants';
 export default {
   setup() {
-      const { isActive, toggle } = useToggle()
+    const { isActive, toggle } = useToggle();
     return {
       isActive,
       toggle,
-      mobileMenuKey
+      mobileMenuKey,
     };
   },
 };
 </script>
 
 <style lang="scss">
-
-
 .cody-hamburger {
   cursor: pointer;
   display: flex;
   padding-right: 20px;
-  
 }
 .cody-hamburger span,
 .cody-hamburger span:before,

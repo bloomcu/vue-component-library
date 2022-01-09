@@ -304,7 +304,7 @@ Usage: codyhouse.co/license
     cursor: pointer;
   }
 
-  a[aria-current="page"] {
+  a[aria-current='page'] {
     /* current page */
     color: var(--color-primary);
   }
@@ -456,7 +456,7 @@ Usage: codyhouse.co/license
 
     &::after {
       /* marker */
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0px;
       left: 0;
@@ -635,11 +635,11 @@ Usage: codyhouse.co/license
     }
 
     &:hover,
-    &[aria-selected="true"] {
+    &[aria-selected='true'] {
       color: var(--color-primary);
     }
 
-    &[aria-selected="true"] {
+    &[aria-selected='true'] {
       .icon {
         opacity: 1;
         transform: translateX(0px);
@@ -678,7 +678,7 @@ Usage: codyhouse.co/license
   }
 
   /* icon animation on click */
-  &:not([data-hover="on"])
+  &:not([data-hover='on'])
     .mega-nav__item--expanded
     .mega-nav__arrow-icon
     .icon__group {
@@ -725,15 +725,15 @@ Usage: codyhouse.co/license
 }
 
 /* used in JS - detect when the menu needs to switch from --mobile to --desktop layout */
-[class*="mega-nav--desktop"]::before {
+[class*='mega-nav--desktop']::before {
   display: none;
-  content: "mobile";
+  content: 'mobile';
 }
 
 @each $breakpoint, $value in $breakpoints {
   @include breakpoint(#{$breakpoint}) {
     .mega-nav--desktop\@#{$breakpoint}::before {
-      content: "desktop";
+      content: 'desktop';
     }
   }
 }

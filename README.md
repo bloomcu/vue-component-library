@@ -1,17 +1,12 @@
-
-
-
 # About
 
 A Vue component library based on CodyHouse UI. This package includes components for assembling website blocks and admin ui. This package was built using [vue-sfc-rollup](https://github.com/team-innovation/vue-sfc-rollup).
-
 
 ## Install from NPM
 
 ```bash
 npm install [coming-soon]
 ```
-
 
 ## Install Locally
 
@@ -40,10 +35,7 @@ npm install [the-package-local-path]
 Use the package like any other package you installed from NPM:
 
 ```js
-<script>
-import { AppButton } from 'v-codyhouse-components'
-...
-</script>
+<script>import {AppButton} from 'v-codyhouse-components' ...</script>
 ```
 
 Dependency not found? Delete "package.lock" and run:
@@ -57,10 +49,10 @@ npm unlink @bloomcu/vue-component-library
 ```
 
 And:
+
 ```bash
 npm remove @bloomcu/vue-component-library
 ```
-
 
 ## Local Package Development
 
@@ -92,8 +84,6 @@ npm run serve
 
 View package dev screen at: http://localhost:7000
 
-
-
 ## Updating Package
 
 When you are finished developing, semantically bump the version in package.json:
@@ -110,7 +100,6 @@ Build the package:
 ```bash
 npm run build
 ```
-
 
 ## Publishing to NPM
 

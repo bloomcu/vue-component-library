@@ -22,10 +22,10 @@ export default {
     beforeEnter(element) {
       requestAnimationFrame(() => {
         if (!element.style.height) {
-          element.style.height = '0px'
+          element.style.height = '0px';
         }
-        element.style.display = null
-      })
+        element.style.display = null;
+      });
     },
     /**
      * @param {HTMLElement} element
@@ -33,15 +33,15 @@ export default {
     enter(element) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          element.style.height = `${element.scrollHeight}px`
-        })
-      })
+          element.style.height = `${element.scrollHeight}px`;
+        });
+      });
     },
     /**
      * @param {HTMLElement} element
      */
     afterEnter(element) {
-      element.style.height = null
+      element.style.height = null;
     },
     /**
      * @param {HTMLElement} element
@@ -49,9 +49,9 @@ export default {
     beforeLeave(element) {
       requestAnimationFrame(() => {
         if (!element.style.height) {
-          element.style.height = `${element.offsetHeight}px`
+          element.style.height = `${element.offsetHeight}px`;
         }
-      })
+      });
     },
     /**
      * @param {HTMLElement} element
@@ -59,18 +59,18 @@ export default {
     leave(element) {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          element.style.height = '0px'
-        })
-      })
+          element.style.height = '0px';
+        });
+      });
     },
     /**
      * @param {HTMLElement} element
      */
     afterLeave(element) {
-      element.style.height = null
+      element.style.height = null;
     },
   },
-}
+};
 </script>
 
 <style scoped>

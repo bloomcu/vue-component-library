@@ -4,7 +4,7 @@ export const appendToSet = (str: string, set: string): string => {
   } else {
     set = `${str}`;
   }
-  return set
+  return set;
 };
 
 export const dummyArray = (amountToGenerate = 8) => {
@@ -13,7 +13,7 @@ export const dummyArray = (amountToGenerate = 8) => {
     arr.push(i);
   }
   return arr;
-}
+};
 
 export const randomId = () => {
   // Math.random should be unique because of its seeding algorithm.
@@ -23,22 +23,19 @@ export const randomId = () => {
 };
 
 export const extractObjectKeys = (obj: object = {}, keys: string[]) => {
-  const objectEntries = Object.entries(obj)
-  const newObject: any = {}
+  const objectEntries = Object.entries(obj);
+  const newObject: any = {};
   for (const [key, value] of objectEntries) {
     if (keys.includes(key)) {
-      newObject[key] = value
+      newObject[key] = value;
     }
   }
-  return newObject
-}
+  return newObject;
+};
 
 export const toTitleCase = (str: string | undefined) => {
-  if (!str) return
-  return str.replace(
-    /\w\S*/g,
-    function (txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    }
-  );
-}
+  if (!str) return;
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+};

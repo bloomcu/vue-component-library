@@ -20,12 +20,15 @@
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
     "quickbuild": "git add . && git commit -m'change' && git push && yarn build && npm version patch && npm publish",
-    "postbuild": "rimraf ./dist/types/dev ./dist/types/src/entry.d.ts"
+    "postbuild": "rimraf ./dist/types/dev ./dist/types/src/entry.d.ts",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "format": "prettier .  --write"
   },
   "dependencies": {
     "@types/webpack-env": "^1.16.3",
     "@vue/composition-api": "^1.2.4",
     "codyhouse-framework": "^3.0.2",
+    "eslint-config-prettier": "^8.3.0",
     "vue-fragment": "^1.5.2"
   },
   "devDependencies": {
@@ -37,14 +40,23 @@
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-replace": "^2.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-plugin-typescript": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
     "@vue/runtime-dom": "latest",
     "@zerollup/ts-transform-paths": "^1.7.18",
     "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-vue": "^8.2.0",
     "minimist": "^1.2.5",
     "node-sass": "^6.0.1",
+    "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.52.8",
     "rollup-plugin-postcss": "^4.0.2",
@@ -55,7 +67,6 @@
     "style-loader": "^3.3.1",
     "ttypescript": "^1.5.12",
     "typescript": "^4.0.3",
-    "unplugin-vue2-script-setup": "^0.8.3",
     "vue": "^2.6.14",
     "vue-template-compiler": "^2.6.14"
   },

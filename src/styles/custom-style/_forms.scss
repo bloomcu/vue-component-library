@@ -20,32 +20,40 @@
   transition: all 0.2s ease;
 
   &::placeholder {
-    opacity: 1;  
+    opacity: 1;
     color: var(--color-contrast-low);
   }
 
   &:focus {
     background: var(--color-bg);
-    box-shadow: inset 0px 0px 0px 1px alpha(var(--color-contrast-lower), 0), 0px 0px 0px 2px var(--color-primary), var(--shadow-sm);
+    box-shadow: inset 0px 0px 0px 1px alpha(var(--color-contrast-lower), 0),
+      0px 0px 0px 2px var(--color-primary), var(--shadow-sm);
     outline: none;
   }
 }
 
-.form-control--disabled, .form-control[disabled], .form-control[readonly] {
+.form-control--disabled,
+.form-control[disabled],
+.form-control[readonly] {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.form-control[aria-invalid="true"], .form-control.form-control--error {
-  box-shadow: inset 0px 0px 0px 1px alpha(var(--color-contrast-lower), 0), 0px 0px 0px 2px var(--color-error);
+.form-control[aria-invalid='true'],
+.form-control.form-control--error {
+  box-shadow: inset 0px 0px 0px 1px alpha(var(--color-contrast-lower), 0),
+    0px 0px 0px 2px var(--color-error);
 
   &:focus {
-    box-shadow: inset 0px 0px 0px 1px alpha(var(--color-contrast-lower), 0), 0px 0px 0px 2px var(--color-error), var(--shadow-sm);
+    box-shadow: inset 0px 0px 0px 1px alpha(var(--color-contrast-lower), 0),
+      0px 0px 0px 2px var(--color-error), var(--shadow-sm);
   }
 }
 
-.form-legend {}
-.form-label {}
+.form-legend {
+}
+.form-label {
+}
 
 // --------------------------------
 

@@ -90,8 +90,8 @@
   background: var(--color-bg-lighter);
   color: var(--color-contrast-higher);
   box-shadow: inset 0px 0px 0px 1px var(--color-contrast-lower),
-  var(--shadow-xs);
-  
+    var(--shadow-xs);
+
   &:hover {
     background: var(--color-bg-light);
     box-shadow: inset 0px 0px 0px 1px var(--color-contrast-lower),
@@ -125,8 +125,8 @@
   background: var(--color-accent-light);
   color: var(--color-white);
   box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15),
-  var(--shadow-xs);
-  
+    var(--shadow-xs);
+
   &:hover {
     background: var(--color-accent);
     box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15),

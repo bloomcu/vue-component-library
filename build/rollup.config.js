@@ -12,26 +12,27 @@ import { terser } from 'rollup-plugin-terser';
 import ttypescript from 'ttypescript';
 import typescript from 'rollup-plugin-typescript2';
 import minimist from 'minimist';
-import ScriptSetup from "unplugin-vue2-script-setup/rollup";
-
+import ScriptSetup from 'unplugin-vue2-script-setup/rollup';
 
 // Get browserslist config and remove ie from es build targets
-const esbrowserslist = fs.readFileSync('./.browserslistrc')
+const esbrowserslist = fs
+  .readFileSync('./.browserslistrc')
   .toString()
   .split('\n')
   .filter((entry) => entry && entry.substring(0, 2) !== 'ie');
 
 // Extract babel preset-env config, to combine with esbrowserslist
-const babelPresetEnvConfig = require('../babel.config')
-  .presets.filter((entry) => entry[0] === '@babel/preset-env')[0][1];
+const babelPresetEnvConfig = require('../babel.config').presets.filter(
+  (entry) => entry[0] === '@babel/preset-env'
+)[0][1];
 
 const argv = minimist(process.argv.slice(2));
 
 const projectRoot = path.resolve(__dirname, '..');
-const PATH_SRC = path.resolve(projectRoot, "src").replace(/\\/gi, "/");
+const PATH_SRC = path.resolve(projectRoot, 'src').replace(/\\/gi, '/');
 const PATH_NODE_MODULES = path
-  .resolve(projectRoot, "node_modules")
-  .replace(/\\/gi, "/"); // Errm.. I use windows 😬 
+  .resolve(projectRoot, 'node_modules')
+  .replace(/\\/gi, '/'); // Errm.. I use windows 😬
 const baseConfig = {
   input: 'src/entry.ts',
   plugins: {
@@ -51,7 +52,8 @@ const baseConfig = {
     },
     vue: {
       css: true,
-      data: { // This helps to inject variables in each <style> tag of every Vue SFC
+      data: {
+        // This helps to inject variables in each <style> tag of every Vue SFC
         scss: () => `@import "@/styles/style.scss";`,
         sass: () => `@import "@/styles/style.scss"`,
       },
@@ -72,9 +74,9 @@ const baseConfig = {
                 };
               },
             ],
-          }
+          },
         },
-      }
+      },
     },
     postVue: [
       PostCSS(),

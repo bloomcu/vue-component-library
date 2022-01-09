@@ -1,6 +1,7 @@
 // don't modify this file -> edit 📁 custom-style/_buttons.scss to create your custom buttons
 
-.btn { // basic button style
+.btn {
+  // basic button style
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -16,9 +17,17 @@
 }
 
 // default size variations
-.btn--sm { font-size: var(--btn-font-size-sm, 0.8em); }
-.btn--md { font-size: var(--btn-font-size-md, 1.2em); }
-.btn--lg { font-size: var(--btn-font-size-lg, 1.4em); }
+.btn--sm {
+  font-size: var(--btn-font-size-sm, 0.8em);
+}
+.btn--md {
+  font-size: var(--btn-font-size-md, 1.2em);
+}
+.btn--lg {
+  font-size: var(--btn-font-size-lg, 1.4em);
+}
 
 // button with (only) icon
-.btn--icon { padding: var(--btn-padding-y, 0.5em); }
+.btn--icon {
+  padding: var(--btn-padding-y, 0.5em);
+}

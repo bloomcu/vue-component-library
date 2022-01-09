@@ -13,8 +13,8 @@ Usage: codyhouse.co/license
 
 :root {
   --anim-menu-btn-size: 48px;
-  --anim-menu-btn-transition-duration: .2s;
-  
+  --anim-menu-btn-transition-duration: 0.2s;
+
   // 🍔 icon
   --anim-menu-btn-icon-size: 32px;
   --anim-menu-btn-icon-stroke: 2px;
@@ -39,8 +39,9 @@ Usage: codyhouse.co/license
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
   transform: scale(1);
-  
-  &::before, &::after {
+
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     top: 0;
@@ -63,16 +64,19 @@ Usage: codyhouse.co/license
     transform: scale(0.9);
   }
 
-  &::before, &::after {
+  &::before,
+  &::after {
     will-change: inherit;
     transition: inherit;
   }
 
-  &::before { // line top
+  &::before {
+    // line top
     transform: translateY(-0.25em) rotate(0);
   }
 
-  &::after { // line bottom
+  &::after {
+    // line bottom
     transform: translateY(0.25em) rotate(0);
   }
 }
@@ -105,18 +109,21 @@ Usage: codyhouse.co/license
     transform: scale(0.9);
   }
 
-  &::before, &::after {
-    transform-origin: calc(var(--anim-menu-btn-icon-stroke)/2) 50%;
+  &::before,
+  &::after {
+    transform-origin: calc(var(--anim-menu-btn-icon-stroke) / 2) 50%;
     will-change: transform, width;
     transition-property: transform, width;
     transition-duration: var(--anim-menu-btn-transition-duration, 0.2s);
   }
 
-  &::before { // line top
+  &::before {
+    // line top
     transform: translateY(-0.25em) rotate(0);
   }
 
-  &::after { // line bottom
+  &::after {
+    // line bottom
     transform: translateY(0.25em) rotate(0);
   }
 }
@@ -134,7 +141,8 @@ Usage: codyhouse.co/license
   .anim-menu-btn__icon--arrow-right,
   .anim-menu-btn__icon--arrow-up,
   .anim-menu-btn__icon--arrow-down {
-    &::before, &::after {
+    &::before,
+    &::after {
       width: 50%;
     }
 

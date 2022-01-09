@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueCompositionApi from '@vue/composition-api';
 
 Vue.use(VueCompositionApi);
-import { ref } from "@vue/composition-api";
+import { ref } from '@vue/composition-api';
 
 // Array of active element names
 const active = ref<string[]>([]);
@@ -22,7 +22,7 @@ function isActive(item: string) {
  *
  * @param  {String} item Name of element to be toggled
  */
-function toggle(item : string) {
+function toggle(item: string) {
   // Get index of item if present
   const itemIndex = active.value.indexOf(item);
 
@@ -30,7 +30,6 @@ function toggle(item : string) {
   itemIndex === -1
     ? active.value.push(item)
     : active.value.splice(itemIndex, 1);
-
 }
 /**
  * Toggle item
@@ -42,13 +41,11 @@ function close(item: string) {
   if (itemIndex !== -1) {
     active.value.splice(itemIndex, 1);
   }
-
 }
 export default function useToggle() {
-
   return {
     isActive,
     toggle,
-    close
+    close,
   };
 }

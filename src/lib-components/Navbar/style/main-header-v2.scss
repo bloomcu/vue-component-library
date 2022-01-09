@@ -28,9 +28,10 @@ Usage: codyhouse.co/license
   // class added when navigation is visible - small devices only
 }
 
-.header-v2, .header-v2__wrapper {
+.header-v2,
+.header-v2__wrapper {
   position: relative;
-  z-index: var(--z-index-header, 3); 
+  z-index: var(--z-index-header, 3);
   height: var(--header-v2-height);
 }
 
@@ -45,19 +46,22 @@ Usage: codyhouse.co/license
 .header-v2__logo {
   flex-shrink: 0;
 
-  a, svg {
+  a,
+  svg {
     display: block;
   }
 }
 
-.header-v2__nav-control { // menu button - visible only on small screens
+.header-v2__nav-control {
+  // menu button - visible only on small screens
   --anim-menu-btn-size: 40px;
   // 🍔 icon
   --anim-menu-btn-icon-size: 24px;
   --anim-menu-btn-icon-stroke: 2px;
 }
 
-.header-v2__nav { // main navigation
+.header-v2__nav {
+  // main navigation
   top: var(--header-v2-height);
   left: 0;
   width: 100%;
@@ -65,8 +69,8 @@ Usage: codyhouse.co/license
   background-color: var(--color-bg-light);
   border-radius: var(--radius-md);
   box-shadow: var(--inner-glow), var(--shadow-md);
-  z-index: var(--z-index-popover, 5); 
-  
+  z-index: var(--z-index-popover, 5);
+
   // hide
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -76,7 +80,8 @@ Usage: codyhouse.co/license
   visibility: hidden;
 }
 
-.header-v2__nav--is-visible { // show nav
+.header-v2__nav--is-visible {
+  // show nav
   clip: auto;
   clip-path: none;
   height: auto;
@@ -87,7 +92,8 @@ Usage: codyhouse.co/license
   visibility: visible;
 }
 
-.header-v2__nav-list--main:nth-child(2) { // horizontal divider between main navs
+.header-v2__nav-list--main:nth-child(2) {
+  // horizontal divider between main navs
   border-top: 1px solid var(--color-contrast-lower);
   margin-top: var(--space-md);
   padding-top: var(--space-md);
@@ -113,7 +119,8 @@ Usage: codyhouse.co/license
   padding: var(--space-xxs) 0;
 }
 
-.header-v2__nav-item--divider { // list divider
+.header-v2__nav-item--divider {
+  // list divider
   height: 1px;
   background-color: var(--color-contrast-lower);
   margin: var(--space-md) 0;
@@ -134,7 +141,8 @@ Usage: codyhouse.co/license
   text-decoration: none;
   color: var(--color-contrast-high); // nav links color
 
-  &:hover, &[aria-current] {
+  &:hover,
+  &[aria-current] {
     color: var(--color-contrast-higher);
   }
 }
@@ -153,11 +161,13 @@ Usage: codyhouse.co/license
       flex-shrink: 0;
     }
 
-    strong { // title
+    strong {
+      // title
       display: block;
     }
 
-    small { // description
+    small {
+      // description
       color: var(--color-contrast-medium);
     }
 
@@ -169,7 +179,8 @@ Usage: codyhouse.co/license
   }
 }
 
-.header-v2__nav-col-2 { // utility class -> create 2 columns
+.header-v2__nav-col-2 {
+  // utility class -> create 2 columns
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: var(--space-sm);
@@ -177,17 +188,17 @@ Usage: codyhouse.co/license
 
 // change header style on bigger screens
 @include breakpoint(lg) {
-  .header-v2[data-animation="on"] .header-v2__wrapper--is-fixed {
+  .header-v2[data-animation='on'] .header-v2__wrapper--is-fixed {
     position: fixed;
     top: calc(-1 * var(--header-v2-height));
     left: 0;
     width: 100%;
     background-color: var(--color-bg);
-    z-index: var(--z-index-fixed-element, 10); 
-    transition: transform .2s;
+    z-index: var(--z-index-fixed-element, 10);
+    transition: transform 0.2s;
   }
 
-  .header-v2[data-animation="on"] .header-v2__wrapper--slides-down {
+  .header-v2[data-animation='on'] .header-v2__wrapper--slides-down {
     transform: translateY(100%);
     box-shadow: var(--shadow-sm);
   }
@@ -221,7 +232,8 @@ Usage: codyhouse.co/license
     justify-content: space-between;
   }
 
-  .header-v2__nav-list--main { // left/right navs
+  .header-v2__nav-list--main {
+    // left/right navs
     display: flex;
     align-items: center;
   }
@@ -229,14 +241,16 @@ Usage: codyhouse.co/license
   .header-v2__nav-item {
     position: relative;
 
-    .btn { // reset btn style
+    .btn {
+      // reset btn style
       width: auto;
       font-size: 1.125rem;
       margin: 0;
     }
   }
 
-  .header-v2__nav-item--main { // main nav items
+  .header-v2__nav-item--main {
+    // main nav items
     display: inline-block;
     margin-bottom: 0; // reset
     margin-left: var(--space-md); // margin between main nav items
@@ -273,7 +287,8 @@ Usage: codyhouse.co/license
   .header-v2__nav-item--search-btn {
     display: inline-block; // show search btn
 
-    button, .icon {
+    button,
+    .icon {
       display: block;
     }
 
@@ -283,7 +298,7 @@ Usage: codyhouse.co/license
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: opacity .2s;
+      transition: opacity 0.2s;
       cursor: pointer;
 
       &:hover {
@@ -292,18 +307,19 @@ Usage: codyhouse.co/license
     }
   }
 
-  .header-v2__nav-dropdown { // dropdown menu
+  .header-v2__nav-dropdown {
+    // dropdown menu
     --space-unit: 1rem; // set space unit = 1rem
     position: absolute;
     top: 100%;
     left: calc(50% - 100px);
-    z-index: var(--z-index-popover, 5); 
+    z-index: var(--z-index-popover, 5);
     width: 200px;
     background-color: var(--color-bg-light);
     border-radius: var(--radius-md);
     box-shadow: var(--inner-glow), var(--shadow-md);
     padding: var(--space-xxs) 0;
-    transition: opacity .2s, visibility .2s;
+    transition: opacity 0.2s, visibility 0.2s;
 
     // hide
     // visibility: hidden;
@@ -313,7 +329,8 @@ Usage: codyhouse.co/license
       @include textUnit(1rem); // reduce font-size of all dropdown text elements
     }
 
-    .header-v2__nav-link, .header-v2__nav-item--label {
+    .header-v2__nav-link,
+    .header-v2__nav-item--label {
       padding-left: var(--space-xs);
       padding-right: var(--space-xs);
     }
@@ -323,7 +340,8 @@ Usage: codyhouse.co/license
       background-color: alpha(var(--color-contrast-higher), 0.075);
     }
 
-    .header-v2__nav-dropdown--nested { // sub dropdown
+    .header-v2__nav-dropdown--nested {
+      // sub dropdown
       left: 100%;
       top: calc(var(--space-xs) * -1);
     }
@@ -360,7 +378,8 @@ Usage: codyhouse.co/license
   }
 
   .header-v2__nav-list--is-visible,
-  .header-v2__nav-item--has-children:hover > .header-v2__nav-dropdown { // show dropdown
+  .header-v2__nav-item--has-children:hover > .header-v2__nav-dropdown {
+    // show dropdown
     visibility: visible;
     opacity: 1;
   }
