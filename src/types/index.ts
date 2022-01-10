@@ -13,6 +13,12 @@ export interface FeatureV9Item {
   buttonText: string;
   description: string;
 }
+
+export interface Accordion {
+  uuid: string
+  label: string
+  content: string
+}
 export interface Button {
   href?: string;
   target?: string;
