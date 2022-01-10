@@ -1,7 +1,7 @@
 <template>
     <Grid :cols="2" v-slot="{ column }" :columns="children">
         <div>
-            <div class="flex gap-sm">
+            <div class="flex items-center gap-sm">
                 <figure class="flex-shrink-0">
                     <img class="block width-xl width-xxxl@md" v-bind="column.image" />
                 </figure>
@@ -35,14 +35,14 @@ export default defineComponent({
                     title: 'Title 1',
                     description: 'Desc 1',
                     image: {
-                        src: 'http://placeimg.com/640/480/animals'
+                        src: 'https://codyhouse.co/app/assets/img/feature-v7-img-2.svg'
                     }
                 },
                 {
                     title: 'Title 2',
                     description: 'Desc 2',
                     image: {
-                        src: 'http://placeimg.com/640/480/animals'
+                        src: 'https://codyhouse.co/app/assets/img/feature-v7-img-4.svg'
                     }
                 },
             ])
