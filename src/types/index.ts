@@ -68,6 +68,13 @@ export interface ContentComponent {
   ctaLink: Link;
 }
 
+export interface Content {
+  title?: string
+  description?: string
+  buttons?: Button[]
+  image: Image
+}
+
 export interface BreakPointBlock {
   xs?: string | number;
   sm?: string | number;

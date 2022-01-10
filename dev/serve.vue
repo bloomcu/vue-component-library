@@ -16,6 +16,7 @@
         </div>-->
     <Navbar :primaryLinks="navLinks" :secondaryLinks="secondaryLinks" />
     <FeatureV7 />
+    <FeatureV9 />
     <VideoBackgroundHero :buttons="[{
       text: 'Learn more',
       href: '/atest',
@@ -59,6 +60,7 @@ import BoxedHero from '@/lib-components/BoxedHero/BoxedHero.vue';
 import { NavbarLink } from '@/types';
 import VideoBackgroundHero from '@/lib-components/Hero/VideoBackgroundHero.vue';
 import FeatureV7 from '@/lib-components/Feature/FeatureV7.vue';
+import FeatureV9 from '@/lib-components/Feature/FeatureV9.vue';
 
 export default defineComponent({
   name: 'ServeDev',
@@ -158,6 +160,6 @@ export default defineComponent({
       secondaryLinks,
     };
   },
-  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7 },
+  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7, FeatureV9 },
 });
 </script>

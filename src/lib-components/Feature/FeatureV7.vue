@@ -17,19 +17,14 @@
 
 
 <script lang="ts">
-import { Image } from '@/types';
+import { Content } from '@/types';
 import { defineComponent, PropType } from '@vue/composition-api';
 import Grid from '../Grid/Grid.vue';
-interface FeatureV7Item {
-    title: string
-    description: string
-    image: Image
-}
 export default defineComponent({
     components: { Grid },
     props: {
         children: {
-            type: Array as PropType<FeatureV7Item[] | any>,
+            type: Array as PropType<Content[] | any>,
             default: () => ([
                 {
                     title: 'Title 1',
