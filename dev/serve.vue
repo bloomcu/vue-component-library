@@ -15,6 +15,7 @@
             >Edit in CMS</a>
         </div>-->
     <Navbar :primaryLinks="navLinks" :secondaryLinks="secondaryLinks" />
+    <FeatureV7 />
     <VideoBackgroundHero :buttons="[{
       text: 'Learn more',
       href: '/atest',
@@ -57,6 +58,7 @@ import { randomId } from '@/helpers';
 import BoxedHero from '@/lib-components/BoxedHero/BoxedHero.vue';
 import { NavbarLink } from '@/types';
 import VideoBackgroundHero from '@/lib-components/Hero/VideoBackgroundHero.vue';
+import FeatureV7 from '@/lib-components/Feature/FeatureV7.vue';
 
 export default defineComponent({
   name: 'ServeDev',
@@ -156,6 +158,6 @@ export default defineComponent({
       secondaryLinks,
     };
   },
-  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero },
+  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7 },
 });
 </script>

@@ -20,7 +20,7 @@ import { BreakPointBlock } from '@/types';
 import { appendToSet } from '@/helpers';
 import ContentComponent from '../Content/ContentComponent.vue';
 type GridGap = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '0';
-
+type ColNumber = 1 | 2 | 3 | 4 | 6 | 12
 export default defineComponent({
   props: {
     gap: {
@@ -28,11 +28,11 @@ export default defineComponent({
       default: 'xl',
     },
     cols: {
-      type: Number,
+      type: Number as PropType<ColNumber>,
       default: 4,
     },
     columns: {
-      type: Array,
+      type: Array as PropType<any>,
       default: () => [
         {
           label: 'Label',
