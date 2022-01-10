@@ -3,16 +3,12 @@
         <div>
             <div class="flex gap-sm">
                 <figure class="flex-shrink-0">
-                    <img
-                        class="block width-xl width-xxxl@md"
-                        src="http://placeimg.com/640/480/animals"
-                        alt="Image description"
-                    />
+                    <img class="block width-xl width-xxxl@md" v-bind="column.image" />
                 </figure>
 
                 <div class="text-component">
                     <h4>{{ column.title }}</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium assumenda doloribus eos provident modi.</p>
+                    <p>{{ column.description }}</p>
                 </div>
             </div>
         </div>
