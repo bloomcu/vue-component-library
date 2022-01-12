@@ -18,6 +18,7 @@
     <Accordion />
     <FeatureV7 />
     <FeatureV9 />
+    <DetailsList />
     <VideoBackgroundHero :buttons="[{
       text: 'Learn more',
       href: '/atest',
@@ -63,6 +64,7 @@ import VideoBackgroundHero from '@/lib-components/Hero/VideoBackgroundHero.vue';
 import FeatureV7 from '@/lib-components/Feature/FeatureV7.vue';
 import FeatureV9 from '@/lib-components/Feature/FeatureV9.vue';
 import Accordion from '@/lib-components/Accordion/Accordion.vue';
+import DetailsList from '../src/lib-components/DetailsList/DetailsList.vue';
 
 export default defineComponent({
   name: 'ServeDev',
@@ -162,6 +164,6 @@ export default defineComponent({
       secondaryLinks,
     };
   },
-  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7, FeatureV9, Accordion },
+  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7, FeatureV9, Accordion, DetailsList },
 });
 </script>
