@@ -33,12 +33,6 @@ export default defineComponent({
       type: Array as PropType<Child[]>,
       default: () => [],
     },
-    group: {
-      type: Object as PropType<Child>,
-      default: () => ({
-        children: [],
-      }),
-    },
     dropdown: {
       type: Object as PropType<Dropdown>,
       default: () => ({}),

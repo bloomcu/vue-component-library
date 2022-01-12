@@ -15,6 +15,7 @@
             >Edit in CMS</a>
         </div>-->
     <Navbar :primaryLinks="navLinks" :secondaryLinks="secondaryLinks" />
+    <CodyTable />
     <Testimonial />
     <Accordion />
     <FeatureV7 />
@@ -67,6 +68,7 @@ import FeatureV9 from '@/lib-components/Feature/FeatureV9.vue';
 import Accordion from '@/lib-components/Accordion/Accordion.vue';
 import DetailsList from '../src/lib-components/DetailsList/DetailsList.vue';
 import Testimonial from '@/lib-components/Testimoial/Testimonial.vue';
+import CodyTable from '@/lib-components/Table/CodyTable.vue';
 
 export default defineComponent({
   name: 'ServeDev',
@@ -166,6 +168,6 @@ export default defineComponent({
       secondaryLinks,
     };
   },
-  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7, FeatureV9, Accordion, DetailsList, Testimonial },
+  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7, FeatureV9, Accordion, DetailsList, Testimonial, CodyTable },
 });
 </script>
