@@ -29,6 +29,11 @@ Usage: codyhouse.co/license
   box-shadow: inset 0px -1px 0px alpha(var(--color-contrast-higher), 0.1); /* border bottom */
 }
 
+.mega-nav__item {
+  .btn {
+    font-size: 0.9rem;
+  }
+}
 /* change mega-nav style if menu = expanded */
 .mega-nav--expanded {
   background-color: var(--color-bg);

@@ -99,11 +99,11 @@ export default defineComponent({
     const navLinks: NavbarLink[] = [
       {
         uuid: randomId(),
-        component: 'NavbarLink',
+        component: 'NavbarDropdown',
         text: randomId(),
         href: randomId(),
         dropdown: {
-          component: 'ColumnDropdown1',
+          component: 'NavbarDropdownColumn1',
           children: groupGeneration()
         }
       },

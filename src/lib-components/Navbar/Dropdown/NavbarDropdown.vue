@@ -24,14 +24,14 @@ import LinkRepeater from '../../LinkRepeater/LinkRepeater.vue'
 import useClickOutside from '@/composables/useClickOutside'
 import NavbarDropdownToggleButton from './NavbarDropdownToggleButton.vue'
 import NavbarDropdownColumns from './NavbarDropdownColumns.vue'
-import NavbarDropdownVerticalLinks from './NavbarDropdownVerticalLinks.vue'
+import NavbarDropdownColumn1 from './NavbarDropdownColumn1.vue'
 export default defineComponent({
   components: {
     DropdownIcon,
     LinkRepeater,
     NavbarDropdownToggleButton,
     NavbarDropdownColumns,
-    NavbarDropdownVerticalLinks
+    NavbarDropdownColumn1
   },
   props: {
     text: {
