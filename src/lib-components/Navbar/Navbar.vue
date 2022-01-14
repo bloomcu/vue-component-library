@@ -1,7 +1,5 @@
 <template>
-  <header
-    class="mega-nav mega-nav--mobile mega-nav--desktop@md position-relative js-mega-nav"
-  >
+  <header class="mega-nav mega-nav--mobile mega-nav--desktop@md position-relative js-mega-nav">
     <MobileMenu :links="getMobileDropdownItems" />
     <div class="mega-nav__container">
       <!-- 👇 logo -->
@@ -23,7 +21,7 @@
           v-bind="group"
         />
         <!-- <div v-for="group in getMobileMenuItems" :key="group.text">
-        </div> -->
+        </div>-->
         <CodyHamburger />
         <!-- <MobileHamburger /> -->
       </div>
@@ -84,7 +82,7 @@ import {
 import navbarScript from './NavbarScript'
 import LinkRepeater from '../LinkRepeater/LinkRepeater.vue'
 import DropdownIcon from './DropdownIcon.vue'
-import { Button, Logo, NavbarLink } from '@/types'
+import { Button, Logo, NavbarLink as NavbarLinkType } from '@/types'
 import Link from '../Link/Link.vue'
 import AppLink from '../Link/AppLink.vue'
 import AppButton from '../AppButton/AppButton.vue'
@@ -94,19 +92,35 @@ import Dropdown from './Dropdown.vue'
 import MobileHamburger from './MobileHamburger.vue'
 import CodyHamburger from './CodyHamburger.vue'
 import MobileMenu from './Mobile/MobileMenu.vue'
-
+import NavbarDropdown from './Dropdown/NavbarDropdown.vue'
+import NavbarLink from './NavbarLink.vue'
 export default defineComponent({
+  components: {
+    LinkRepeater,
+    DropdownIcon,
+    Link,
+    AppButton,
+    SearchDropdown,
+    ColumnDropdown,
+    Dropdown,
+    MobileHamburger,
+    CodyHamburger,
+    MobileMenu,
+    AppLink,
+    NavbarDropdown,
+    NavbarLink
+  },
   props: {
     search: {
       type: Boolean,
       default: true
     },
     primaryLinks: {
-      type: Array as PropType<NavbarLink[]>,
+      type: Array as PropType<NavbarLinkType[]>,
       default: () => []
     },
     secondaryLinks: {
-      type: Array as PropType<NavbarLink[]>,
+      type: Array as PropType<NavbarLinkType[]>,
       default: () => []
     },
     logo: {
@@ -161,19 +175,6 @@ export default defineComponent({
       getMobileMenuItems,
       getMobileDropdownItems
     }
-  },
-  components: {
-    LinkRepeater,
-    DropdownIcon,
-    Link,
-    AppButton,
-    SearchDropdown,
-    ColumnDropdown,
-    Dropdown,
-    MobileHamburger,
-    CodyHamburger,
-    MobileMenu,
-    AppLink
   }
 })
 </script>

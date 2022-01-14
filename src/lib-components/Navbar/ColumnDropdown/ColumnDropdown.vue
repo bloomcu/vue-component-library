@@ -26,6 +26,13 @@ import useClickOutside from '@/composables/useClickOutside'
 import NavbarDropdownToggleButton from './NavbarDropdownToggleButton.vue'
 import ColumnFullWidthDropdown from './ColumnFullWidthDropdown.vue'
 export default defineComponent({
+  components: {
+    DropdownIcon,
+    LinkRepeater,
+    ColumnDropdown1,
+    NavbarDropdownToggleButton,
+    ColumnFullWidthDropdown
+  },
   props: {
     text: {
       type: String,
@@ -43,13 +50,6 @@ export default defineComponent({
       type: Object as PropType<Dropdown>,
       default: () => ({})
     }
-  },
-  components: {
-    DropdownIcon,
-    LinkRepeater,
-    ColumnDropdown1,
-    NavbarDropdownToggleButton,
-    ColumnFullWidthDropdown
   },
   setup () {
     const open = ref(false)
