@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import { randomId } from "@/helpers";
-import { defineComponent, onMounted } from "@vue/composition-api";
+import { defineComponent, onMounted, PropType } from "@vue/composition-api";
 import casual from 'casual-browserify'
 import TableScript from "./script";
 interface TableRow {
@@ -46,57 +46,62 @@ interface TableRow {
   key: string
 }
 export default defineComponent({
+  props: {
+    rows: {
+      type: Array as PropType<TableRow[]>,
+      default: () => ([
+        {
+          uuid: randomId(),
+          display: 'Name',
+          key: 'name',
+        },
+        {
+          uuid: randomId(),
+          display: 'Job',
+          key: 'job',
+        },
+        {
+          uuid: randomId(),
+          display: 'Company',
+          key: 'company',
+        },
+        {
+          uuid: randomId(),
+          display: 'Salary',
+          key: 'salary',
+        },
+      ])
+    },
+    columns: {
+      type: Array as PropType<any[]>,
+      default: () => (
+        [
+          {
+            name: casual.name,
+            job: casual.company_name,
+            company: casual.company_name,
+            salary: `$${casual.integer(40000, 500000)}`
+          },
+          {
+            name: casual.name,
+            job: casual.company_name,
+            company: casual.company_name,
+            salary: `$${casual.integer(40000, 500000)}`
+          },
+          {
+            name: casual.name,
+            job: casual.company_name,
+            company: casual.company_name,
+            salary: `$${casual.integer(40000, 500000)}`
+          },
+        ]
+      )
+    }
+  },
   setup() {
-    const rows: TableRow[] = [
-      {
-        uuid: randomId(),
-        display: 'Name',
-        key: 'name',
-      },
-      {
-        uuid: randomId(),
-        display: 'Job',
-        key: 'job',
-      },
-      {
-        uuid: randomId(),
-        display: 'Company',
-        key: 'company',
-      },
-      {
-        uuid: randomId(),
-        display: 'Salary',
-        key: 'salary',
-      },
-    ]
-    const columns: any = [
-      {
-        name: casual.name,
-        job: casual.company_name,
-        company: casual.company_name,
-        salary: `$${casual.integer(40000, 500000)}`
-      },
-      {
-        name: casual.name,
-        job: casual.company_name,
-        company: casual.company_name,
-        salary: `$${casual.integer(40000, 500000)}`
-      },
-      {
-        name: casual.name,
-        job: casual.company_name,
-        company: casual.company_name,
-        salary: `$${casual.integer(40000, 500000)}`
-      },
-    ]
     onMounted(() => {
       TableScript()
     })
-
-    return {
-      rows,
-      columns
-    }
   }
 })
 
