@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="margin-top-sm">
-                        <CodyButton v-for="(button, x) in child.buttons" :key="x" v-bind="button" variant="subtle" size="lg"></CodyButton>
+                        <AppButton v-for="(button, x) in child.buttons" :key="x" v-bind="button" variant="subtle" size="lg"></AppButton>
                         <!-- <a class="feature-v9__link" href="#0">Shop Women</a> -->
                     </div>
                 </div>
@@ -29,7 +29,7 @@
 <script lang="ts">
 import { Content } from "@/types"
 import { defineComponent, PropType } from "@vue/composition-api"
-import CodyButton from "../CodyButton/CodyButton.vue"
+import AppButton from "../AppButton/AppButton.vue"
 export default defineComponent({
     props: {
         children: {
@@ -66,7 +66,7 @@ export default defineComponent({
             ])
         }
     },
-    components: { CodyButton }
+    components: { AppButton }
 })
 </script>
 

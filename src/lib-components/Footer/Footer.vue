@@ -3,9 +3,9 @@
     <div class="container max-width-lg">
       <div class="grid gap-lg">
         <div class="col-3@lg order-2@lg text-right@lg">
-          <CodyLink class="main-footer__logo" :href="logo.link.href">
+          <AppLink class="main-footer__logo" :href="logo.link.href">
             <img :src="logo.image.src" />
-          </CodyLink>
+          </AppLink>
         </div>
 
         <nav class="col-9@lg order-1@lg">
@@ -23,14 +23,14 @@
             <span
               >&copy; {{ organization }} {{ new Date().getFullYear() }}</span
             >
-            <CodyLink
+            <AppLink
               v-for="link in secondaryLinks"
               :href="link.href"
               :title="link.text"
               :target="link.target"
               :key="link.href"
               class="color-contrast-high"
-              >{{ link.text }}</CodyLink
+              >{{ link.text }}</AppLink
             >
           </div>
         </div>
@@ -51,7 +51,7 @@
 <script lang="ts">
 import { Link, Child, Logo } from '@/types';
 import { defineComponent, PropType } from '@vue/composition-api';
-import CodyLink from '../Link/CodyLink.vue';
+import AppLink from '../Link/AppLink.vue';
 import Social from '../Socials/Social.vue';
 import LinkRepeater from '../LinkRepeater/LinkRepeater.vue';
 
@@ -105,7 +105,7 @@ export default defineComponent({
       default: () => ({}),
     },
   },
-  components: { CodyLink, Social, LinkRepeater },
+  components: { AppLink, Social, LinkRepeater },
 });
 </script>
 

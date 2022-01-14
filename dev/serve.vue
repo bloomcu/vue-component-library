@@ -15,7 +15,8 @@
             >Edit in CMS</a>
         </div>-->
     <Navbar :primaryLinks="navLinks" :secondaryLinks="secondaryLinks" />
-    <CodyTable />
+    <SubNavigation />
+    <AppTable />
     <Testimonial />
     <Accordion />
     <FeatureV7 />
@@ -68,7 +69,8 @@ import FeatureV9 from '@/lib-components/Feature/FeatureV9.vue';
 import Accordion from '@/lib-components/Accordion/Accordion.vue';
 import DetailsList from '../src/lib-components/DetailsList/DetailsList.vue';
 import Testimonial from '@/lib-components/Testimoial/Testimonial.vue';
-import CodyTable from '@/lib-components/Table/CodyTable.vue';
+import AppTable from '@/lib-components/Table/AppTable.vue';
+import SubNavigation from '@/lib-components/Navigation/SubNavigation.vue';
 
 export default defineComponent({
   name: 'ServeDev',
@@ -115,7 +117,7 @@ export default defineComponent({
       // },
       {
         uuid: randomId(),
-        component: 'CodyLink',
+        component: 'AppLink',
         text: ' _zso4u8is9 ',
         // trigger: "123",
         variant: 'primary',
@@ -141,7 +143,7 @@ export default defineComponent({
       },
       {
         uuid: randomId(),
-        component: 'CodyButton',
+        component: 'AppButton',
         text: 'Download',
         // trigger: "123",
         variant: 'primary',
@@ -150,7 +152,7 @@ export default defineComponent({
       },
       {
         uuid: randomId(),
-        component: 'CodyLink',
+        component: 'AppLink',
         text: ' _zso4u8is9 ',
         // trigger: "123",
         variant: 'primary',
@@ -168,6 +170,6 @@ export default defineComponent({
       secondaryLinks,
     };
   },
-  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7, FeatureV9, Accordion, DetailsList, Testimonial, CodyTable },
+  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7, FeatureV9, Accordion, DetailsList, Testimonial, AppTable, SubNavigation },
 });
 </script>

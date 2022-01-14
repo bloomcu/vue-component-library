@@ -45,8 +45,8 @@
 <script lang="ts">
 import useToggle from '@/composables/useToggle';
 import ColumnDropdown from '../ColumnDropdown/ColumnDropdown.vue';
-import CodyButton from '@/lib-components/CodyButton/CodyButton.vue';
-import CodyLink from '@/lib-components/Link/CodyLink.vue';
+import AppButton from '@/lib-components/AppButton/AppButton.vue';
+import AppLink from '@/lib-components/Link/AppLink.vue';
 import { defineComponent, PropType } from '@vue/composition-api';
 import { mobileMenuKey } from '@/constants';
 import { NavbarLink } from '@/types';
@@ -59,7 +59,7 @@ export default defineComponent({
       mobileMenuKey,
     };
   },
-  components: { ColumnDropdown, CodyButton, CodyLink },
+  components: { ColumnDropdown, AppButton, AppLink },
   props: {
     links: {
       type: Array as PropType<NavbarLink[]>,

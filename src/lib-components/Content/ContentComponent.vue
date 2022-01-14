@@ -14,7 +14,7 @@
       class="flex flex-wrap items-center gap-sm"
       :class="center ? 'flex-center' : ''"
     >
-      <CodyButton
+      <AppButton
         v-for="(button, index) in buttons"
         :text="button.text"
         :href="button.href"
@@ -29,7 +29,7 @@
 import { defineComponent, PropType } from '@vue/composition-api';
 
 // Components
-import CodyButton from '../CodyButton/CodyButton.vue';
+import AppButton from '../AppButton/AppButton.vue';
 
 // Types
 import { Button } from '@/types';
@@ -58,6 +58,6 @@ export default defineComponent({
     },
   },
 
-  components: { CodyButton },
+  components: { AppButton },
 });
 </script>

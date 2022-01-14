@@ -51,7 +51,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api';
-import CodyButton from './CodyButton/CodyButton.vue';
+import AppButton from './AppButton/AppButton.vue';
 import Hero from './Hero/Hero.vue';
 import Feature from './Feature/Feature.vue';
 import Grid from './Grid/Grid.vue';
@@ -68,7 +68,7 @@ export default defineComponent({
     };
   },
   components: {
-    CodyButton,
+    AppButton,
     Hero,
     Feature,
     Grid,

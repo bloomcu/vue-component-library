@@ -60,6 +60,11 @@ export default defineComponent({
       },
       {
         uuid: randomId(),
+        display: 'Company',
+        key: 'company',
+      },
+      {
+        uuid: randomId(),
         display: 'Salary',
         key: 'salary',
       },
@@ -68,16 +73,19 @@ export default defineComponent({
       {
         name: casual.name,
         job: casual.company_name,
+        company: casual.company_name,
         salary: `$${casual.integer(40000, 500000)}`
       },
       {
         name: casual.name,
         job: casual.company_name,
+        company: casual.company_name,
         salary: `$${casual.integer(40000, 500000)}`
       },
       {
         name: casual.name,
         job: casual.company_name,
+        company: casual.company_name,
         salary: `$${casual.integer(40000, 500000)}`
       },
     ]

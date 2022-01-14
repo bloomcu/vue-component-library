@@ -75,8 +75,8 @@ import LinkRepeater from '../LinkRepeater/LinkRepeater.vue';
 import DropdownIcon from './DropdownIcon.vue';
 import { Button, Logo, NavbarLink } from '@/types';
 import Link from '../Link/Link.vue';
-import CodyLink from '../Link/CodyLink.vue';
-import CodyButton from '../CodyButton/CodyButton.vue';
+import AppLink from '../Link/AppLink.vue';
+import AppButton from '../AppButton/AppButton.vue';
 import SearchDropdown from './SearchDropdown.vue';
 import ColumnDropdown from './ColumnDropdown/ColumnDropdown.vue';
 import Dropdown from './Dropdown.vue';
@@ -123,9 +123,9 @@ export default defineComponent({
     const mobileDropdownItemKeys = [
       'ColumnDropdown',
       'Link',
-      'CodyLink',
+      'AppLink',
       'Button',
-      'CodyButton',
+      'AppButton',
     ];
     const getMobileMenuItems = computed(() => {
       const mergeLinks = [...props.primaryLinks, ...props.secondaryLinks];
@@ -155,14 +155,14 @@ export default defineComponent({
     LinkRepeater,
     DropdownIcon,
     Link,
-    CodyButton,
+    AppButton,
     SearchDropdown,
     ColumnDropdown,
     Dropdown,
     MobileHamburger,
     CodyHamburger,
     MobileMenu,
-    CodyLink,
+    AppLink,
   },
 });
 </script>

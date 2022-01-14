@@ -11,7 +11,7 @@
       </div>
 
       <div class="margin-top-sm">
-        <CodyButton v-bind="button" />
+        <AppButton v-bind="button" />
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Button, Image } from '@/types';
 import { defineComponent, PropType } from '@vue/composition-api';
-import CodyButton from '../CodyButton/CodyButton.vue';
+import AppButton from '../AppButton/AppButton.vue';
 
 export default defineComponent({
   props: {
@@ -47,6 +47,6 @@ export default defineComponent({
       }),
     },
   },
-  components: { CodyButton },
+  components: { AppButton },
 });
 </script>

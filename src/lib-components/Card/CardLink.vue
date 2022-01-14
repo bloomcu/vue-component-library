@@ -35,7 +35,7 @@
 <script lang="ts">
 import { Image } from '@/types';
 import { defineComponent, PropType } from '@vue/composition-api';
-import CodyButton from '../CodyButton/CodyButton.vue';
+import AppButton from '../AppButton/AppButton.vue';
 // Define link type
 export default defineComponent({
   props: {
@@ -61,6 +61,6 @@ export default defineComponent({
       }),
     },
   },
-  components: { CodyButton },
+  components: { AppButton },
 });
 </script>
