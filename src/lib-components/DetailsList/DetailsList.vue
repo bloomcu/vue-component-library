@@ -1,22 +1,24 @@
 <template>
+  <div class="container max-width-adaptive-lg">
     <dl class="details-list details-list--rows">
-        <div v-for="(child, i) in children" :key="i" class="details-list__item padding-y-md">
-            <dt class="font-bold margin-bottom-xxs">Address</dt>
-            <dd class="line-height-md">
-                <p v-for="({ text }, x) in child.children " :key="x">{{ text }}</p>
-            </dd>
-        </div>
+      <div v-for="(child, i) in children" :key="i" class="details-list__item padding-y-md">
+        <dt class="font-bold margin-bottom-xxs">Address</dt>
+        <dd class="line-height-md">
+          <p v-for="({ text }, x) in child.children " :key="x">{{ text }}</p>
+        </dd>
+      </div>
     </dl>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from '@vue/composition-api'
 interface DetailsChild {
-    text: string
+  text: string
 }
 interface Detail {
-    title: string
-    children: DetailsChild[]
+  title: string
+  children: DetailsChild[]
 }
 export default defineComponent({
   props: {
@@ -77,72 +79,66 @@ Usage: codyhouse.co/license
 -------------------------------- */
 
 :root {
-    --details-list-border-width: 1px;
-    --details-list-border-opacity: 0.15;
+  --details-list-border-width: 1px;
+  --details-list-border-opacity: 0.15;
 }
 
 .details-list {
 }
 
 .details-list--rows {
-    .details-list__item {
-        border-bottom: var(--details-list-border-width) solid
-            alpha(
-                var(--color-contrast-higher),
-                var(--details-list-border-opacity)
-            );
+  .details-list__item {
+    border-bottom: var(--details-list-border-width) solid
+      alpha(var(--color-contrast-higher), var(--details-list-border-opacity));
 
-        &:last-child {
-            border-bottom: none;
-        }
+    &:last-child {
+      border-bottom: none;
     }
+  }
 }
 
 .details-list--cols {
-    .details-list__item {
-        border-right: var(--details-list-border-width) solid
-            alpha(
-                var(--color-contrast-higher),
-                var(--details-list-border-opacity)
-            );
+  .details-list__item {
+    border-right: var(--details-list-border-width) solid
+      alpha(var(--color-contrast-higher), var(--details-list-border-opacity));
 
-        &:last-child {
-            border-right: none;
-        }
+    &:last-child {
+      border-right: none;
     }
+  }
 }
 
 @each $breakpoint, $value in $breakpoints {
-    @include breakpoint(#{$breakpoint}) {
-        .details-list--rows\@#{$breakpoint} {
-            .details-list__item {
-                border-right: 0;
-                border-bottom: var(--details-list-border-width) solid
-                    alpha(
-                        var(--color-contrast-higher),
-                        var(--details-list-border-opacity)
-                    );
+  @include breakpoint(#{$breakpoint}) {
+    .details-list--rows\@#{$breakpoint} {
+      .details-list__item {
+        border-right: 0;
+        border-bottom: var(--details-list-border-width) solid
+          alpha(
+            var(--color-contrast-higher),
+            var(--details-list-border-opacity)
+          );
 
-                &:last-child {
-                    border-bottom: none;
-                }
-            }
+        &:last-child {
+          border-bottom: none;
         }
-
-        .details-list--cols\@#{$breakpoint} {
-            .details-list__item {
-                border-bottom: 0;
-                border-right: var(--details-list-border-width) solid
-                    alpha(
-                        var(--color-contrast-higher),
-                        var(--details-list-border-opacity)
-                    );
-
-                &:last-child {
-                    border-right: none;
-                }
-            }
-        }
+      }
     }
+
+    .details-list--cols\@#{$breakpoint} {
+      .details-list__item {
+        border-bottom: 0;
+        border-right: var(--details-list-border-width) solid
+          alpha(
+            var(--color-contrast-higher),
+            var(--details-list-border-opacity)
+          );
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
 }
 </style>

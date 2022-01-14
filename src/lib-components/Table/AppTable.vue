@@ -1,37 +1,38 @@
 <template>
-  <table
-    class="table table--expanded@xs position-relative z-index-1 width-100% text-unit-em text-sm js-table"
-    aria-label="Table Example"
-  >
-    <thead class="table__header">
-      <tr class="table__row">
-        <th
-          v-for="(row, i) in rows"
-          :key="row.uuid"
-          class="table__cell"
-          :class="i === rows.length - 1 ? 'text-right' : 'text-left'"
-          scope="col"
-        >{{ row.display }}</th>
-      </tr>
-    </thead>
-
-    <tbody class="table__body">
-      <tr class="table__row" v-for="(column, i) in columns" :key="i">
-        <td
-          v-for="x in rows.length"
-          :key="x"
-          class="table__cell"
-          role="cell"
-          :class="{
-            'text-right': x - 1 === rows.length - 1
-          }"
-        >
-          <span class="table__label" aria-hidden="true">{{ rows[x - 1].display }}:</span>
-          {{ column[rows[x - 1].key] }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container max-width-adaptive-lg">
+    <table
+      class="table table--expanded@xs position-relative z-index-1 width-100% text-unit-em text-sm js-table"
+      aria-label="Table Example"
+    >
+      <thead class="table__header">
+        <tr class="table__row">
+          <th
+            v-for="(row, i) in rows"
+            :key="row.uuid"
+            class="table__cell"
+            :class="i === rows.length - 1 ? 'text-right' : 'text-left'"
+            scope="col"
+          >{{ row.display }}</th>
+        </tr>
+      </thead>
+      <tbody class="table__body">
+        <tr class="table__row" v-for="(column, i) in columns" :key="i">
+          <td
+            v-for="x in rows.length"
+            :key="x"
+            class="table__cell"
+            role="cell"
+            :class="{
+              'text-right': x - 1 === rows.length - 1
+            }"
+          >
+            <span class="table__label" aria-hidden="true">{{ rows[x - 1].display }}:</span>
+            {{ column[rows[x - 1].key] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 
