@@ -1,5 +1,8 @@
 <template>
-  <svg class="icon block" viewBox="0 0 16 16">
+  <svg
+    class="icon block"
+    viewBox="0 0 16 16"
+  >
     <title>Follow us on Github</title>
     <g>
       <path

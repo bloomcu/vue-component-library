@@ -1,6 +1,10 @@
 <template>
   <transition name="slideY">
-    <div ref="dropdown" v-if="open" class="position-relative">
+    <div
+      v-if="open"
+      ref="dropdown"
+      class="position-relative"
+    >
       <div class="header-v2__nav-dropdown header-v2__nav-dropdown--md">
         <ul class="header-v2__nav-list header-v2__nav-list--title-desc">
           <li
@@ -8,7 +12,10 @@
             :key="child.title"
             class="header-v2__nav-item"
           >
-            <a href="#0" class="header-v2__nav-link">
+            <a
+              href="#0"
+              class="header-v2__nav-link"
+            >
               <div>
                 <strong>{{ child.title }}</strong>
                 <small>{{ child.text }}</small>
@@ -22,20 +29,20 @@
 </template>
 
 <script lang="ts">
-import { Child } from '@/types';
-import { defineComponent, PropType } from '@vue/composition-api';
+import { Child } from '@/types'
+import { defineComponent, PropType } from '@vue/composition-api'
 export default defineComponent({
   props: {
     open: {
       type: Boolean,
-      default: false,
+      default: false
     },
     children: {
       type: Array as PropType<Child[]>,
-      default: () => [],
-    },
-  },
-});
+      default: () => []
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>

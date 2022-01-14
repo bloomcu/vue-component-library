@@ -1,80 +1,88 @@
 <template>
-    <section class="feature-v9">
-        <div class="grid">
-            <div
-                v-for="(child, i) in children"
-                :key="i"
-                class="feature-v9__block col-6@md"
-                :style="`background-image: url(${child.image.src});`"
+  <section class="feature-v9">
+    <div class="grid">
+      <div
+        v-for="(child, i) in children"
+        :key="i"
+        class="feature-v9__block col-6@md"
+        :style="`background-image: url(${child.image.src});`"
+      >
+        <div class="feature-v9__content text-center max-width-xxxs">
+          <div class="text-component">
+            <h2 class="text-xxl color-inherit">
+              {{ child.title }}
+            </h2>
+            <p
+              class="opacity-90%"
             >
-                <div class="feature-v9__content text-center max-width-xxxs">
-                    <div class="text-component">
-                        <h2 class="text-xxl color-inherit">{{ child.title }}</h2>
-                        <p
-                            class="opacity-90%"
-                        >{{ child.description }}</p>
-                    </div>
+              {{ child.description }}
+            </p>
+          </div>
 
-                    <div class="margin-top-sm">
-                        <AppButton v-for="(button, x) in child.buttons" :key="x" v-bind="button" variant="subtle" size="lg"></AppButton>
-                        <!-- <a class="feature-v9__link" href="#0">Shop Women</a> -->
-                    </div>
-                </div>
-            </div>
+          <div class="margin-top-sm">
+            <AppButton
+              v-for="(button, x) in child.buttons"
+              :key="x"
+              v-bind="button"
+              variant="subtle"
+              size="lg"
+            />
+            <!-- <a class="feature-v9__link" href="#0">Shop Women</a> -->
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </template>
 
-
 <script lang="ts">
-import { Content } from "@/types"
-import { defineComponent, PropType } from "@vue/composition-api"
-import AppButton from "../AppButton/AppButton.vue"
+import { Content } from '@/types'
+import { defineComponent, PropType } from '@vue/composition-api'
+import AppButton from '../AppButton/AppButton.vue'
 export default defineComponent({
-    props: {
-        children: {
-            type: Array as PropType<Content[]>,
-            default: () => ([
-                {
-                    title: "Title 1",
-                    description: "Vero tempora ipsam libero doloribus velit molestiae.",
-                    buttons: [
-                        {
-                            text: "Shop Women",
-                            // variant: "accent",
-                            // size: "xl"
-                        }
-                    ],
-                    image: {
-                        src: "https://codyhouse.co/app/assets/img/feature-v9-img-1.jpg"
-                    }
-                },
-                {
-                    title: "Title 2",
-                    description: "Repellat aliquid fugiat quas ea consequatur quia esse. Laudantium cupiditate eos est.",
-                    buttons: [
-                        {
-                            text: "Shop Men",
-                            // variant: "accent",
-                            // size: "xl"
-                        }
-                    ],
-                    image: {
-                        src: "https://codyhouse.co/app/assets/img/feature-v9-img-2.jpg"
-                    }
-                },
-            ])
+  props: {
+    children: {
+      type: Array as PropType<Content[]>,
+      default: () => ([
+        {
+          title: 'Title 1',
+          description: 'Vero tempora ipsam libero doloribus velit molestiae.',
+          buttons: [
+            {
+              text: 'Shop Women'
+              // variant: "accent",
+              // size: "xl"
+            }
+          ],
+          image: {
+            src: 'https://codyhouse.co/app/assets/img/feature-v9-img-1.jpg'
+          }
+        },
+        {
+          title: 'Title 2',
+          description: 'Repellat aliquid fugiat quas ea consequatur quia esse. Laudantium cupiditate eos est.',
+          buttons: [
+            {
+              text: 'Shop Men'
+              // variant: "accent",
+              // size: "xl"
+            }
+          ],
+          image: {
+            src: 'https://codyhouse.co/app/assets/img/feature-v9-img-2.jpg'
+          }
         }
-    },
-    components: { AppButton }
+      ])
+    }
+  },
+  components: { AppButton }
 })
 </script>
-
 
 <style lang="scss">
 @use '@/styles/base' as *;
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_feature-v9
 Title: Feature v9

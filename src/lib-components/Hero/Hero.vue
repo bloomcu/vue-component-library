@@ -1,7 +1,7 @@
 <template>
   <section
-    v-bind:class="classBinds"
-    v-bind:style="styleBinds"
+    :class="classBinds"
+    :style="styleBinds"
     class="hero bg position-relative padding-y-xxl"
   >
     <div class="container max-width-adaptive-lg">
@@ -19,38 +19,38 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from '@vue/composition-api';
-import { appendToSet } from '@/helpers';
+import { defineComponent, PropType, computed } from '@vue/composition-api'
+import { appendToSet } from '@/helpers'
 
 // Components
-import ContentComponent from '../Content/ContentComponent.vue';
+import ContentComponent from '../Content/ContentComponent.vue'
 
 // Types
-import { Button, Image } from '@/types';
+import { Button, Image } from '@/types'
 
 export default defineComponent({
-  name: 'hero',
+  name: 'Hero',
 
   props: {
     center: {
       type: Boolean,
-      default: false,
+      default: false
     },
     fullscreen: {
       type: Boolean,
-      default: false,
+      default: false
     },
     label: {
       type: String,
-      default: 'The label',
+      default: 'The label'
     },
     title: {
       type: String,
-      default: 'The title',
+      default: 'The title'
     },
     subtitle: {
       type: String,
-      default: 'The subtitle',
+      default: 'The subtitle'
     },
     buttons: {
       type: Array as PropType<Array<Button>>,
@@ -58,53 +58,53 @@ export default defineComponent({
         {
           text: 'Button Text',
           href: '/button-href',
-          variant: 'primary',
+          variant: 'primary'
         },
         {
           text: 'Link Text',
-          href: '/button-href',
-        },
-      ],
+          href: '/button-href'
+        }
+      ]
     },
     image: {
       type: Object as PropType<Image>,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
 
-  setup(props) {
+  setup (props) {
     const classBinds = computed(() => {
-      let classSet = '';
+      let classSet = ''
 
       if (props.center) {
-        classSet = appendToSet('hero--center', classSet);
+        classSet = appendToSet('hero--center', classSet)
       }
       if (props.fullscreen) {
-        classSet = appendToSet('hero--full-screen', classSet);
+        classSet = appendToSet('hero--full-screen', classSet)
       }
       if (props.image) {
-        classSet = appendToSet('hero--background-img', classSet);
+        classSet = appendToSet('hero--background-img', classSet)
       }
 
-      return classSet;
-    });
+      return classSet
+    })
 
     const styleBinds = computed(() => {
       return props.image.src
         ? {
-            'background-image': `url(https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/${props.image.src})`,
+            'background-image': `url(https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/${props.image.src})`
           }
-        : {};
-    });
+        : {}
+    })
 
     return {
       classBinds,
-      styleBinds,
-    };
+      styleBinds
+    }
   },
 
-  components: { ContentComponent },
-});
+  components: { ContentComponent }
+})
 </script>
 
 <style lang="scss">

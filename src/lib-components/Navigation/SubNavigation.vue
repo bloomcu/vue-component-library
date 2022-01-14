@@ -1,46 +1,121 @@
 <template>
-<div class="bg-dark">
-  <div class="container max-width-lg">
-    <div class="subnav  js-subnav">
-      <button class="reset btn btn--subtle margin-y-sm subnav__control js-subnav__control">
-        <span>Show Categories</span>
-        <svg class="icon icon--xxs margin-left-xxs" aria-hidden="true" viewBox="0 0 12 12">
-          <polyline points="0.5 3.5 6 9.5 11.5 3.5" fill="none" stroke-width="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></polyline>
-        </svg>
-      </button>
+  <div class="bg-dark">
+    <div class="container max-width-lg">
+      <div class="subnav  js-subnav">
+        <button class="reset btn btn--subtle margin-y-sm subnav__control js-subnav__control">
+          <span>Show Categories</span>
+          <svg
+            class="icon icon--xxs margin-left-xxs"
+            aria-hidden="true"
+            viewBox="0 0 12 12"
+          >
+            <polyline
+              points="0.5 3.5 6 9.5 11.5 3.5"
+              fill="none"
+              stroke-width="1"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
 
-      <div class="subnav__wrapper js-subnav__wrapper">
-        <nav class="subnav__nav justify-center">
-          <button class="reset subnav__close-btn js-subnav__close-btn js-tab-focus" aria-label="Close navigation">
-            <svg class="icon" viewBox="0 0 16 16">
-              <g stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
-                <line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line>
-                <line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line>
-              </g>
-            </svg>
-          </button>
+        <div class="subnav__wrapper js-subnav__wrapper">
+          <nav class="subnav__nav justify-center">
+            <button
+              class="reset subnav__close-btn js-subnav__close-btn js-tab-focus"
+              aria-label="Close navigation"
+            >
+              <svg
+                class="icon"
+                viewBox="0 0 16 16"
+              >
+                <g
+                  stroke-width="1"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-miterlimit="10"
+                >
+                  <line
+                    x1="13.5"
+                    y1="2.5"
+                    x2="2.5"
+                    y2="13.5"
+                  />
+                  <line
+                    x1="2.5"
+                    y1="2.5"
+                    x2="13.5"
+                    y2="13.5"
+                  />
+                </g>
+              </svg>
+            </button>
 
-          <ul class="subnav__list">
-            <li class="subnav__item"><a href="#0" class="subnav__link" aria-current=page>Intro</a></li>
-            <li class="subnav__item"><a href="#0" class="subnav__link">Features</a></li>
-            <li class="subnav__item"><a href="#0" class="subnav__link">Photos</a></li>
-            <li class="subnav__item"><a href="#0" class="subnav__link">Videos</a></li>
-            <li class="subnav__item"><a href="#0" class="subnav__link">Specs</a></li>
-            <li class="subnav__item"><a href="#0" class="subnav__link">Support</a></li>
-            <li class="subnav__item"><a href="#0" class="subnav__link">Compare</a></li>
-            <li class="subnav__item"><a href="#0" class="subnav__link">Buy</a></li>
-          </ul>
-        </nav>
+            <ul class="subnav__list">
+              <li class="subnav__item">
+                <a
+                  href="#0"
+                  class="subnav__link"
+                  aria-current="page"
+                >Intro</a>
+              </li>
+              <li class="subnav__item">
+                <a
+                  href="#0"
+                  class="subnav__link"
+                >Features</a>
+              </li>
+              <li class="subnav__item">
+                <a
+                  href="#0"
+                  class="subnav__link"
+                >Photos</a>
+              </li>
+              <li class="subnav__item">
+                <a
+                  href="#0"
+                  class="subnav__link"
+                >Videos</a>
+              </li>
+              <li class="subnav__item">
+                <a
+                  href="#0"
+                  class="subnav__link"
+                >Specs</a>
+              </li>
+              <li class="subnav__item">
+                <a
+                  href="#0"
+                  class="subnav__link"
+                >Support</a>
+              </li>
+              <li class="subnav__item">
+                <a
+                  href="#0"
+                  class="subnav__link"
+                >Compare</a>
+              </li>
+              <li class="subnav__item">
+                <a
+                  href="#0"
+                  class="subnav__link"
+                >Buy</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "@vue/composition-api";
+import { defineComponent } from '@vue/composition-api'
 export default defineComponent({
-    
+
 })
 </script>
 
@@ -119,7 +194,7 @@ Usage: codyhouse.co/license
   .subnav__wrapper {
     position: fixed;
     display: block;
-    z-index: var(--z-index-overlay, 15); 
+    z-index: var(--z-index-overlay, 15);
     top: 0;
     left: 0;
     width: 100%;
@@ -190,7 +265,7 @@ Usage: codyhouse.co/license
     background-color: var(--color-bg-lighter);
     box-shadow: var(--inner-glow), var(--shadow-md);
   }
-  
+
   .icon {
     display: block;
     color: var(--color-contrast-high);

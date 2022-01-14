@@ -50,23 +50,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
-import AppButton from './AppButton/AppButton.vue';
-import Hero from './Hero/Hero.vue';
-import Feature from './Feature/Feature.vue';
-import Grid from './Grid/Grid.vue';
-import TextColumns from './TextColumns/TextColumns.vue';
-import Card from './Card/Card.vue';
-import CardRepeater from './CardRepeater/CardRepeater.vue';
-import CardLink from './Card/CardLink.vue';
-import Modal from './Modal/Modal.vue';
+import { defineComponent } from '@vue/composition-api'
+import AppButton from './AppButton/AppButton.vue'
+import Hero from './Hero/Hero.vue'
+import Feature from './Feature/Feature.vue'
+import Grid from './Grid/Grid.vue'
+import TextColumns from './TextColumns/TextColumns.vue'
+import Card from './Card/Card.vue'
+import CardRepeater from './CardRepeater/CardRepeater.vue'
+import CardLink from './Card/CardLink.vue'
+import Modal from './Modal/Modal.vue'
 
 export default defineComponent({
-  setup() {
-    return {
-      atest: 'hello',
-    };
-  },
   components: {
     AppButton,
     Hero,
@@ -76,9 +71,14 @@ export default defineComponent({
     Card,
     CardRepeater,
     CardLink,
-    Modal,
+    Modal
   },
-});
+  setup () {
+    return {
+      atest: 'hello'
+    }
+  }
+})
 </script>
 
 <style></style>

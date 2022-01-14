@@ -2,13 +2,21 @@
   <header
     class="bg-contrast-lower bg-opacity-50% padding-y-sm padding-x-md flex items-center justify-between"
   >
-    <h1 id="modal-title-1" class="text-truncate text-md">{{ title }}</h1>
+    <h1
+      id="modal-title-1"
+      class="text-truncate text-md"
+    >
+      {{ title }}
+    </h1>
 
     <button
-      @click="toggle(uuid)"
       class="reset modal__close-btn modal__close-btn--inner hide@md js-modal__close js-tab-focus"
+      @click="toggle(uuid)"
     >
-      <svg class="icon icon--xs" viewBox="0 0 16 16">
+      <svg
+        class="icon icon--xs"
+        viewBox="0 0 16 16"
+      >
         <title>Close modal window</title>
         <g
           stroke-width="2"
@@ -18,8 +26,18 @@
           stroke-linejoin="round"
           stroke-miterlimit="10"
         >
-          <line x1="13.5" y1="2.5" x2="2.5" y2="13.5" />
-          <line x1="2.5" y1="2.5" x2="13.5" y2="13.5" />
+          <line
+            x1="13.5"
+            y1="2.5"
+            x2="2.5"
+            y2="13.5"
+          />
+          <line
+            x1="2.5"
+            y1="2.5"
+            x2="13.5"
+            y2="13.5"
+          />
         </g>
       </svg>
     </button>
@@ -27,21 +45,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
-import useToggle from '@/composables/useToggle';
+import { defineComponent } from '@vue/composition-api'
+import useToggle from '@/composables/useToggle'
 export default defineComponent({
-  setup: () => ({
-    toggle: useToggle().toggle,
-  }),
   props: {
     uuid: {
       type: String,
-      required: true,
+      required: true
     },
     title: {
       type: String,
-      required: true,
-    },
+      required: true
+    }
   },
-});
+  setup: () => ({
+    toggle: useToggle().toggle
+  })
+})
 </script>

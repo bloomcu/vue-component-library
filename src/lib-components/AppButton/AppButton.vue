@@ -4,58 +4,59 @@
     class="btn"
     :class="classBinds"
     @click="toggle(trigger)"
-    >{{ text }}</component
   >
+    {{ text }}
+  </component>
 </template>
 
 <script lang="ts">
-import { appendToSet } from '@/helpers';
-import { computed, defineComponent, PropType } from '@vue/composition-api';
-import { ButtonVariant, ButtonSize } from '../../types';
-import useToggle from '@/composables/useToggle';
+import { appendToSet } from '@/helpers'
+import { computed, defineComponent, PropType } from '@vue/composition-api'
+import { ButtonVariant, ButtonSize } from '../../types'
+import useToggle from '@/composables/useToggle'
 export default defineComponent({
   props: {
     variant: {
       type: String as PropType<ButtonVariant>,
-      default: 'accent',
+      default: 'accent'
     },
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     size: {
       type: String as PropType<ButtonSize>,
-      default: '',
+      default: ''
     },
     trigger: {
       type: String,
-      default: '',
+      default: ''
     },
-    icon: Boolean,
+    icon: Boolean
   },
-  setup(props) {
-    const { toggle } = useToggle();
+  setup (props) {
+    const { toggle } = useToggle()
     const classBinds = computed(() => {
-      let classSet = '';
+      let classSet = ''
       // to check if the appended class needs to be spaced or not
 
       if (props.variant) {
-        classSet = appendToSet(`btn--${props.variant}`, classSet);
+        classSet = appendToSet(`btn--${props.variant}`, classSet)
       }
       if (props.size) {
-        classSet = appendToSet(`btn--${props.size}`, classSet);
+        classSet = appendToSet(`btn--${props.size}`, classSet)
       }
       if (props.icon) {
-        classSet = appendToSet('btn--icon', classSet);
+        classSet = appendToSet('btn--icon', classSet)
       }
-      return classSet;
-    });
+      return classSet
+    })
     return {
       classBinds,
-      toggle,
-    };
-  },
-});
+      toggle
+    }
+  }
+})
 </script>
 
 <style>

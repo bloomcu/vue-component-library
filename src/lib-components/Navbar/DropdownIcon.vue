@@ -1,6 +1,12 @@
 <template>
-  <i class="mega-nav__arrow-icon" aria-hidden="true">
-    <svg class="icon" viewBox="0 0 16 16">
+  <i
+    class="mega-nav__arrow-icon"
+    aria-hidden="true"
+  >
+    <svg
+      class="icon"
+      viewBox="0 0 16 16"
+    >
       <g
         class="icon__group"
         fill="none"

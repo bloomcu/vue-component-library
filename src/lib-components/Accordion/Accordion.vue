@@ -1,50 +1,55 @@
 <template>
-    <ul class="accordion js-accordion" data-animation="on" data-multi-items="on">
-        <AccordionItem v-for="child in children" :key="child.uuid" :accordion="child" />
-    </ul>
+  <ul
+    class="accordion js-accordion"
+    data-animation="on"
+    data-multi-items="on"
+  >
+    <AccordionItem
+      v-for="child in children"
+      :key="child.uuid"
+      :accordion="child"
+    />
+  </ul>
 </template>
 
-
-
 <script lang="ts">
-import { defineComponent, onMounted, PropType } from "@vue/composition-api";
-import AccordionScript from "./script";
-import AccordionItem from "./AccordionItem.vue";
-import { Accordion } from "@/types";
-import { randomId } from "@/helpers";
+import { defineComponent, onMounted, PropType } from '@vue/composition-api'
+import AccordionScript from './script'
+import AccordionItem from './AccordionItem.vue'
+import { Accordion } from '@/types'
+import { randomId } from '@/helpers'
 
 export default defineComponent({
-    props: {
-        children: {
-            type: Array as PropType<Accordion[]>,
-            default: () => ([
-                {
-                    uuid: randomId(),
-                    label: 'Accordion1',
-                    content: '<p>Hello this is rich text.</p><h1>This is a heading in rich text</h1>'
-                },
-                {
-                    uuid: randomId(),
-                    label: 'Accordion2',
-                    content: '<p>Hello this is rich text.</p><h1>This is a heading in rich text2</h1>'
-                }
-            ])
+  props: {
+    children: {
+      type: Array as PropType<Accordion[]>,
+      default: () => ([
+        {
+          uuid: randomId(),
+          label: 'Accordion1',
+          content: '<p>Hello this is rich text.</p><h1>This is a heading in rich text</h1>'
+        },
+        {
+          uuid: randomId(),
+          label: 'Accordion2',
+          content: '<p>Hello this is rich text.</p><h1>This is a heading in rich text2</h1>'
         }
-    },
-    setup() {
-        onMounted(() => {
-            AccordionScript();
-        });
-    },
-    components: { AccordionItem }
+      ])
+    }
+  },
+  setup () {
+    onMounted(() => {
+      AccordionScript()
+    })
+  },
+  components: { AccordionItem }
 })
 </script>
-
 
 <style lang="scss">
 @use '@/styles/base' as *;
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_accordion
 Title: Accordion

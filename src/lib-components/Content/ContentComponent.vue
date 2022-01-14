@@ -1,12 +1,20 @@
 <template>
-  <div class="content-component" :class="center ? 'text-center' : ''">
-    <div v-if="label" class="text-sm opacity-60% margin-bottom-xxs">
+  <div
+    class="content-component"
+    :class="center ? 'text-center' : ''"
+  >
+    <div
+      v-if="label"
+      class="text-sm opacity-60% margin-bottom-xxs"
+    >
       {{ label }}
     </div>
 
     <div class="text-component margin-bottom-sm">
       <h1>{{ title }}</h1>
-      <p v-if="subtitle">{{ subtitle }}</p>
+      <p v-if="subtitle">
+        {{ subtitle }}
+      </p>
     </div>
 
     <div
@@ -16,9 +24,9 @@
     >
       <AppButton
         v-for="(button, index) in buttons"
+        :key="index"
         :text="button.text"
         :href="button.href"
-        :key="index"
         v-bind="button"
       />
     </div>
@@ -26,38 +34,38 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from '@vue/composition-api';
+import { defineComponent, PropType } from '@vue/composition-api'
 
 // Components
-import AppButton from '../AppButton/AppButton.vue';
+import AppButton from '../AppButton/AppButton.vue'
 
 // Types
-import { Button } from '@/types';
+import { Button } from '@/types'
 
 export default defineComponent({
   props: {
     center: {
       type: Boolean,
-      default: false,
+      default: false
     },
     label: {
       type: String,
-      default: 'The label',
+      default: 'The label'
     },
     title: {
       type: String,
-      default: 'The title',
+      default: 'The title'
     },
     subtitle: {
       type: String,
-      default: 'The subtitle',
+      default: 'The subtitle'
     },
     buttons: {
       type: Array as PropType<Array<Button>>,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
 
-  components: { AppButton },
-});
+  components: { AppButton }
+})
 </script>

@@ -1,6 +1,12 @@
 <template>
-  <div ref="dropdownEl" class="height-100%">
-    <NavbarDropdownToggleButton :text="text" @click="() => (open = !open)" />
+  <div
+    ref="dropdownEl"
+    class="height-100%"
+  >
+    <NavbarDropdownToggleButton
+      :text="text"
+      @click="() => (open = !open)"
+    />
     <!-- <ColumnFullWidthDropdown :children="children" /> -->
     <component
       :is="dropdown.component"
@@ -11,52 +17,52 @@
 </template>
 
 <script lang="ts">
-import { Dropdown, Child } from '@/types';
-import { defineComponent, PropType, ref } from '@vue/composition-api';
-import DropdownIcon from '../DropdownIcon.vue';
-import LinkRepeater from '../../LinkRepeater/LinkRepeater.vue';
-import ColumnDropdown1 from './ColumnDropdown1.vue';
-import useClickOutside from '@/composables/useClickOutside';
-import NavbarDropdownToggleButton from './NavbarDropdownToggleButton.vue';
-import ColumnFullWidthDropdown from '../ColumnDropdown/ColumnFullWidthDropdown.vue';
+import { Dropdown, Child } from '@/types'
+import { defineComponent, PropType, ref } from '@vue/composition-api'
+import DropdownIcon from '../DropdownIcon.vue'
+import LinkRepeater from '../../LinkRepeater/LinkRepeater.vue'
+import ColumnDropdown1 from './ColumnDropdown1.vue'
+import useClickOutside from '@/composables/useClickOutside'
+import NavbarDropdownToggleButton from './NavbarDropdownToggleButton.vue'
+import ColumnFullWidthDropdown from '../ColumnDropdown/ColumnFullWidthDropdown.vue'
 export default defineComponent({
   props: {
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     href: {
       type: String,
-      default: '',
+      default: ''
     },
     children: {
       type: Array as PropType<Child[]>,
-      default: () => [],
+      default: () => []
     },
     dropdown: {
       type: Object as PropType<Dropdown>,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
   components: {
     DropdownIcon,
     LinkRepeater,
     ColumnDropdown1,
     NavbarDropdownToggleButton,
-    ColumnFullWidthDropdown,
+    ColumnFullWidthDropdown
   },
-  setup() {
-    const open = ref(false);
-    const dropdownEl = ref(null);
+  setup () {
+    const open = ref(false)
+    const dropdownEl = ref(null)
     useClickOutside(dropdownEl, () => {
       if (open.value) {
-        open.value = false;
+        open.value = false
       }
-    });
+    })
     return {
       open,
-      dropdownEl,
-    };
-  },
-});
+      dropdownEl
+    }
+  }
+})
 </script>

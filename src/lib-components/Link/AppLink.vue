@@ -1,10 +1,10 @@
 <template>
   <component
+    :is="determineComponent"
     class="cody-link"
     :class="{
       block,
     }"
-    :is="determineComponent"
   >
     <slot />
     {{ text }}
@@ -12,27 +12,27 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from '@vue/composition-api';
+import { computed, defineComponent } from '@vue/composition-api'
 export default defineComponent({
   name: 'AppLink',
   props: {
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     block: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
-  setup() {
+  setup () {
     // hardcode for now but we will eventually make this recognize if it's a vue or nuxt app
-    const determineComponent = computed(() => 'a');
+    const determineComponent = computed(() => 'a')
     return {
-      determineComponent,
-    };
-  },
-});
+      determineComponent
+    }
+  }
+})
 </script>
 
 <style lang="scss">

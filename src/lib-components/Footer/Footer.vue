@@ -3,8 +3,11 @@
     <div class="container max-width-lg">
       <div class="grid gap-lg">
         <div class="col-3@lg order-2@lg text-right@lg">
-          <AppLink class="main-footer__logo" :href="logo.link.href">
-            <img :src="logo.image.src" />
+          <AppLink
+            class="main-footer__logo"
+            :href="logo.link.href"
+          >
+            <img :src="logo.image.src">
           </AppLink>
         </div>
 
@@ -20,18 +23,17 @@
           <div
             class="text-sm text-xs@md color-contrast-medium flex flex-wrap gap-xs"
           >
-            <span
-              >&copy; {{ organization }} {{ new Date().getFullYear() }}</span
-            >
+            <span>&copy; {{ organization }} {{ new Date().getFullYear() }}</span>
             <AppLink
               v-for="link in secondaryLinks"
+              :key="link.href"
               :href="link.href"
               :title="link.text"
               :target="link.target"
-              :key="link.href"
               class="color-contrast-high"
-              >{{ link.text }}</AppLink
             >
+              {{ link.text }}
+            </AppLink>
           </div>
         </div>
 
@@ -49,11 +51,11 @@
 </template>
 
 <script lang="ts">
-import { Link, Child, Logo } from '@/types';
-import { defineComponent, PropType } from '@vue/composition-api';
-import AppLink from '../Link/AppLink.vue';
-import Social from '../Socials/Social.vue';
-import LinkRepeater from '../LinkRepeater/LinkRepeater.vue';
+import { Link, Child, Logo } from '@/types'
+import { defineComponent, PropType } from '@vue/composition-api'
+import AppLink from '../Link/AppLink.vue'
+import Social from '../Socials/Social.vue'
+import LinkRepeater from '../LinkRepeater/LinkRepeater.vue'
 
 interface SocialNames {
   facebook?: string;
@@ -71,42 +73,42 @@ export default defineComponent({
   props: {
     organization: {
       type: String,
-      default: 'Website',
+      default: 'Website'
     },
     socials: {
       type: Array as PropType<SocialLink[]>,
-      default: () => [],
+      default: () => []
     },
     logo: {
       type: Object as PropType<Logo>,
       default: () => ({
         image: {
-          src: 'http://placeimg.com/150/32/abstract',
+          src: 'http://placeimg.com/150/32/abstract'
         },
         link: {
-          href: '#',
-        },
-      }),
+          href: '#'
+        }
+      })
     },
     primaryLinks: {
       type: Array as PropType<Child[]>,
-      default: () => [],
+      default: () => []
     },
     secondaryLinks: {
       type: Array as PropType<Link[]>,
-      default: () => [],
+      default: () => []
     },
     terms: {
       type: Object as PropType<Link>,
-      default: () => ({}),
+      default: () => ({})
     },
     privacy: {
       type: Object as PropType<Link>,
-      default: () => ({}),
-    },
+      default: () => ({})
+    }
   },
-  components: { AppLink, Social, LinkRepeater },
-});
+  components: { AppLink, Social, LinkRepeater }
+})
 </script>
 
 <style lang="scss" scoped>

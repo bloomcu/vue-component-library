@@ -12,11 +12,17 @@
             class="table__cell"
             :class="i === rows.length - 1 ? 'text-right' : 'text-left'"
             scope="col"
-          >{{ row.display }}</th>
+          >
+            {{ row.display }}
+          </th>
         </tr>
       </thead>
       <tbody class="table__body">
-        <tr class="table__row" v-for="(column, i) in columns" :key="i">
+        <tr
+          v-for="(column, i) in columns"
+          :key="i"
+          class="table__row"
+        >
           <td
             v-for="x in rows.length"
             :key="x"
@@ -26,7 +32,10 @@
               'text-right': x - 1 === rows.length - 1
             }"
           >
-            <span class="table__label" aria-hidden="true">{{ rows[x - 1].display }}:</span>
+            <span
+              class="table__label"
+              aria-hidden="true"
+            >{{ rows[x - 1].display }}:</span>
             {{ column[rows[x - 1].key] }}
           </td>
         </tr>
@@ -35,12 +44,11 @@
   </div>
 </template>
 
-
 <script lang="ts">
-import { randomId } from "@/helpers";
-import { defineComponent, onMounted, PropType } from "@vue/composition-api";
+import { randomId } from '@/helpers'
+import { defineComponent, onMounted, PropType } from '@vue/composition-api'
 import casual from 'casual-browserify'
-import TableScript from "./script";
+import TableScript from './script'
 interface TableRow {
   uuid: string
   display: string
@@ -54,23 +62,23 @@ export default defineComponent({
         {
           uuid: randomId(),
           display: 'Name',
-          key: 'name',
+          key: 'name'
         },
         {
           uuid: randomId(),
           display: 'Job',
-          key: 'job',
+          key: 'job'
         },
         {
           uuid: randomId(),
           display: 'Company',
-          key: 'company',
+          key: 'company'
         },
         {
           uuid: randomId(),
           display: 'Salary',
-          key: 'salary',
-        },
+          key: 'salary'
+        }
       ])
     },
     columns: {
@@ -94,12 +102,12 @@ export default defineComponent({
             job: casual.company_name,
             company: casual.company_name,
             salary: `$${casual.integer(40000, 500000)}`
-          },
+          }
         ]
       )
     }
   },
-  setup() {
+  setup () {
     onMounted(() => {
       TableScript()
     })
@@ -108,11 +116,10 @@ export default defineComponent({
 
 </script>
 
-
 <style lang="scss">
 @use '@/styles/base' as *;
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _1_table
 Title: Table

@@ -4,7 +4,10 @@
     aria-label="Toggle menu"
     aria-controls="mega-nav-navigation"
   >
-    <svg class="icon" viewBox="0 0 24 24">
+    <svg
+      class="icon"
+      viewBox="0 0 24 24"
+    >
       <g
         class="icon__group"
         fill="none"

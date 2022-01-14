@@ -1,1 +1,1 @@
-export const mobileMenuKey = 'mobileMenu';
+export const mobileMenuKey = 'mobileMenu'

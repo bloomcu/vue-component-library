@@ -1,6 +1,9 @@
 <template>
   <!-- 👇 icon buttons --desktop -->
-  <div ref="dropdown" class="mega-nav__item list-style-none">
+  <div
+    ref="dropdown"
+    class="mega-nav__item list-style-none"
+  >
     <div class="position-relative inline-block cody-dropdown">
       <div
         class="mega-nav__icon-btn inline-block"
@@ -12,11 +15,14 @@
       >
         <a
           href="#0"
-          @click.prevent="(dropdownOpen = !dropdownOpen), close(mobileMenuKey)"
           :class="dropdownOpen ? 'cody-dropdown__trigger--active' : ''"
           class="color-inherit flex height-100% width-100% flex-center cody-dropdown__trigger"
+          @click.prevent="(dropdownOpen = !dropdownOpen), close(mobileMenuKey)"
         >
-          <svg class="icon" viewBox="0 0 24 24">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+          >
             <title>{{ title }}</title>
             <g
               class="icon__group"
@@ -26,7 +32,11 @@
               stroke-miterlimit="10"
               stroke-width="2"
             >
-              <circle cx="12" cy="6" r="4" />
+              <circle
+                cx="12"
+                cy="6"
+                r="4"
+              />
               <path d="M12 13a8 8 0 00-8 8h16a8 8 0 00-8-8z" />
             </g>
           </svg>
@@ -39,8 +49,14 @@
           }"
           aria-label="submenu"
         >
-          <li v-for="child in children" :key="child.text">
-            <a :href="child.href" class="dropdown__item">{{ child.text }}</a>
+          <li
+            v-for="child in children"
+            :key="child.text"
+          >
+            <a
+              :href="child.href"
+              class="dropdown__item"
+            >{{ child.text }}</a>
           </li>
         </ul>
       </div>
@@ -49,43 +65,43 @@
 </template>
 
 <script lang="ts">
-import useClickOutside from '@/composables/useClickOutside';
-import { Link } from '@/types';
+import useClickOutside from '@/composables/useClickOutside'
+import { Link } from '@/types'
 import {
   defineComponent,
   onMounted,
   PropType,
-  ref,
-} from '@vue/composition-api';
-import { mobileMenuKey } from '@/constants';
-import useToggle from '@/composables/useToggle';
+  ref
+} from '@vue/composition-api'
+import { mobileMenuKey } from '@/constants'
+import useToggle from '@/composables/useToggle'
 export default defineComponent({
   props: {
     children: {
       type: Array as PropType<Link[]>,
-      default: () => [],
+      default: () => []
     },
     title: {
       type: String,
-      default: 'Go to account settings',
-    },
+      default: 'Go to account settings'
+    }
   },
-  setup() {
-    const dropdownOpen = ref(false);
-    const dropdown = ref(null);
+  setup () {
+    const dropdownOpen = ref(false)
+    const dropdown = ref(null)
     useClickOutside(dropdown, () => {
-      dropdownOpen.value = false;
-    });
-    onMounted(() => {});
-    const { close } = useToggle();
+      dropdownOpen.value = false
+    })
+    onMounted(() => {})
+    const { close } = useToggle()
     return {
       dropdownOpen,
       dropdown,
       mobileMenuKey,
-      close,
-    };
-  },
-});
+      close
+    }
+  }
+})
 </script>
 <style lang="scss">
 @mixin dropdownActiveBg() {

@@ -1,22 +1,31 @@
 <template>
-    <section class="hero-video-bg position-relative padding-y-xxl">
-        <div class="container max-width-adaptive-sm">
-            <div class="position-relative z-index-2 text-center">
-                <ContentComponent
-                    center
-                    :label="label"
-                    :title="title"
-                    :subtitle="subtitle"
-                    :buttons="buttons"
-                />
-            </div>
-        </div>
+  <section class="hero-video-bg position-relative padding-y-xxl">
+    <div class="container max-width-adaptive-sm">
+      <div class="position-relative z-index-2 text-center">
+        <ContentComponent
+          center
+          :label="label"
+          :title="title"
+          :subtitle="subtitle"
+          :buttons="buttons"
+        />
+      </div>
+    </div>
 
-        <figure class="hero-video-bg__video" aria-hidden="true">
-            <img v-bind="image" />
-            <video autoplay loop muted playsinline v-bind="video"></video>
-        </figure>
-    </section>
+    <figure
+      class="hero-video-bg__video"
+      aria-hidden="true"
+    >
+      <img v-bind="image">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        v-bind="video"
+      />
+    </figure>
+  </section>
 </template>
 
 <script lang="ts">
@@ -26,30 +35,30 @@ import { defineComponent, PropType } from '@vue/composition-api'
 import ContentComponent from '../Content/ContentComponent.vue'
 
 export default defineComponent({
-    components: { ContentComponent },
-    props: {
-        ...useProps().group(['ContentComponent']),
-        image: {
-            type: Object as PropType<Image>,
-            default: () => ({
-                src: 'http://placeimg.com/640/480/technics',
-                alt: 'img'
-            })
-        },
-        video: {
-            type: Object as PropType<Video>,
-            default: () => ({
-                src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-            })
-        },
+  components: { ContentComponent },
+  props: {
+    ...useProps().group(['ContentComponent']),
+    image: {
+      type: Object as PropType<Image>,
+      default: () => ({
+        src: 'http://placeimg.com/640/480/technics',
+        alt: 'img'
+      })
+    },
+    video: {
+      type: Object as PropType<Video>,
+      default: () => ({
+        src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+      })
     }
+  }
 })
 </script>
 
 <style lang="scss">
 @use '@/styles/base' as *;
 
-/* -------------------------------- 
+/* --------------------------------
 
 File#: _3_hero-video-bg
 Title: Hero Background Video

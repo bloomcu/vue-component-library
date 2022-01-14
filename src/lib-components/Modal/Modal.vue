@@ -2,8 +2,8 @@
   <div>
     <!-- {{components}} -->
     <div
-      :class="active ? 'modal--is-visible' : ''"
       id="modal-name-1"
+      :class="active ? 'modal--is-visible' : ''"
       class="modal modal--animate-scale flex flex-center bg-black bg-opacity-90% padding-md js-modal"
     >
       <div
@@ -12,12 +12,15 @@
         aria-labelledby="modal-title-1"
         aria-describedby="modal-description-1"
       >
-        <ModalHeader :title="title" :uuid="uuid" />
+        <ModalHeader
+          :title="title"
+          :uuid="uuid"
+        />
         <div class="padding-y-sm padding-x-md">
           <component
-            v-for="(block, index) in blocks"
             v-bind="block"
             :is="block.component"
+            v-for="(block, index) in blocks"
             :key="index"
           />
         </div>
@@ -28,35 +31,35 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType } from '@vue/composition-api';
-import useToggle from '@/composables/useToggle';
+import { computed, defineComponent, PropType } from '@vue/composition-api'
+import useToggle from '@/composables/useToggle'
 // import useComponents from "@/composables/useComponents";
-import { Block } from '@/types';
-import ModalHeader from './ModalHeader.vue';
-import ModalClose from './ModalClose.vue';
+import { Block } from '@/types'
+import ModalHeader from './ModalHeader.vue'
+import ModalClose from './ModalClose.vue'
 // const { components } = useComponents()
 export default defineComponent({
   components: {
     ModalHeader,
-    ModalClose,
+    ModalClose
   },
   props: {
     uuid: {
       type: String,
-      default: '',
+      default: ''
     },
     title: {
       type: String,
-      default: '',
+      default: ''
     },
     blocks: {
       type: Array as PropType<Block[]>,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
-  setup(props) {
-    const { toggle, isActive } = useToggle();
-    const active = computed(() => isActive(props.uuid));
+  setup (props) {
+    const { toggle, isActive } = useToggle()
+    const active = computed(() => isActive(props.uuid))
     // const blockNames = computed(() => props.blocks.map((b: any) => b.component))
     // watch(() => findComponents.value, (val) => {
     //     console.log(`val`, val)
@@ -67,11 +70,11 @@ export default defineComponent({
     // console.log(`components`, components)
     return {
       active,
-      toggle,
+      toggle
       // components,
-    };
-  },
-});
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>

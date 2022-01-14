@@ -1,10 +1,21 @@
 <template>
   <div class="container max-width-adaptive-lg">
     <dl class="details-list details-list--rows">
-      <div v-for="(child, i) in children" :key="i" class="details-list__item padding-y-md">
-        <dt class="font-bold margin-bottom-xxs">Address</dt>
+      <div
+        v-for="(child, i) in children"
+        :key="i"
+        class="details-list__item padding-y-md"
+      >
+        <dt class="font-bold margin-bottom-xxs">
+          Address
+        </dt>
         <dd class="line-height-md">
-          <p v-for="({ text }, x) in child.children " :key="x">{{ text }}</p>
+          <p
+            v-for="({ text }, x) in child.children "
+            :key="x"
+          >
+            {{ text }}
+          </p>
         </dd>
       </div>
     </dl>
