@@ -1,7 +1,7 @@
 <template>
     <section class="hero-video-bg position-relative padding-y-xxl">
         <div class="container max-width-adaptive-sm">
-            <div class="position-relative z-index-2 text-center">
+            <div class="position-relative z-index-2">
                 <ContentComponent
                     center
                     :label="label"
