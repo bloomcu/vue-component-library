@@ -1,0 +1,38 @@
+@use '@/styles/base' as *;
+
+.mega-nav {
+  .cody-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-md);
+    height: 100%;
+    font-size: var(--text-sm);
+    color: var(--color-contrast-higher);
+    text-decoration: none;
+    transition: 0.2s;
+
+    &::after {
+      /* marker */
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-contrast-higher);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .mega-nav__arrow-icon {
+      margin-left: var(--space-xxs);
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: alpha(var(--color-contrast-higher), 0.05);
+    }
+  }
+}

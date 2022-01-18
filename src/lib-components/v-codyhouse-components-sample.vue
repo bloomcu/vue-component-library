@@ -42,35 +42,23 @@
     <CardRepeater />
     <div class="container">
       <CardLink :link="{
-        
+
       }" /> -->
     <!-- </div> -->
     <!-- <Modal /> -->
   </div>
 </template>
 
-
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api';
-import CodyButton from './CodyButton/CodyButton.vue';
-import Hero from './Hero/Hero.vue';
-import Feature from './Feature/Feature.vue';
-import Grid from './Grid/Grid.vue';
-import TextColumns from './TextColumns/TextColumns.vue';
-import Card from './Card/Card.vue';
-import CardRepeater from './CardRepeater/CardRepeater.vue';
-import CardLink from './Card/CardLink.vue';
-import Modal from './Modal/Modal.vue';
+import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
-  setup() {
+  setup () {
     return {
-      atest: "hello"
-    };
-  },
-  components: { CodyButton, Hero, Feature, Grid, TextColumns, Card, CardRepeater, CardLink, Modal }
+      atest: 'hello'
+    }
+  }
 })
 </script>
 
-<style>
-</style>
+<style></style>

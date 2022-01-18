@@ -11,11 +11,12 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "esModuleInterop": true,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
     "newLine": "lf",
-    "types": ["node", "vue", "webpack-env"],
+    "types": ["node", "vue"],
     "paths": {
       "@/*": ["src/*"]
     },

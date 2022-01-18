@@ -32,6 +32,21 @@
     transform: translateY(2px);
   }
 }
+.btn--link {
+  color: var(--color-black);
+  background-color: transparent;
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus {
+    box-shadow: inset 0px 1px 0px alpha(var(--color-black), 0.15),
+      0px 0px 0px 2px alpha(var(--color-primary), 0.2);
+  }
+}
+a.btn--link {
+  text-decoration: underline;
+}
 
 // themes
 .btn--primary {
@@ -90,8 +105,8 @@
   background: var(--color-bg-lighter);
   color: var(--color-contrast-higher);
   box-shadow: inset 0px 0px 0px 1px var(--color-contrast-lower),
-  var(--shadow-xs);
-  
+    var(--shadow-xs);
+
   &:hover {
     background: var(--color-bg-light);
     box-shadow: inset 0px 0px 0px 1px var(--color-contrast-lower),
@@ -125,8 +140,8 @@
   background: var(--color-accent-light);
   color: var(--color-white);
   box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15),
-  var(--shadow-xs);
-  
+    var(--shadow-xs);
+
   &:hover {
     background: var(--color-accent);
     box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15),

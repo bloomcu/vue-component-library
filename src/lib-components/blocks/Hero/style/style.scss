@@ -1,0 +1,49 @@
+@use '@/styles/base/mixins' as *;
+@use '@/styles/base/breakpoints' as *;
+
+/* --------------------------------
+
+File#: _1_hero
+Title: Hero
+Descr: A full-width callout section
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.hero {
+}
+
+.hero--background-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  &::after {
+    // add a layer in between the img/video background and the content
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: alpha(var(--color-bg), 0.75);
+    z-index: 1;
+  }
+}
+
+.hero--center {
+  .container {
+    max-width: var(--max-width-sm);
+  }
+
+  .content-wrapper {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+.hero--full-screen {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}

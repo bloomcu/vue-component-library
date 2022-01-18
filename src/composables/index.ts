@@ -1,30 +1,30 @@
-import { GlobalCodyButtonProps, GlobalCtaLink, GlobalImage } from "@/types";
-import { PropType } from "@vue/composition-api";
+import { Button, Link, Image } from '@/types';
+import { PropType } from '@vue/composition-api';
 export const props = {
   button: {
-    type: Object as PropType<GlobalCodyButtonProps>,
+    type: Object as PropType<Button>,
     default: () => {},
   },
   ctaLink: {
-    type: Object as PropType<GlobalCtaLink>,
+    type: Object as PropType<Link>,
     default: () => {},
   },
   image: {
-    type: Object as PropType<GlobalImage>,
+    type: Object as PropType<Image>,
     default: () => {},
   },
   label: {
     type: String,
-    default: ''
+    default: '',
   },
   header: {
     type: String,
-    default: ''
+    default: '',
   },
   subHeader: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 };
 const sets = {
   ctaSet: {
@@ -35,7 +35,7 @@ const sets = {
     label: props.label,
     header: props.header,
     subHeader: props.subHeader,
-  }
+  },
 };
 type commonProps = keyof typeof props;
 type commonSets = keyof typeof sets;
