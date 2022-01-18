@@ -65,20 +65,20 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from '@vue/composition-api'
-import Footer from '@/lib-components/Footer/Footer.vue'
-import Navbar from '@/lib-components/Navbar/Navbar.vue'
+import Footer from '@/lib-components/globals/Footer/Footer.vue'
+import Navbar from '@/lib-components/globals/Navbar/Navbar.vue'
 import { groupGeneration } from '@/mock/GroupGeneration'
 import { randomId } from '@/helpers'
-import BoxedHero from '@/lib-components/BoxedHero/BoxedHero.vue'
+import BoxedHero from '@/lib-components/blocks/BoxedHero/BoxedHero.vue'
 import { NavbarLink } from '@/types'
-import VideoBackgroundHero from '@/lib-components/Hero/VideoBackgroundHero.vue'
-import FeatureV7 from '@/lib-components/Feature/FeatureV7.vue'
-import FeatureV9 from '@/lib-components/Feature/FeatureV9.vue'
-import Accordion from '@/lib-components/Accordion/Accordion.vue'
-import DetailsList from '../src/lib-components/DetailsList/DetailsList.vue'
-import Testimonial from '@/lib-components/Testimoial/Testimonial.vue'
-import AppTable from '@/lib-components/Table/AppTable.vue'
-import SubNavigation from '@/lib-components/Navigation/SubNavigation.vue'
+import VideoBackgroundHero from '@/lib-components/blocks/Hero/VideoBackgroundHero.vue'
+import FeatureV7 from '@/lib-components/blocks/Feature/FeatureV7.vue'
+import FeatureV9 from '@/lib-components/blocks/Feature/FeatureV9.vue'
+import Accordion from '@/lib-components/blocks/Accordion/Accordion.vue'
+import DetailsList from '@/lib-components/blocks/DetailsList/DetailsList.vue'
+import Testimonial from '@/lib-components/blocks/Testimoial/Testimonial.vue'
+import AppTable from '@/lib-components/blocks/Table/AppTable.vue'
+import SubNavigation from '@/lib-components/blocks/Navigation/SubNavigation.vue'
 
 export default defineComponent({
   name: 'ServeDev',
