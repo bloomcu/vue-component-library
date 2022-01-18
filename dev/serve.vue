@@ -76,7 +76,7 @@ import FeatureV7 from '@/lib-components/blocks/Feature/FeatureV7.vue'
 import FeatureV9 from '@/lib-components/blocks/Feature/FeatureV9.vue'
 import Accordion from '@/lib-components/blocks/Accordion/Accordion.vue'
 import DetailsList from '@/lib-components/blocks/DetailsList/DetailsList.vue'
-import Testimonial from '@/lib-components/blocks/Testimoial/Testimonial.vue'
+import Testimonial from '@/lib-components/blocks/Testimonial/Testimonial.vue'
 import AppTable from '@/lib-components/blocks/Table/AppTable.vue'
 import SubNavigation from '@/lib-components/blocks/Navigation/SubNavigation.vue'
 

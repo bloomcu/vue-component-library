@@ -1,62 +1,72 @@
-import { PropType } from '@vue/composition-api';
+import { PropType } from '@vue/composition-api'
 
 // Types
-import { Button, ButtonSize, ButtonVariant } from '@/types';
+import { Button, ButtonSize, ButtonVariant } from '@/types'
 
 const propGroups = {
+  Link: {
+    text: {
+      type: String,
+      default: ''
+    },
+    block: {
+      type: Boolean,
+      default: false
+    }
+  },
   ContentComponent: {
     center: {
       type: Boolean,
-      default: false,
+      default: false
     },
     label: {
       type: String,
-      default: 'The label',
+      default: 'The label'
     },
     title: {
       type: String,
-      default: 'The title',
+      default: 'The title'
     },
     subtitle: {
       type: String,
-      default: 'The subtitle',
+      default: 'The subtitle'
     },
     buttons: {
       type: Array as PropType<Array<Button>>,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   Button: {
     variant: {
       type: String as PropType<ButtonVariant>,
-      default: 'accent',
+      default: 'accent'
     },
     text: {
       type: String,
-      default: '',
+      default: ''
     },
     size: {
       type: String as PropType<ButtonSize>,
-      default: '',
+      default: ''
     },
     trigger: {
       type: String,
-      default: '',
+      default: ''
     },
-    icon: Boolean,
-  },
-};
+    icon: Boolean
+  }
+}
 
-export function useProps() {
+export function useProps () {
   const group = (items: (keyof typeof propGroups)[]) => {
-    let propSet = {};
+    let propSet = {}
     items.forEach((item) => {
-      propSet = { ...propSet, ...propGroups[item] };
-    });
-    return propSet;
-  };
+      propSet = { ...propSet, ...propGroups[item] }
+    })
+    return propSet
+  }
   return {
     group,
-    propGroups,
-  };
+    propGroups
+  }
 }

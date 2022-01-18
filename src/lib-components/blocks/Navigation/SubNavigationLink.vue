@@ -1,23 +1,24 @@
 <template>
   <AppLink
+    class="subnav__link"
+    :aria-current="active ? 'page' : ''"
     v-bind="{...$props, ...$attrs}"
-    class="reset mega-nav__control js-mega-nav__control"
   />
 </template>
 
 <script lang="ts">
+import { useProps } from '@/composables/useProps'
 import { defineComponent } from '@vue/composition-api'
 import AppLink from '@/lib-components/elements/Link/AppLink.vue'
+
 export default defineComponent({
   components: { AppLink },
   props: {
-    text: {
-      type: String,
-      default: ''
+    ...useProps().group(['Link']),
+    active: {
+      type: Boolean,
+      default: false
     }
-  },
-  setup () {
-    return {}
   }
 })
 </script>

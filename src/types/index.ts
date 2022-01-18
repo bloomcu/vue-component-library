@@ -51,8 +51,8 @@ export interface NavbarLink extends Link, Button {
   uuid: string;
   component: string;
   dropdown?: Dropdown;
+  active?: boolean
 }
-
 
 export interface Image {
   src: string;

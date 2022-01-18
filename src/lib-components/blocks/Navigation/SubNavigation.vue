@@ -1,7 +1,7 @@
 <template>
   <div class="bg-dark">
     <div class="container max-width-lg">
-      <div class="subnav  js-subnav">
+      <div class="subnav js-subnav">
         <button class="reset btn btn--subtle margin-y-sm subnav__control js-subnav__control">
           <span>Show Categories</span>
           <svg
@@ -55,54 +55,15 @@
             </button>
 
             <ul class="subnav__list">
-              <li class="subnav__item">
-                <a
-                  href="#0"
-                  class="subnav__link"
-                  aria-current="page"
-                >Intro</a>
-              </li>
-              <li class="subnav__item">
-                <a
-                  href="#0"
-                  class="subnav__link"
-                >Features</a>
-              </li>
-              <li class="subnav__item">
-                <a
-                  href="#0"
-                  class="subnav__link"
-                >Photos</a>
-              </li>
-              <li class="subnav__item">
-                <a
-                  href="#0"
-                  class="subnav__link"
-                >Videos</a>
-              </li>
-              <li class="subnav__item">
-                <a
-                  href="#0"
-                  class="subnav__link"
-                >Specs</a>
-              </li>
-              <li class="subnav__item">
-                <a
-                  href="#0"
-                  class="subnav__link"
-                >Support</a>
-              </li>
-              <li class="subnav__item">
-                <a
-                  href="#0"
-                  class="subnav__link"
-                >Compare</a>
-              </li>
-              <li class="subnav__item">
-                <a
-                  href="#0"
-                  class="subnav__link"
-                >Buy</a>
+              <li
+                v-for="child in children"
+                :key="child.uuid"
+                class="subnav__item"
+              >
+                <component
+                  v-bind="child"
+                  :is="child.component"
+                />
               </li>
             </ul>
           </nav>
@@ -113,9 +74,61 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import SubNavigationLink from './SubNavigationLink.vue'
+import { NavbarLink } from '@/types'
+import { defineComponent, PropType, onMounted } from '@vue/composition-api'
+import SubNavigationScript from './script'
 export default defineComponent({
-
+  components: {
+    SubNavigationLink
+  },
+  props: {
+    children: {
+      type: Array as PropType<NavbarLink[]>,
+      default: () => [
+        {
+          uuid: '12312',
+          component: 'SubNavigationLink',
+          text: 'Hello World',
+          href: '/hello',
+          target: '__blank'
+        },
+        {
+          uuid: '1231',
+          component: 'SubNavigationLink',
+          text: 'Hello World2',
+          href: '/hello',
+          target: '__blank'
+        },
+        {
+          uuid: '12315',
+          component: 'SubNavigationLink',
+          text: 'Hello World3',
+          href: '/hello',
+          target: '__blank'
+        },
+        {
+          uuid: '1231598',
+          component: 'SubNavigationLink',
+          text: 'Hello World4',
+          href: '/hello',
+          target: '__blank'
+        },
+        {
+          uuid: '12315982',
+          component: 'SubNavigationLink',
+          text: 'Hello World5',
+          href: '/hello',
+          target: '__blank'
+        }
+      ]
+    }
+  },
+  setup () {
+    onMounted(() => {
+      SubNavigationScript()
+    })
+  }
 })
 </script>
 
@@ -131,20 +144,26 @@ Usage: codyhouse.co/license
 
 -------------------------------- */
 
-.subnav {}
+.subnav {
+}
 
 .subnav__nav {
   position: relative;
   display: flex;
 
-  &::after { // shadow overlay indicating scrolling
-    content: '';
+  &::after {
+    // shadow overlay indicating scrolling
+    content: "";
     width: 1em;
     height: 100%;
     position: absolute;
     top: 0;
     right: 0;
-    background: linear-gradient(to right, alpha(var(--color-bg-dark), 0), alpha(var(--color-bg-dark), 1));
+    background: linear-gradient(
+      to right,
+      alpha(var(--color-bg-dark), 0),
+      alpha(var(--color-bg-dark), 1)
+    );
     pointer-events: none;
   }
 }
@@ -169,7 +188,7 @@ Usage: codyhouse.co/license
   border-right-width: 0;
   border-left-width: 0;
 
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
     color: var(--color-contrast-high);
@@ -183,7 +202,8 @@ Usage: codyhouse.co/license
 
 // --collapsed
 .subnav:not(.subnav--collapsed) {
-  .subnav__control, .subnav__close-btn {
+  .subnav__control,
+  .subnav__close-btn {
     display: none; // hide buttons if nav = expanded
   }
 }
@@ -207,11 +227,11 @@ Usage: codyhouse.co/license
   .subnav__wrapper--is-visible {
     visibility: visible;
     opacity: 1;
-    transition: opacity .3s;
+    transition: opacity 0.3s;
 
     .subnav__nav {
       transform: translateY(0);
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
   }
 
@@ -259,7 +279,7 @@ Usage: codyhouse.co/license
   background-color: var(--color-bg-light);
   box-shadow: var(--inner-glow), var(--shadow-sm);
 
-  transition: .2s;
+  transition: 0.2s;
 
   &:hover {
     background-color: var(--color-bg-lighter);
@@ -275,13 +295,13 @@ Usage: codyhouse.co/license
 // used in JS - detect when the subnav needs to switch from an expanded layout to a collapsed one
 [class*="subnav--expanded"]::before {
   display: none;
-  content: 'collapsed';
+  content: "collapsed";
 }
 
 @each $breakpoint, $value in $breakpoints {
   @include breakpoint(#{$breakpoint}) {
     .subnav--expanded\@#{$breakpoint}::before {
-      content: 'expanded';
+      content: "expanded";
     }
   }
 }
