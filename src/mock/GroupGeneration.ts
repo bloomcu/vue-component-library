@@ -1,10 +1,11 @@
-import { randomId } from '@/helpers';
+import { randomId } from '@/helpers'
+import { Child } from '@/types'
 
 export const groupGeneration = (
   { includeTitles } = { includeTitles: true }
-) => {
-  const amount = 4;
-  const arr = [];
+) : Child | any => {
+  const amount = 4
+  const arr = []
   for (let i = 0; i < amount; i++) {
     const Child = includeTitles
       ? {
@@ -13,27 +14,27 @@ export const groupGeneration = (
           links: [
             {
               href: '#',
-              text: randomId(),
+              text: randomId()
             },
             {
               href: '#',
-              text: randomId(),
+              text: randomId()
             },
             {
               href: '#',
-              text: randomId(),
+              text: randomId()
             },
             {
               href: '#',
-              text: randomId(),
-            },
-          ],
+              text: randomId()
+            }
+          ]
         }
       : {
           href: '#',
-          text: randomId(),
-        };
-    arr.push(Child);
+          text: randomId()
+        }
+    arr.push(Child)
   }
-  return arr;
-};
+  return arr
+}

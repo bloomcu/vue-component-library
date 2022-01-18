@@ -1,5 +1,8 @@
 <template>
-  <div id="app" v-if="page">
+  <div
+    v-if="page"
+    id="app"
+  >
     <!-- Info Bar
         <div
             class="flex justify-between items-center bg border-bottom padding-xxs text-sm z-index-3"
@@ -14,29 +17,35 @@
                 href="https://cms.bloomcu.com/organizations/bloomcu/pages/1"
             >Edit in CMS</a>
         </div>-->
-    <Navbar :primaryLinks="navLinks" :secondaryLinks="secondaryLinks" />
-    <CodyTable />
+    <Navbar
+      :primary-links="navLinks"
+      :secondary-links="secondaryLinks"
+    />
+    <SubNavigation />
+    <AppTable />
     <Testimonial />
     <Accordion />
     <FeatureV7 />
     <FeatureV9 />
     <DetailsList />
-    <VideoBackgroundHero :buttons="[{
-      text: 'Learn more',
-      href: '/atest',
-      variant: 'link'
-    }]" />
+    <VideoBackgroundHero
+      :buttons="[{
+        text: 'Learn more',
+        href: '/atest',
+        variant: 'link'
+      }]"
+    />
     <!-- Blocks -->
     <component
-      v-for="(block, index) in page.layout.blocks"
       v-bind="block.data"
       :is="block.component"
+      v-for="(block, index) in page.layout.blocks"
       :key="index"
     />
     <!-- <component v-for="modal in modals" v-bind="modal" is="Modal" :key="modal.uuid" /> -->
     <Footer
-      :primaryLinks="groups"
-      :secondaryLinks="[
+      :primary-links="groups"
+      :secondary-links="[
         {
           text: 'test',
           href: '/testlink',
@@ -47,7 +56,7 @@
         },
       ]"
       :socials="[
-        { name: 'Facebook', href: 'facebook.com' },
+        { name: 'facebook', href: 'facebook.com' },
         { name: 'youtube', href: 'youtube.com' },
       ]"
     />
@@ -55,56 +64,58 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from '@vue/composition-api';
-import Footer from '@/lib-components/Footer/Footer.vue';
-import Navbar from '@/lib-components/Navbar/Navbar.vue';
-import { groupGeneration } from '@/mock/GroupGeneration';
-import { randomId } from '@/helpers';
-import BoxedHero from '@/lib-components/BoxedHero/BoxedHero.vue';
-import { NavbarLink } from '@/types';
-import VideoBackgroundHero from '@/lib-components/Hero/VideoBackgroundHero.vue';
-import FeatureV7 from '@/lib-components/Feature/FeatureV7.vue';
-import FeatureV9 from '@/lib-components/Feature/FeatureV9.vue';
-import Accordion from '@/lib-components/Accordion/Accordion.vue';
-import DetailsList from '../src/lib-components/DetailsList/DetailsList.vue';
-import Testimonial from '@/lib-components/Testimoial/Testimonial.vue';
-import CodyTable from '@/lib-components/Table/CodyTable.vue';
+import { defineComponent, onMounted, ref } from '@vue/composition-api'
+import Footer from '@/lib-components/globals/Footer/Footer.vue'
+import Navbar from '@/lib-components/globals/Navbar/Navbar.vue'
+import { groupGeneration } from '@/mock/GroupGeneration'
+import { randomId } from '@/helpers'
+import BoxedHero from '@/lib-components/blocks/BoxedHero/BoxedHero.vue'
+import { NavbarLink } from '@/types'
+import VideoBackgroundHero from '@/lib-components/blocks/Hero/VideoBackgroundHero.vue'
+import FeatureV7 from '@/lib-components/blocks/Feature/FeatureV7.vue'
+import FeatureV9 from '@/lib-components/blocks/Feature/FeatureV9.vue'
+import Accordion from '@/lib-components/blocks/Accordion/Accordion.vue'
+import DetailsList from '@/lib-components/blocks/DetailsList/DetailsList.vue'
+import Testimonial from '@/lib-components/blocks/Testimoial/Testimonial.vue'
+import AppTable from '@/lib-components/blocks/Table/AppTable.vue'
+import SubNavigation from '@/lib-components/blocks/Navigation/SubNavigation.vue'
 
 export default defineComponent({
   name: 'ServeDev',
-  setup() {
-    const { blocks, modals } = require('@/json/blocks');
-    const page = ref();
+  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7, FeatureV9, Accordion, DetailsList, Testimonial, AppTable, SubNavigation },
+  setup () {
+    const { blocks, modals } = require('@/json/blocks')
+    const page = ref()
 
     onMounted(() => {
-      const htmlEl = document.querySelector('html');
-      htmlEl?.classList.add('js');
+      const htmlEl = document.querySelector('html')
+      htmlEl?.classList.add('js')
       // fetch('http://cms.test/api/organizations/bloomcu/pages/1')
       fetch('https://cms-api.bloomcu.com/api/organizations/bloomcu/pages/1')
         .then((response) => response.json())
-        .then((data) => (page.value = data.data));
-    });
+        .then((data) => (page.value = data.data))
+    })
     // TODO: add component
     const navLinks: NavbarLink[] = [
       {
         uuid: randomId(),
-        component: 'ColumnDropdown',
+        component: 'NavbarDropdown',
         text: randomId(),
         href: randomId(),
         dropdown: {
-          component: 'ColumnDropdown1',
-          children: groupGeneration(),
-        },
+          component: 'NavbarDropdownColumn1',
+          children: groupGeneration()
+        }
       },
       {
         uuid: randomId(),
-        component: 'ColumnDropdown',
+        component: 'NavbarDropdown',
         text: randomId(),
         href: randomId(),
         dropdown: {
-          component: 'ColumnFullWidthDropdown',
-          children: groupGeneration(),
-        },
+          component: 'NavbarDropdownColumns',
+          children: groupGeneration()
+        }
       },
       // {
       //     uuid: randomId(),
@@ -115,59 +126,58 @@ export default defineComponent({
       // },
       {
         uuid: randomId(),
-        component: 'CodyLink',
+        component: 'AppLink',
         text: ' _zso4u8is9 ',
         // trigger: "123",
         variant: 'primary',
         href: '/button-href',
-        block: true,
+        block: true
         //   target: '',
-      },
-    ];
+      }
+    ]
     const secondaryLinks = [
       {
         uuid: randomId(),
         component: 'dropdown',
         text: randomId(),
         href: randomId(),
-        children: groupGeneration({ includeTitles: false }),
+        children: groupGeneration({ includeTitles: false })
       },
       {
         uuid: randomId(),
         component: 'SearchDropdown',
         text: randomId(),
         href: randomId(),
-        children: groupGeneration({ includeTitles: false }),
+        children: groupGeneration({ includeTitles: false })
       },
       {
         uuid: randomId(),
-        component: 'CodyButton',
+        component: 'AppButton',
         text: 'Download',
         // trigger: "123",
         variant: 'primary',
-        href: '/button-href',
+        href: '/button-href'
         //   target: '',
       },
       {
         uuid: randomId(),
-        component: 'CodyLink',
+        component: 'AppLink',
         text: ' _zso4u8is9 ',
         // trigger: "123",
         variant: 'primary',
         href: '/button-href',
-        block: true,
+        block: true
         //   target: '',
-      },
-    ];
+      }
+    ]
     return {
       page,
       blocks,
       modals,
       groups: groupGeneration(),
       navLinks,
-      secondaryLinks,
-    };
-  },
-  components: { Footer, Navbar, BoxedHero, VideoBackgroundHero, FeatureV7, FeatureV9, Accordion, DetailsList, Testimonial, CodyTable },
-});
+      secondaryLinks
+    }
+  }
+})
 </script>

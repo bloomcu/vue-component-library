@@ -15,20 +15,20 @@ export const blocks = [
       {
         text: 'Button Text',
         trigger: '123',
-        variant: 'primary',
+        variant: 'primary'
         //   href: '/button-href',
         //   target: '',
       },
       {
         text: 'Link Text',
         href: '/link-href',
-        target: '__blank',
-      },
+        target: '__blank'
+      }
     ],
     image: {
-      src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/files/7ad98ddacea4aff50bfddf8544076d82.jpg',
-    },
-  },
+      src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/files/7ad98ddacea4aff50bfddf8544076d82.jpg'
+    }
+  }
   // {
   //     component: 'feature',
   //     invert: false,
@@ -52,7 +52,7 @@ export const blocks = [
   //         src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/files/1cd9f6c0d0966a8086978a85fb6a0a7e.jpg'
   //     }
   // }
-];
+]
 
 export const modals = [
   {
@@ -72,17 +72,17 @@ export const modals = [
             text: 'Button Text',
             href: '/button-href',
             target: '',
-            variant: 'primary',
+            variant: 'primary'
           },
           {
             text: 'Link Text',
             href: '/link-href',
-            target: '__blank',
-          },
+            target: '__blank'
+          }
         ],
         image: {
-          src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/files/7ad98ddacea4aff50bfddf8544076d82.jpg',
-        },
+          src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/files/7ad98ddacea4aff50bfddf8544076d82.jpg'
+        }
       },
       {
         component: 'hero',
@@ -97,17 +97,17 @@ export const modals = [
             text: 'Button Text',
             href: '/button-href',
             target: '',
-            variant: 'primary',
+            variant: 'primary'
           },
           {
             text: 'Link Text',
             href: '/link-href',
-            target: '__blank',
-          },
+            target: '__blank'
+          }
         ],
         image: {
-          src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/files/7ad98ddacea4aff50bfddf8544076d82.jpg',
-        },
+          src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/1920x1200/files/7ad98ddacea4aff50bfddf8544076d82.jpg'
+        }
       },
       {
         component: 'feature',
@@ -121,17 +121,17 @@ export const modals = [
             text: 'Button Text',
             href: '/button-href',
             target: '',
-            variant: 'primary',
+            variant: 'primary'
           },
           {
             text: 'Link Text',
             href: '/link-href',
-            target: '__blank',
-          },
+            target: '__blank'
+          }
         ],
         image: {
-          src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/files/1cd9f6c0d0966a8086978a85fb6a0a7e.jpg',
-        },
+          src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/files/1cd9f6c0d0966a8086978a85fb6a0a7e.jpg'
+        }
       },
       {
         component: 'feature',
@@ -145,18 +145,18 @@ export const modals = [
             text: 'Buttoewfgwegn Text',
             href: '/button-href',
             target: '',
-            variant: 'primary',
+            variant: 'primary'
           },
           {
             text: 'Link Text',
             href: '/link-href',
-            target: '__blank',
-          },
+            target: '__blank'
+          }
         ],
         image: {
-          src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/files/1cd9f6c0d0966a8086978a85fb6a0a7e.jpg',
-        },
-      },
-    ],
-  },
-];
+          src: 'https://d25r5txdw1c9o7.cloudfront.net/fit-in/650x450/files/1cd9f6c0d0966a8086978a85fb6a0a7e.jpg'
+        }
+      }
+    ]
+  }
+]
