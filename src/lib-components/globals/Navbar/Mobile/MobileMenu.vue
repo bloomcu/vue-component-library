@@ -55,15 +55,17 @@
 
 <script lang="ts">
 import useToggle from '@/composables/useToggle'
-import ColumnDropdown from '../ColumnDropdown/ColumnDropdown.vue'
+import NavbarDropdown from '@/lib-components/globals/Navbar/Dropdown/NavbarDropdown.vue'
+import NavbarDropdownColumns from '@/lib-components/globals/Navbar/Dropdown/NavbarDropdownColumns.vue'
 import AppButton from '@/lib-components/elements/AppButton/AppButton.vue'
 import AppLink from '@/lib-components/elements/Link/AppLink.vue'
 import { defineComponent, PropType } from '@vue/composition-api'
 import { mobileMenuKey } from '@/constants'
 import { NavbarLink } from '@/types'
+import NavbarDropdownColumns1 from '@/lib-components/globals/Navbar/Dropdown/NavbarDropdownColumn1.vue'
 
 export default defineComponent({
-  components: { ColumnDropdown, AppButton, AppLink },
+  components: { NavbarDropdown, AppButton, AppLink, NavbarDropdownColumns, NavbarDropdownColumns1 },
   setup () {
     const { isActive } = useToggle()
     return {

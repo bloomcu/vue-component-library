@@ -144,7 +144,7 @@ export default defineComponent({
       navbarScript()
     })
     const mobileDropdownItemKeys = [
-      'ColumnDropdown',
+      'NavbarDropdown',
       'Link',
       'AppLink',
       'Button',
