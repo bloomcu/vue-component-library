@@ -12,7 +12,6 @@ import { terser } from 'rollup-plugin-terser'
 import ttypescript from 'ttypescript'
 import typescript from 'rollup-plugin-typescript2'
 import minimist from 'minimist'
-import ScriptSetup from 'unplugin-vue2-script-setup/rollup'
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs
@@ -36,7 +35,6 @@ const PATH_NODE_MODULES = path
 const baseConfig = {
   input: 'src/entry.ts',
   plugins: {
-    ScriptSetup: ScriptSetup({}),
     preVue: [
       alias({
         entries: [
@@ -98,7 +96,8 @@ const baseConfig = {
 const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
-  'vue'
+  'vue',
+  '@vue/composition-api'
 ]
 
 // UMD/IIFE shared settings: output.globals
