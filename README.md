@@ -24,14 +24,6 @@ From within your consuming projects' directory, run:
 npm link v-codyhouse-components
 ```
 
-Now you can install via your local path to the library:
-
-```bash
-npm install [the-package-local-path]
-
-#Example: npm install /Users/heyharmon/Documents/Code/vue-component-library
-```
-
 Use the package like any other package you installed from NPM:
 
 ```js
